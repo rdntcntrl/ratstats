@@ -338,64 +338,6 @@
             "isanon": false
         },
         {
-            "name": "Ghost Vermin",
-            "team": 2,
-            "score": 30,
-            "isbot": true,
-            "playtime": 1497,
-            "kills": 16,
-            "deaths": 15,
-            "damage_given": 4986,
-            "damage_taken": 5646,
-            "captures": 0,
-            "defends": 0,
-            "assists": 0,
-            "flag_recoveries": 0,
-            "weapons": {
-                "2": {
-                    "kills": 0,
-                    "shots": 62,
-                    "hits": 4,
-                    "damage": 24
-                },
-                "7": {
-                    "kills": 0,
-                    "shots": 105,
-                    "hits": 1,
-                    "damage": 80
-                },
-                "8": {
-                    "kills": 0,
-                    "shots": 4,
-                    "hits": 0,
-                    "damage": 0
-                },
-                "9": {
-                    "kills": 4,
-                    "shots": 127,
-                    "hits": 35,
-                    "damage": 1815
-                },
-                "11": {
-                    "kills": 12,
-                    "shots": 1680,
-                    "hits": 155,
-                    "damage": 2995
-                },
-                "13": {
-                    "kills": 0,
-                    "shots": 37,
-                    "hits": 12,
-                    "damage": 72
-                }
-            },
-            "awards": {
-                "deadhand": 1
-            },
-            "items": {},
-            "isanon": false
-        },
-        {
             "name": "Gargoylrat",
             "team": 1,
             "score": 26,
@@ -524,70 +466,6 @@
                 "impressive": 1,
                 "railtwo": 1,
                 "deadhand": 1
-            },
-            "items": {},
-            "isanon": false
-        },
-        {
-            "name": "Grunting Rat",
-            "team": 2,
-            "score": 25,
-            "isbot": true,
-            "playtime": 1528,
-            "kills": 11,
-            "deaths": 11,
-            "damage_given": 5059,
-            "damage_taken": 5511,
-            "captures": 0,
-            "defends": 0,
-            "assists": 0,
-            "flag_recoveries": 0,
-            "weapons": {
-                "2": {
-                    "kills": 0,
-                    "shots": 42,
-                    "hits": 2,
-                    "damage": 12
-                },
-                "6": {
-                    "kills": 0,
-                    "shots": 25,
-                    "hits": 4,
-                    "damage": 28
-                },
-                "7": {
-                    "kills": 1,
-                    "shots": 120,
-                    "hits": 4,
-                    "damage": 310
-                },
-                "8": {
-                    "kills": 0,
-                    "shots": 84,
-                    "hits": 8,
-                    "damage": 62
-                },
-                "9": {
-                    "kills": 3,
-                    "shots": 118,
-                    "hits": 17,
-                    "damage": 1210
-                },
-                "11": {
-                    "kills": 7,
-                    "shots": 1650,
-                    "hits": 169,
-                    "damage": 3311
-                },
-                "13": {
-                    "kills": 0,
-                    "shots": 80,
-                    "hits": 21,
-                    "damage": 126
-                }
-            },
-            "awards": {
-                "deadhand": 2
             },
             "items": {},
             "isanon": false
@@ -726,68 +604,6 @@
                 "deadhand": 1,
                 "killingspree": 1
             },
-            "items": {},
-            "isanon": false
-        },
-        {
-            "name": "Cyber-Rat",
-            "team": 2,
-            "score": 20,
-            "isbot": true,
-            "playtime": 1528,
-            "kills": 6,
-            "deaths": 16,
-            "damage_given": 5075,
-            "damage_taken": 6120,
-            "captures": 0,
-            "defends": 0,
-            "assists": 0,
-            "flag_recoveries": 0,
-            "weapons": {
-                "2": {
-                    "kills": 0,
-                    "shots": 38,
-                    "hits": 0,
-                    "damage": 0
-                },
-                "5": {
-                    "kills": 0,
-                    "shots": 3,
-                    "hits": 2,
-                    "damage": 178
-                },
-                "7": {
-                    "kills": 0,
-                    "shots": 55,
-                    "hits": 1,
-                    "damage": 80
-                },
-                "8": {
-                    "kills": 0,
-                    "shots": 14,
-                    "hits": 0,
-                    "damage": 0
-                },
-                "9": {
-                    "kills": 2,
-                    "shots": 124,
-                    "hits": 40,
-                    "damage": 2627
-                },
-                "11": {
-                    "kills": 4,
-                    "shots": 1020,
-                    "hits": 110,
-                    "damage": 2166
-                },
-                "13": {
-                    "kills": 0,
-                    "shots": 24,
-                    "hits": 4,
-                    "damage": 24
-                }
-            },
-            "awards": {},
             "items": {},
             "isanon": false
         }
