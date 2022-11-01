@@ -29,7 +29,7 @@ class StatsHelper {
 
     static playerName(player) {
         if (player.isbot) {
-            return '<span class="bg-gray-400 px-1 rounded text-gray-200">BOT</span> ' + this.colorString(player.name);
+            return '<span class="border-gray-200 border rounded text-gray-200 px-1">BOT</span> ' + this.colorString(player.name);
         }
         if (player.isanon) {
             return '<span class="border-blue-200 border rounded text-blue-200 px-1">ANONYMOUS<span>'
