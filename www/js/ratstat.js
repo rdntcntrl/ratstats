@@ -38,15 +38,15 @@ class StatsHelper {
 
     static numberToColorName(id) {
         var colors = {
-            "1": "text-red-600",
-            "2": "text-green-600",
-            "3": "text-yellow-600",
-            "4": "text-blue-600",
-            "5": "text-blue-300",
-            "6": "text-pink-600",
-            "7": "text-white",
-            "8": "text-orange-500",
             "0": "text-black",
+            "1": "text-red-500",
+            "2": "text-green-600",
+            "3": "text-yellow-300",
+            "4": "text-indigo-700",
+            "5": "text-blue-300",
+            "6": "text-pink-500",
+            "7": "text-white",
+            "8": "text-yellow-600",
         }
         return colors[id]
     }
