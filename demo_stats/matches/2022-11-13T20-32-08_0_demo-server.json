@@ -1,0 +1,549 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5HARVESTER",
+    "time": "2022-11-13T20:32:08",
+    "gametype": 7,
+    "team_gt": true,
+    "score_red": 12,
+    "score_blue": 14,
+    "fraglimit": 35,
+    "capturelimit": 16,
+    "timelimit": 20,
+    "exit_reason": "Timelimit hit.",
+    "map": "oa_reptctf11",
+    "players": [
+        {
+            "name": "Metalrat",
+            "team": 1,
+            "score": 42,
+            "isbot": true,
+            "playtime": 1200,
+            "kills": 7,
+            "deaths": 7,
+            "damage_given": 1407,
+            "damage_taken": 1475,
+            "captures": 7,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 2,
+                    "shots": 7,
+                    "hits": 7,
+                    "damage": 328
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 276,
+                    "hits": 21,
+                    "damage": 126
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 78,
+                    "hits": 12,
+                    "damage": 539
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 258,
+                    "hits": 45,
+                    "damage": 310
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 69,
+                    "hits": 5,
+                    "damage": 104
+                }
+            },
+            "awards": {
+                "humiliation": 2,
+                "capture": 7,
+                "bullseye": 1
+            },
+            "items": {
+                "item_armor_shard": 29,
+                "item_armor_body": 5,
+                "item_health_small": 12,
+                "item_health": 5,
+                "weapon_rocketlauncher": 7,
+                "weapon_lightning": 12,
+                "weapon_plasmagun": 4,
+                "ammo_bullets": 2,
+                "ammo_cells": 2,
+                "ammo_lightning": 2,
+                "ammo_rockets": 10,
+                "item_redcube": 5,
+                "item_bluecube": 7
+            },
+            "isanon": false
+        },
+        {
+            "name": "Penguin McRodenta",
+            "team": 2,
+            "score": 37,
+            "isbot": true,
+            "playtime": 1199,
+            "kills": 8,
+            "deaths": 5,
+            "damage_given": 1239,
+            "damage_taken": 1725,
+            "captures": 6,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 3,
+                    "shots": 7,
+                    "hits": 7,
+                    "damage": 267
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 228,
+                    "hits": 12,
+                    "damage": 72
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 76,
+                    "hits": 10,
+                    "damage": 548
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 431,
+                    "hits": 45,
+                    "damage": 312
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 96,
+                    "hits": 2,
+                    "damage": 40
+                }
+            },
+            "awards": {
+                "humiliation": 3,
+                "capture": 6
+            },
+            "items": {
+                "item_armor_shard": 26,
+                "item_armor_body": 10,
+                "item_health_small": 22,
+                "item_health": 11,
+                "weapon_rocketlauncher": 9,
+                "weapon_lightning": 22,
+                "weapon_plasmagun": 5,
+                "ammo_bullets": 2,
+                "ammo_cells": 1,
+                "ammo_lightning": 4,
+                "ammo_rockets": 9,
+                "item_redcube": 6,
+                "item_bluecube": 2
+            },
+            "isanon": false
+        },
+        {
+            "name": "Grunting Rat",
+            "team": 1,
+            "score": 28,
+            "isbot": true,
+            "playtime": 1199,
+            "kills": 5,
+            "deaths": 8,
+            "damage_given": 976,
+            "damage_taken": 1817,
+            "captures": 5,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 2,
+                    "shots": 4,
+                    "hits": 4,
+                    "damage": 171
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 300,
+                    "hits": 17,
+                    "damage": 102
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 93,
+                    "hits": 10,
+                    "damage": 480
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 367,
+                    "hits": 27,
+                    "damage": 183
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 115,
+                    "hits": 2,
+                    "damage": 40
+                }
+            },
+            "awards": {
+                "humiliation": 2,
+                "capture": 5,
+                "kamikaze": 1
+            },
+            "items": {
+                "item_armor_shard": 31,
+                "item_armor_body": 4,
+                "item_health_small": 15,
+                "item_health": 11,
+                "weapon_rocketlauncher": 14,
+                "weapon_lightning": 18,
+                "weapon_plasmagun": 6,
+                "ammo_bullets": 2,
+                "ammo_cells": 3,
+                "ammo_lightning": 2,
+                "ammo_rockets": 6,
+                "item_redcube": 4,
+                "item_bluecube": 6
+            },
+            "isanon": false
+        },
+        {
+            "name": "Morgan Freerat",
+            "team": 2,
+            "score": 24,
+            "isbot": true,
+            "playtime": 1189,
+            "kills": 4,
+            "deaths": 6,
+            "damage_given": 1360,
+            "damage_taken": 1345,
+            "captures": 4,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 1,
+                    "shots": 5,
+                    "hits": 5,
+                    "damage": 223
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 318,
+                    "hits": 10,
+                    "damage": 60
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 77,
+                    "hits": 15,
+                    "damage": 759
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 378,
+                    "hits": 34,
+                    "damage": 238
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 148,
+                    "hits": 4,
+                    "damage": 80
+                }
+            },
+            "awards": {
+                "humiliation": 1,
+                "capture": 4
+            },
+            "items": {
+                "item_armor_shard": 24,
+                "item_armor_body": 4,
+                "item_health_small": 18,
+                "item_health": 7,
+                "weapon_rocketlauncher": 10,
+                "weapon_lightning": 24,
+                "weapon_plasmagun": 8,
+                "ammo_bullets": 6,
+                "ammo_cells": 4,
+                "ammo_lightning": 2,
+                "ammo_rockets": 5,
+                "item_redcube": 5,
+                "item_bluecube": 2
+            },
+            "isanon": false
+        },
+        {
+            "name": "Rai Sly Rat",
+            "team": 2,
+            "score": 20,
+            "isbot": true,
+            "playtime": 1200,
+            "kills": 5,
+            "deaths": 5,
+            "damage_given": 1777,
+            "damage_taken": 1416,
+            "captures": 3,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 1,
+                    "shots": 7,
+                    "hits": 7,
+                    "damage": 349
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 206,
+                    "hits": 32,
+                    "damage": 192
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 119,
+                    "hits": 20,
+                    "damage": 799
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 497,
+                    "hits": 43,
+                    "damage": 301
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 108,
+                    "hits": 7,
+                    "damage": 136
+                }
+            },
+            "awards": {
+                "humiliation": 1,
+                "capture": 3,
+                "accuracy": 1
+            },
+            "items": {
+                "item_armor_shard": 29,
+                "item_armor_body": 9,
+                "item_health_small": 24,
+                "item_health": 11,
+                "weapon_rocketlauncher": 15,
+                "weapon_lightning": 26,
+                "weapon_plasmagun": 8,
+                "ammo_bullets": 3,
+                "ammo_cells": 3,
+                "ammo_lightning": 5,
+                "ammo_rockets": 8,
+                "item_redcube": 3,
+                "item_bluecube": 1
+            },
+            "isanon": false
+        },
+        {
+            "name": "Metalrat",
+            "team": 2,
+            "score": 11,
+            "isbot": true,
+            "playtime": 1200,
+            "kills": 4,
+            "deaths": 6,
+            "damage_given": 1307,
+            "damage_taken": 1665,
+            "captures": 1,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 1,
+                    "shots": 4,
+                    "hits": 4,
+                    "damage": 190
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 303,
+                    "hits": 13,
+                    "damage": 78
+                },
+                "5": {
+                    "kills": 2,
+                    "shots": 109,
+                    "hits": 17,
+                    "damage": 599
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 429,
+                    "hits": 52,
+                    "damage": 364
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 127,
+                    "hits": 4,
+                    "damage": 76
+                }
+            },
+            "awards": {
+                "humiliation": 1,
+                "capture": 1
+            },
+            "items": {
+                "item_armor_shard": 31,
+                "item_armor_body": 5,
+                "item_health_small": 17,
+                "item_health": 11,
+                "weapon_rocketlauncher": 16,
+                "weapon_lightning": 30,
+                "weapon_plasmagun": 7,
+                "ammo_bullets": 8,
+                "ammo_cells": 9,
+                "ammo_lightning": 4,
+                "ammo_rockets": 5,
+                "item_redcube": 1,
+                "item_bluecube": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Spider Rat",
+            "team": 1,
+            "score": 7,
+            "isbot": true,
+            "playtime": 1200,
+            "kills": 7,
+            "deaths": 2,
+            "damage_given": 1448,
+            "damage_taken": 1468,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 0,
+                    "shots": 2,
+                    "hits": 2,
+                    "damage": 100
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 134,
+                    "hits": 3,
+                    "damage": 18
+                },
+                "5": {
+                    "kills": 6,
+                    "shots": 136,
+                    "hits": 22,
+                    "damage": 1100
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 373,
+                    "hits": 30,
+                    "damage": 206
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 126,
+                    "hits": 5,
+                    "damage": 24
+                }
+            },
+            "awards": {
+                "bullseye": 1,
+                "immortality": 1
+            },
+            "items": {
+                "item_armor_shard": 26,
+                "item_armor_body": 8,
+                "item_health_small": 30,
+                "item_health": 12,
+                "weapon_rocketlauncher": 18,
+                "weapon_lightning": 16,
+                "weapon_plasmagun": 5,
+                "ammo_bullets": 2,
+                "ammo_cells": 5,
+                "ammo_lightning": 7,
+                "ammo_rockets": 9
+            },
+            "isanon": false
+        },
+        {
+            "name": "Major Rat",
+            "team": 1,
+            "score": 1,
+            "isbot": true,
+            "playtime": 1189,
+            "kills": 2,
+            "deaths": 7,
+            "damage_given": 1227,
+            "damage_taken": 1949,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 1,
+                    "shots": 2,
+                    "hits": 2,
+                    "damage": 100
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 389,
+                    "hits": 9,
+                    "damage": 54
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 110,
+                    "hits": 15,
+                    "damage": 789
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 485,
+                    "hits": 32,
+                    "damage": 224
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 148,
+                    "hits": 3,
+                    "damage": 60
+                }
+            },
+            "awards": {
+                "humiliation": 1
+            },
+            "items": {
+                "item_armor_shard": 32,
+                "item_armor_body": 10,
+                "item_health_small": 23,
+                "item_health": 7,
+                "weapon_rocketlauncher": 14,
+                "weapon_lightning": 21,
+                "weapon_plasmagun": 7,
+                "ammo_bullets": 7,
+                "ammo_cells": 6,
+                "ammo_lightning": 6,
+                "ammo_rockets": 9
+            },
+            "isanon": false
+        }
+    ]
+}

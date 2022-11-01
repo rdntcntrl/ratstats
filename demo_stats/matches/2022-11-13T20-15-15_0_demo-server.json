@@ -1,0 +1,728 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5CTF",
+    "time": "2022-11-13T20:15:15",
+    "gametype": 4,
+    "team_gt": true,
+    "score_red": 5,
+    "score_blue": 8,
+    "fraglimit": 35,
+    "capturelimit": 8,
+    "timelimit": 20,
+    "exit_reason": "Capturelimit hit.",
+    "map": "mlctf1beta2b",
+    "players": [
+        {
+            "name": "Murielle le Rat",
+            "team": 1,
+            "score": 32,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 10,
+            "deaths": 8,
+            "damage_given": 1839,
+            "damage_taken": 1709,
+            "captures": 1,
+            "defends": 7,
+            "assists": 3,
+            "flag_recoveries": 3,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 374,
+                    "hits": 26,
+                    "damage": 156
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 26,
+                    "hits": 5,
+                    "damage": 263
+                },
+                "4": {
+                    "kills": 1,
+                    "shots": 19,
+                    "hits": 2,
+                    "damage": 137
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 43,
+                    "hits": 12,
+                    "damage": 528
+                },
+                "6": {
+                    "kills": 3,
+                    "shots": 385,
+                    "hits": 56,
+                    "damage": 380
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 82,
+                    "hits": 5,
+                    "damage": 361
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 96,
+                    "hits": 1,
+                    "damage": 9
+                }
+            },
+            "awards": {
+                "defend": 7,
+                "assist": 3,
+                "capture": 1
+            },
+            "items": {
+                "item_armor_shard": 36,
+                "item_armor_combat": 2,
+                "item_armor_body": 2,
+                "item_health_small": 27,
+                "item_health": 10,
+                "weapon_shotgun": 5,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 7,
+                "weapon_lightning": 10,
+                "weapon_railgun": 8,
+                "weapon_plasmagun": 4,
+                "ammo_shells": 1,
+                "ammo_bullets": 4,
+                "ammo_grenades": 3,
+                "ammo_cells": 3,
+                "ammo_lightning": 4,
+                "ammo_rockets": 3,
+                "ammo_slugs": 6,
+                "team_CTF_redflag": 4,
+                "team_CTF_blueflag": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Major Rat",
+            "team": 2,
+            "score": 29,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 10,
+            "deaths": 10,
+            "damage_given": 1770,
+            "damage_taken": 1877,
+            "captures": 1,
+            "defends": 4,
+            "assists": 3,
+            "flag_recoveries": 2,
+            "weapons": {
+                "2": {
+                    "kills": 2,
+                    "shots": 528,
+                    "hits": 51,
+                    "damage": 346
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 41,
+                    "hits": 10,
+                    "damage": 329
+                },
+                "4": {
+                    "kills": 1,
+                    "shots": 11,
+                    "hits": 3,
+                    "damage": 116
+                },
+                "5": {
+                    "kills": 2,
+                    "shots": 33,
+                    "hits": 9,
+                    "damage": 284
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 428,
+                    "hits": 49,
+                    "damage": 343
+                },
+                "7": {
+                    "kills": 3,
+                    "shots": 46,
+                    "hits": 4,
+                    "damage": 345
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 84,
+                    "hits": 1,
+                    "damage": 7
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "defend": 4,
+                "assist": 3,
+                "capture": 1,
+                "twitchrail": 1
+            },
+            "items": {
+                "item_armor_shard": 26,
+                "item_armor_combat": 2,
+                "item_armor_body": 2,
+                "item_health_small": 46,
+                "item_health": 8,
+                "weapon_shotgun": 5,
+                "weapon_grenadelauncher": 6,
+                "weapon_rocketlauncher": 4,
+                "weapon_lightning": 12,
+                "weapon_railgun": 8,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 4,
+                "ammo_bullets": 4,
+                "ammo_grenades": 5,
+                "ammo_cells": 3,
+                "ammo_rockets": 6,
+                "ammo_slugs": 1,
+                "item_quad": 1,
+                "team_CTF_redflag": 4,
+                "team_CTF_blueflag": 3
+            },
+            "isanon": false
+        },
+        {
+            "name": "Morgan Freerat",
+            "team": 2,
+            "score": 28,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 10,
+            "deaths": 13,
+            "damage_given": 1817,
+            "damage_taken": 2068,
+            "captures": 2,
+            "defends": 3,
+            "assists": 0,
+            "flag_recoveries": 2,
+            "weapons": {
+                "2": {
+                    "kills": 5,
+                    "shots": 685,
+                    "hits": 60,
+                    "damage": 411
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 26,
+                    "hits": 8,
+                    "damage": 180
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 54,
+                    "hits": 7,
+                    "damage": 330
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 557,
+                    "hits": 85,
+                    "damage": 589
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 39,
+                    "hits": 3,
+                    "damage": 224
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 123,
+                    "hits": 4,
+                    "damage": 63
+                }
+            },
+            "awards": {
+                "excellent": 2,
+                "defend": 3,
+                "capture": 2
+            },
+            "items": {
+                "item_armor_shard": 17,
+                "item_armor_combat": 1,
+                "item_armor_body": 1,
+                "item_health_small": 12,
+                "item_health": 14,
+                "weapon_shotgun": 8,
+                "weapon_grenadelauncher": 5,
+                "weapon_rocketlauncher": 8,
+                "weapon_lightning": 15,
+                "weapon_railgun": 5,
+                "weapon_plasmagun": 8,
+                "ammo_shells": 4,
+                "ammo_bullets": 5,
+                "ammo_grenades": 7,
+                "ammo_cells": 2,
+                "ammo_lightning": 3,
+                "ammo_rockets": 4,
+                "ammo_slugs": 2,
+                "item_quad": 3,
+                "team_CTF_redflag": 3,
+                "team_CTF_blueflag": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Socratess",
+            "team": 2,
+            "score": 27,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 10,
+            "deaths": 10,
+            "damage_given": 2263,
+            "damage_taken": 2005,
+            "captures": 2,
+            "defends": 2,
+            "assists": 0,
+            "flag_recoveries": 2,
+            "weapons": {
+                "1": {
+                    "kills": 0,
+                    "shots": 2,
+                    "hits": 2,
+                    "damage": 100
+                },
+                "2": {
+                    "kills": 1,
+                    "shots": 640,
+                    "hits": 49,
+                    "damage": 306
+                },
+                "3": {
+                    "kills": 3,
+                    "shots": 46,
+                    "hits": 13,
+                    "damage": 578
+                },
+                "4": {
+                    "kills": 1,
+                    "shots": 10,
+                    "hits": 2,
+                    "damage": 106
+                },
+                "5": {
+                    "kills": 5,
+                    "shots": 62,
+                    "hits": 16,
+                    "damage": 770
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 159,
+                    "hits": 16,
+                    "damage": 168
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 30,
+                    "hits": 1,
+                    "damage": 80
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 152,
+                    "hits": 7,
+                    "damage": 140
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "defend": 2,
+                "capture": 2,
+                "deadhand": 1,
+                "kamikaze": 1,
+                "rat": 1
+            },
+            "items": {
+                "item_armor_shard": 23,
+                "item_armor_combat": 2,
+                "item_armor_body": 4,
+                "item_health_small": 21,
+                "item_health": 11,
+                "weapon_shotgun": 8,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 7,
+                "weapon_lightning": 3,
+                "weapon_railgun": 7,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 2,
+                "ammo_bullets": 5,
+                "ammo_grenades": 4,
+                "ammo_cells": 1,
+                "ammo_lightning": 5,
+                "ammo_rockets": 2,
+                "ammo_slugs": 2,
+                "item_quad": 3,
+                "team_CTF_redflag": 5,
+                "team_CTF_blueflag": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Ratisha",
+            "team": 1,
+            "score": 27,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 12,
+            "deaths": 12,
+            "damage_given": 2128,
+            "damage_taken": 2034,
+            "captures": 2,
+            "defends": 4,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 1,
+                    "damage": 50
+                },
+                "2": {
+                    "kills": 3,
+                    "shots": 573,
+                    "hits": 46,
+                    "damage": 268
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 21,
+                    "hits": 7,
+                    "damage": 113
+                },
+                "4": {
+                    "kills": 1,
+                    "shots": 10,
+                    "hits": 1,
+                    "damage": 120
+                },
+                "5": {
+                    "kills": 2,
+                    "shots": 29,
+                    "hits": 3,
+                    "damage": 234
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 539,
+                    "hits": 56,
+                    "damage": 391
+                },
+                "7": {
+                    "kills": 3,
+                    "shots": 74,
+                    "hits": 9,
+                    "damage": 625
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 128,
+                    "hits": 18,
+                    "damage": 307
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "defend": 4,
+                "capture": 2,
+                "deadhand": 1,
+                "twitchrail": 6
+            },
+            "items": {
+                "item_armor_shard": 36,
+                "item_armor_combat": 2,
+                "item_armor_body": 1,
+                "item_health_small": 16,
+                "item_health": 9,
+                "weapon_shotgun": 4,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 5,
+                "weapon_lightning": 13,
+                "weapon_railgun": 11,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 1,
+                "ammo_bullets": 2,
+                "ammo_grenades": 3,
+                "ammo_lightning": 2,
+                "ammo_rockets": 3,
+                "ammo_slugs": 1,
+                "team_CTF_redflag": 2,
+                "team_CTF_blueflag": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Sergei Ratamoff",
+            "team": 1,
+            "score": 25,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 11,
+            "deaths": 7,
+            "damage_given": 1665,
+            "damage_taken": 2095,
+            "captures": 0,
+            "defends": 1,
+            "assists": 2,
+            "flag_recoveries": 4,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 505,
+                    "hits": 36,
+                    "damage": 216
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 63,
+                    "hits": 16,
+                    "damage": 344
+                },
+                "4": {
+                    "kills": 2,
+                    "shots": 28,
+                    "hits": 4,
+                    "damage": 169
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 59,
+                    "hits": 8,
+                    "damage": 242
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 378,
+                    "hits": 46,
+                    "damage": 432
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 26,
+                    "hits": 2,
+                    "damage": 122
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 64,
+                    "hits": 8,
+                    "damage": 120
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "defend": 1,
+                "assist": 2,
+                "showstopper": 1,
+                "strongman": 1,
+                "killingspree": 1,
+                "twitchrail": 1
+            },
+            "items": {
+                "item_armor_shard": 43,
+                "item_armor_combat": 7,
+                "item_armor_body": 6,
+                "item_health_small": 29,
+                "item_health": 8,
+                "weapon_shotgun": 7,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 5,
+                "weapon_lightning": 10,
+                "weapon_railgun": 5,
+                "weapon_plasmagun": 3,
+                "ammo_shells": 3,
+                "ammo_bullets": 2,
+                "ammo_grenades": 2,
+                "ammo_cells": 1,
+                "ammo_lightning": 2,
+                "ammo_rockets": 3,
+                "ammo_slugs": 3,
+                "item_quad": 2,
+                "team_CTF_redflag": 4,
+                "team_CTF_blueflag": 1
+            },
+            "isanon": false
+        },
+        {
+            "name": "Sergeant Rat",
+            "team": 2,
+            "score": 22,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 2,
+            "deaths": 12,
+            "damage_given": 1379,
+            "damage_taken": 2288,
+            "captures": 3,
+            "defends": 2,
+            "assists": 1,
+            "flag_recoveries": 2,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 589,
+                    "hits": 51,
+                    "damage": 306
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 45,
+                    "hits": 11,
+                    "damage": 369
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 15,
+                    "hits": 1,
+                    "damage": 13
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 32,
+                    "hits": 4,
+                    "damage": 98
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 535,
+                    "hits": 47,
+                    "damage": 329
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 17,
+                    "hits": 1,
+                    "damage": 54
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 122,
+                    "hits": 10,
+                    "damage": 200
+                }
+            },
+            "awards": {
+                "defend": 2,
+                "assist": 1,
+                "capture": 3
+            },
+            "items": {
+                "item_armor_shard": 14,
+                "item_armor_combat": 2,
+                "item_armor_body": 6,
+                "item_health_small": 31,
+                "item_health": 8,
+                "weapon_shotgun": 8,
+                "weapon_grenadelauncher": 5,
+                "weapon_rocketlauncher": 4,
+                "weapon_lightning": 12,
+                "weapon_railgun": 4,
+                "weapon_plasmagun": 9,
+                "ammo_shells": 2,
+                "ammo_bullets": 8,
+                "ammo_grenades": 8,
+                "ammo_lightning": 4,
+                "ammo_rockets": 5,
+                "ammo_slugs": 4,
+                "team_CTF_redflag": 5,
+                "team_CTF_blueflag": 5
+            },
+            "isanon": false
+        },
+        {
+            "name": "Rat Assassin",
+            "team": 1,
+            "score": 18,
+            "isbot": true,
+            "playtime": 826,
+            "kills": 7,
+            "deaths": 13,
+            "damage_given": 1785,
+            "damage_taken": 2127,
+            "captures": 2,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 1,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 629,
+                    "hits": 67,
+                    "damage": 402
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 45,
+                    "hits": 14,
+                    "damage": 282
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 3,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 51,
+                    "hits": 12,
+                    "damage": 506
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 519,
+                    "hits": 45,
+                    "damage": 315
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 42,
+                    "hits": 3,
+                    "damage": 230
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 41,
+                    "hits": 2,
+                    "damage": 40
+                }
+            },
+            "awards": {
+                "capture": 2,
+                "kamikaze": 1,
+                "twitchrail": 1
+            },
+            "items": {
+                "item_armor_shard": 27,
+                "item_armor_combat": 4,
+                "item_armor_body": 1,
+                "item_health_small": 32,
+                "item_health": 5,
+                "weapon_shotgun": 9,
+                "weapon_grenadelauncher": 2,
+                "weapon_rocketlauncher": 6,
+                "weapon_lightning": 15,
+                "weapon_railgun": 5,
+                "weapon_plasmagun": 3,
+                "ammo_shells": 1,
+                "ammo_bullets": 4,
+                "ammo_grenades": 4,
+                "ammo_cells": 1,
+                "ammo_rockets": 4,
+                "ammo_slugs": 3,
+                "team_CTF_redflag": 3,
+                "team_CTF_blueflag": 5
+            },
+            "isanon": false
+        }
+    ]
+}

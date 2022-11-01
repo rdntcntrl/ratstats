@@ -1,0 +1,421 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5DOM",
+    "time": "2022-11-13T20:57:22",
+    "gametype": 12,
+    "team_gt": true,
+    "score_red": 250,
+    "score_blue": 198,
+    "fraglimit": 35,
+    "capturelimit": 250,
+    "timelimit": 20,
+    "exit_reason": "Capturelimit hit.",
+    "map": "czest1dm",
+    "players": [
+        {
+            "name": "Dark Rat",
+            "team": 1,
+            "score": 4,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 5,
+            "deaths": 5,
+            "damage_given": 363,
+            "damage_taken": 690,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 1,
+                    "shots": 52,
+                    "hits": 1,
+                    "damage": 1
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 23,
+                    "hits": 6,
+                    "damage": 334
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 44,
+                    "hits": 4,
+                    "damage": 28
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 68,
+                    "hits": 2,
+                    "damage": 0
+                }
+            },
+            "awards": {
+                "kamikaze": 1
+            },
+            "items": {
+                "item_armor_shard": 10,
+                "item_health_small": 2,
+                "item_health": 3,
+                "weapon_shotgun": 1,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 6,
+                "weapon_lightning": 2,
+                "weapon_railgun": 1,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 3,
+                "ammo_bullets": 1,
+                "ammo_cells": 2,
+                "ammo_rockets": 3,
+                "team_dom_pointWhite": 2,
+                "team_dom_pointBlue": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Ghost Vermin",
+            "team": 1,
+            "score": 3,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 3,
+            "deaths": 4,
+            "damage_given": 665,
+            "damage_taken": 752,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 1,
+                    "damage": 50
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 74,
+                    "hits": 1,
+                    "damage": 6
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 32,
+                    "hits": 10,
+                    "damage": 511
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 79,
+                    "hits": 14,
+                    "damage": 98
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 29,
+                    "hits": 0,
+                    "damage": 0
+                }
+            },
+            "awards": {
+                "deadhand": 1
+            },
+            "items": {
+                "item_armor_shard": 11,
+                "item_health_small": 2,
+                "item_health": 3,
+                "item_health_large": 2,
+                "weapon_grenadelauncher": 1,
+                "weapon_rocketlauncher": 6,
+                "weapon_lightning": 5,
+                "weapon_railgun": 1,
+                "weapon_plasmagun": 2,
+                "ammo_shells": 1,
+                "ammo_grenades": 1,
+                "ammo_cells": 1,
+                "ammo_rockets": 4,
+                "ammo_slugs": 1,
+                "team_dom_pointBlue": 3
+            },
+            "isanon": false
+        },
+        {
+            "name": "Andriy McRat",
+            "team": 2,
+            "score": 3,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 3,
+            "deaths": 3,
+            "damage_given": 265,
+            "damage_taken": 445,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 1,
+                    "shots": 79,
+                    "hits": 10,
+                    "damage": 60
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 9,
+                    "hits": 2,
+                    "damage": 77
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 44,
+                    "hits": 4,
+                    "damage": 28
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 7,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 47,
+                    "hits": 6,
+                    "damage": 100
+                }
+            },
+            "awards": {},
+            "items": {
+                "item_armor_shard": 8,
+                "item_armor_combat": 1,
+                "item_health_small": 2,
+                "item_health": 1,
+                "weapon_grenadelauncher": 2,
+                "weapon_rocketlauncher": 3,
+                "weapon_lightning": 2,
+                "weapon_railgun": 1,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 1,
+                "ammo_bullets": 1,
+                "ammo_slugs": 1,
+                "team_dom_pointRed": 5
+            },
+            "isanon": false
+        },
+        {
+            "name": "Major Rat",
+            "team": 1,
+            "score": 0,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 1,
+            "deaths": 3,
+            "damage_given": 395,
+            "damage_taken": 488,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 108,
+                    "hits": 6,
+                    "damage": 36
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 16,
+                    "hits": 4,
+                    "damage": 200
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 75,
+                    "hits": 17,
+                    "damage": 119
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 6,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 29,
+                    "hits": 2,
+                    "damage": 40
+                }
+            },
+            "awards": {},
+            "items": {
+                "item_armor_shard": 14,
+                "item_health_small": 1,
+                "item_health": 2,
+                "weapon_rocketlauncher": 3,
+                "weapon_lightning": 4,
+                "weapon_railgun": 2,
+                "weapon_plasmagun": 2,
+                "ammo_bullets": 2,
+                "ammo_grenades": 1,
+                "ammo_rockets": 4,
+                "ammo_slugs": 1,
+                "team_dom_pointWhite": 1,
+                "team_dom_pointBlue": 9
+            },
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 2,
+            "score": 0,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 4,
+            "deaths": 7,
+            "damage_given": 731,
+            "damage_taken": 802,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 117,
+                    "hits": 9,
+                    "damage": 54
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 3,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 24,
+                    "hits": 10,
+                    "damage": 592
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 28,
+                    "hits": 4,
+                    "damage": 28
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 48,
+                    "hits": 3,
+                    "damage": 57
+                }
+            },
+            "awards": {},
+            "items": {
+                "item_armor_shard": 5,
+                "weapon_grenadelauncher": 3,
+                "weapon_rocketlauncher": 4,
+                "weapon_lightning": 3,
+                "weapon_railgun": 1,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 1,
+                "ammo_grenades": 2,
+                "ammo_cells": 4,
+                "ammo_rockets": 2,
+                "team_dom_pointRed": 9
+            },
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 2,
+            "score": -1,
+            "isbot": true,
+            "playtime": 409,
+            "kills": 3,
+            "deaths": 7,
+            "damage_given": 475,
+            "damage_taken": 983,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "1": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 1,
+                    "damage": 50
+                },
+                "2": {
+                    "kills": 0,
+                    "shots": 144,
+                    "hits": 12,
+                    "damage": 72
+                },
+                "5": {
+                    "kills": 0,
+                    "shots": 9,
+                    "hits": 1,
+                    "damage": 18
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 68,
+                    "hits": 26,
+                    "damage": 182
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 6,
+                    "hits": 2,
+                    "damage": 81
+                },
+                "8": {
+                    "kills": 2,
+                    "shots": 60,
+                    "hits": 7,
+                    "damage": 72
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "twitchrail": 1
+            },
+            "items": {
+                "item_armor_shard": 14,
+                "item_health_small": 1,
+                "item_health": 2,
+                "weapon_grenadelauncher": 2,
+                "weapon_rocketlauncher": 4,
+                "weapon_lightning": 5,
+                "weapon_railgun": 3,
+                "weapon_plasmagun": 6,
+                "ammo_shells": 1,
+                "ammo_bullets": 1,
+                "ammo_grenades": 2,
+                "ammo_cells": 3,
+                "ammo_rockets": 3,
+                "team_dom_pointRed": 3
+            },
+            "isanon": false
+        }
+    ]
+}

@@ -1,0 +1,990 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5CA",
+    "time": "2022-11-13T21:20:34",
+    "gametype": 8,
+    "team_gt": true,
+    "score_red": 20,
+    "score_blue": 14,
+    "fraglimit": 0,
+    "capturelimit": 20,
+    "timelimit": 0,
+    "exit_reason": "Capturelimit hit.",
+    "map": "oa_minia",
+    "players": [
+        {
+            "name": "Skelerat",
+            "team": 1,
+            "score": 52,
+            "isbot": true,
+            "playtime": 3226,
+            "kills": 18,
+            "deaths": 17,
+            "damage_given": 11972,
+            "damage_taken": 10161,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 180,
+                    "hits": 12,
+                    "damage": 72
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 19,
+                    "hits": 2,
+                    "damage": 25
+                },
+                "4": {
+                    "kills": 1,
+                    "shots": 9,
+                    "hits": 1,
+                    "damage": 167
+                },
+                "5": {
+                    "kills": 7,
+                    "shots": 171,
+                    "hits": 58,
+                    "damage": 3288
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 383,
+                    "hits": 50,
+                    "damage": 345
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 343,
+                    "hits": 12,
+                    "damage": 1110
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 145,
+                    "hits": 18,
+                    "damage": 260
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 66,
+                    "hits": 22,
+                    "damage": 1374
+                },
+                "11": {
+                    "kills": 6,
+                    "shots": 855,
+                    "hits": 228,
+                    "damage": 4501
+                },
+                "12": {
+                    "kills": 0,
+                    "shots": 3,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "13": {
+                    "kills": 1,
+                    "shots": 356,
+                    "hits": 139,
+                    "damage": 830
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "excellent": 1,
+                "bullseye": 4,
+                "railtwo": 2
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 2,
+            "score": 52,
+            "isbot": true,
+            "playtime": 3215,
+            "kills": 25,
+            "deaths": 19,
+            "damage_given": 9698,
+            "damage_taken": 9586,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 181,
+                    "hits": 8,
+                    "damage": 48
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 24,
+                    "hits": 3,
+                    "damage": 126
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 3,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 11,
+                    "shots": 165,
+                    "hits": 63,
+                    "damage": 3993
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 310,
+                    "hits": 23,
+                    "damage": 161
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 320,
+                    "hits": 8,
+                    "damage": 590
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 108,
+                    "hits": 6,
+                    "damage": 120
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 66,
+                    "hits": 20,
+                    "damage": 1270
+                },
+                "11": {
+                    "kills": 10,
+                    "shots": 945,
+                    "hits": 149,
+                    "damage": 2892
+                },
+                "13": {
+                    "kills": 3,
+                    "shots": 350,
+                    "hits": 84,
+                    "damage": 498
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "fullsg": 1,
+                "killingspree": 2
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Cyber-Rat",
+            "team": 1,
+            "score": 51,
+            "isbot": true,
+            "playtime": 3195,
+            "kills": 23,
+            "deaths": 20,
+            "damage_given": 9836,
+            "damage_taken": 9823,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 189,
+                    "hits": 8,
+                    "damage": 48
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 22,
+                    "hits": 5,
+                    "damage": 100
+                },
+                "5": {
+                    "kills": 11,
+                    "shots": 158,
+                    "hits": 51,
+                    "damage": 2667
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 354,
+                    "hits": 38,
+                    "damage": 262
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 340,
+                    "hits": 12,
+                    "damage": 960
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 151,
+                    "hits": 20,
+                    "damage": 326
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 64,
+                    "hits": 22,
+                    "damage": 1188
+                },
+                "11": {
+                    "kills": 7,
+                    "shots": 825,
+                    "hits": 188,
+                    "damage": 3683
+                },
+                "13": {
+                    "kills": 2,
+                    "shots": 342,
+                    "hits": 101,
+                    "damage": 602
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "excellent": 1,
+                "bullseye": 4,
+                "airrocket": 1,
+                "deadhand": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Ayumi Ratoshi",
+            "team": 1,
+            "score": 50,
+            "isbot": true,
+            "playtime": 3205,
+            "kills": 22,
+            "deaths": 18,
+            "damage_given": 10004,
+            "damage_taken": 9195,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 185,
+                    "hits": 6,
+                    "damage": 36
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 12,
+                    "hits": 3,
+                    "damage": 79
+                },
+                "5": {
+                    "kills": 12,
+                    "shots": 168,
+                    "hits": 48,
+                    "damage": 2223
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 294,
+                    "hits": 30,
+                    "damage": 210
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 320,
+                    "hits": 16,
+                    "damage": 1570
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 122,
+                    "hits": 14,
+                    "damage": 196
+                },
+                "9": {
+                    "kills": 1,
+                    "shots": 65,
+                    "hits": 24,
+                    "damage": 1260
+                },
+                "11": {
+                    "kills": 5,
+                    "shots": 900,
+                    "hits": 205,
+                    "damage": 4052
+                },
+                "13": {
+                    "kills": 1,
+                    "shots": 329,
+                    "hits": 63,
+                    "damage": 378
+                }
+            },
+            "awards": {
+                "impressive": 3,
+                "bullseye": 1,
+                "railtwo": 4,
+                "twitchrail": 3
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Skelerat",
+            "team": 2,
+            "score": 49,
+            "isbot": true,
+            "playtime": 3226,
+            "kills": 17,
+            "deaths": 20,
+            "damage_given": 11276,
+            "damage_taken": 10491,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 1,
+                    "shots": 215,
+                    "hits": 16,
+                    "damage": 91
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 6,
+                    "hits": 1,
+                    "damage": 27
+                },
+                "5": {
+                    "kills": 7,
+                    "shots": 162,
+                    "hits": 59,
+                    "damage": 3269
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 300,
+                    "hits": 39,
+                    "damage": 267
+                },
+                "7": {
+                    "kills": 2,
+                    "shots": 333,
+                    "hits": 14,
+                    "damage": 1208
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 143,
+                    "hits": 27,
+                    "damage": 402
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 67,
+                    "hits": 30,
+                    "damage": 1726
+                },
+                "11": {
+                    "kills": 5,
+                    "shots": 825,
+                    "hits": 183,
+                    "damage": 3614
+                },
+                "13": {
+                    "kills": 0,
+                    "shots": 335,
+                    "hits": 112,
+                    "damage": 672
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "bullseye": 2,
+                "railtwo": 2,
+                "twitchrail": 2
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 1,
+            "score": 49,
+            "isbot": true,
+            "playtime": 3215,
+            "kills": 22,
+            "deaths": 22,
+            "damage_given": 9577,
+            "damage_taken": 9604,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 140,
+                    "hits": 4,
+                    "damage": 24
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 8,
+                    "hits": 1,
+                    "damage": 74
+                },
+                "5": {
+                    "kills": 9,
+                    "shots": 124,
+                    "hits": 37,
+                    "damage": 1599
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 337,
+                    "hits": 43,
+                    "damage": 295
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 289,
+                    "hits": 7,
+                    "damage": 525
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 120,
+                    "hits": 17,
+                    "damage": 292
+                },
+                "9": {
+                    "kills": 2,
+                    "shots": 65,
+                    "hits": 27,
+                    "damage": 2498
+                },
+                "11": {
+                    "kills": 8,
+                    "shots": 870,
+                    "hits": 190,
+                    "damage": 3730
+                },
+                "13": {
+                    "kills": 0,
+                    "shots": 321,
+                    "hits": 90,
+                    "damage": 540
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "bullseye": 3,
+                "airrocket": 1,
+                "deadhand": 1,
+                "twitchrail": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Broadrat",
+            "team": 2,
+            "score": 48,
+            "isbot": true,
+            "playtime": 3225,
+            "kills": 17,
+            "deaths": 18,
+            "damage_given": 10954,
+            "damage_taken": 10842,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 128,
+                    "hits": 3,
+                    "damage": 18
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 6,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 130,
+                    "hits": 41,
+                    "damage": 2372
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 301,
+                    "hits": 24,
+                    "damage": 168
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 252,
+                    "hits": 9,
+                    "damage": 719
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 118,
+                    "hits": 8,
+                    "damage": 128
+                },
+                "9": {
+                    "kills": 2,
+                    "shots": 64,
+                    "hits": 36,
+                    "damage": 2224
+                },
+                "11": {
+                    "kills": 5,
+                    "shots": 975,
+                    "hits": 238,
+                    "damage": 4731
+                },
+                "13": {
+                    "kills": 6,
+                    "shots": 340,
+                    "hits": 100,
+                    "damage": 594
+                }
+            },
+            "awards": {
+                "bullseye": 1,
+                "deadhand": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Ratisha",
+            "team": 2,
+            "score": 44,
+            "isbot": true,
+            "playtime": 3195,
+            "kills": 19,
+            "deaths": 15,
+            "damage_given": 9035,
+            "damage_taken": 9466,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 259,
+                    "hits": 8,
+                    "damage": 48
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 14,
+                    "hits": 1,
+                    "damage": 6
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 3,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 10,
+                    "shots": 155,
+                    "hits": 62,
+                    "damage": 2466
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 340,
+                    "hits": 41,
+                    "damage": 287
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 400,
+                    "hits": 17,
+                    "damage": 1520
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 121,
+                    "hits": 4,
+                    "damage": 80
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 62,
+                    "hits": 18,
+                    "damage": 771
+                },
+                "11": {
+                    "kills": 7,
+                    "shots": 855,
+                    "hits": 165,
+                    "damage": 3241
+                },
+                "13": {
+                    "kills": 1,
+                    "shots": 389,
+                    "hits": 103,
+                    "damage": 616
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "excellent": 2,
+                "frags": 1,
+                "bullseye": 2,
+                "railtwo": 2,
+                "killingspree": 1,
+                "twitchrail": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Kyonshi Ratina",
+            "team": 1,
+            "score": 42,
+            "isbot": true,
+            "playtime": 3226,
+            "kills": 17,
+            "deaths": 15,
+            "damage_given": 8958,
+            "damage_taken": 9270,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 267,
+                    "hits": 15,
+                    "damage": 90
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 20,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 7,
+                    "shots": 203,
+                    "hits": 49,
+                    "damage": 2629
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 346,
+                    "hits": 14,
+                    "damage": 98
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 351,
+                    "hits": 8,
+                    "damage": 720
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 147,
+                    "hits": 13,
+                    "damage": 120
+                },
+                "9": {
+                    "kills": 1,
+                    "shots": 64,
+                    "hits": 24,
+                    "damage": 1722
+                },
+                "11": {
+                    "kills": 7,
+                    "shots": 915,
+                    "hits": 144,
+                    "damage": 2820
+                },
+                "13": {
+                    "kills": 2,
+                    "shots": 349,
+                    "hits": 127,
+                    "damage": 759
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "excellent": 1,
+                "bullseye": 4,
+                "railtwo": 1,
+                "killingspree": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Ayumi Ratoshi",
+            "team": 2,
+            "score": 42,
+            "isbot": true,
+            "playtime": 3205,
+            "kills": 18,
+            "deaths": 17,
+            "damage_given": 8521,
+            "damage_taken": 8705,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 261,
+                    "hits": 3,
+                    "damage": 18
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 21,
+                    "hits": 11,
+                    "damage": 347
+                },
+                "5": {
+                    "kills": 6,
+                    "shots": 159,
+                    "hits": 44,
+                    "damage": 2245
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 304,
+                    "hits": 13,
+                    "damage": 91
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 342,
+                    "hits": 12,
+                    "damage": 1036
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 109,
+                    "hits": 2,
+                    "damage": 40
+                },
+                "9": {
+                    "kills": 1,
+                    "shots": 61,
+                    "hits": 19,
+                    "damage": 1604
+                },
+                "11": {
+                    "kills": 6,
+                    "shots": 855,
+                    "hits": 133,
+                    "damage": 2609
+                },
+                "13": {
+                    "kills": 3,
+                    "shots": 354,
+                    "hits": 90,
+                    "damage": 531
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "bullseye": 1,
+                "fullsg": 1,
+                "railtwo": 1,
+                "deadhand": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Rat Marine",
+            "team": 2,
+            "score": 35,
+            "isbot": true,
+            "playtime": 3226,
+            "kills": 12,
+            "deaths": 23,
+            "damage_given": 8120,
+            "damage_taken": 9937,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 198,
+                    "hits": 4,
+                    "damage": 24
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 6,
+                    "hits": 1,
+                    "damage": 9
+                },
+                "5": {
+                    "kills": 6,
+                    "shots": 112,
+                    "hits": 36,
+                    "damage": 1978
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 217,
+                    "hits": 29,
+                    "damage": 203
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 328,
+                    "hits": 8,
+                    "damage": 705
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 99,
+                    "hits": 7,
+                    "damage": 86
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 66,
+                    "hits": 20,
+                    "damage": 1278
+                },
+                "11": {
+                    "kills": 4,
+                    "shots": 855,
+                    "hits": 169,
+                    "damage": 3338
+                },
+                "13": {
+                    "kills": 1,
+                    "shots": 270,
+                    "hits": 84,
+                    "damage": 499
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "bullseye": 1,
+                "railtwo": 1,
+                "twitchrail": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Ratisha",
+            "team": 1,
+            "score": 34,
+            "isbot": true,
+            "playtime": 3225,
+            "kills": 10,
+            "deaths": 16,
+            "damage_given": 8680,
+            "damage_taken": 9551,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 288,
+                    "hits": 8,
+                    "damage": 48
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 14,
+                    "hits": 5,
+                    "damage": 81
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 145,
+                    "hits": 32,
+                    "damage": 1594
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 301,
+                    "hits": 20,
+                    "damage": 140
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 379,
+                    "hits": 13,
+                    "damage": 1120
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 162,
+                    "hits": 8,
+                    "damage": 126
+                },
+                "9": {
+                    "kills": 0,
+                    "shots": 65,
+                    "hits": 30,
+                    "damage": 1698
+                },
+                "11": {
+                    "kills": 5,
+                    "shots": 765,
+                    "hits": 165,
+                    "damage": 3247
+                },
+                "13": {
+                    "kills": 1,
+                    "shots": 308,
+                    "hits": 105,
+                    "damage": 626
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "bullseye": 2,
+                "railtwo": 1
+            },
+            "items": {},
+            "isanon": false
+        }
+    ]
+}

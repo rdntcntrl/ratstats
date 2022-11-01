@@ -1,0 +1,245 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5CA",
+    "time": "2022-11-13T20:38:07",
+    "gametype": 8,
+    "team_gt": true,
+    "score_red": 10,
+    "score_blue": 7,
+    "fraglimit": 0,
+    "capturelimit": 10,
+    "timelimit": 0,
+    "exit_reason": "Capturelimit hit.",
+    "map": "mlca1",
+    "players": [
+        {
+            "name": "Berat",
+            "team": 1,
+            "score": 34,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 15,
+            "deaths": 14,
+            "damage_given": 6800,
+            "damage_taken": 5486,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 15,
+                    "shots": 504,
+                    "hits": 101,
+                    "damage": 6800
+                }
+            },
+            "awards": {
+                "deadhand": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Metalrat",
+            "team": 2,
+            "score": 28,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 16,
+            "deaths": 12,
+            "damage_given": 4374,
+            "damage_taken": 5197,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 16,
+                    "shots": 553,
+                    "hits": 88,
+                    "damage": 4374
+                }
+            },
+            "awards": {
+                "excellent": 2,
+                "frags": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 2,
+            "score": 27,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 13,
+            "deaths": 11,
+            "damage_given": 5014,
+            "damage_taken": 5202,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 13,
+                    "shots": 649,
+                    "hits": 96,
+                    "damage": 5014
+                }
+            },
+            "awards": {},
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Metalrat",
+            "team": 1,
+            "score": 25,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 13,
+            "deaths": 8,
+            "damage_given": 4486,
+            "damage_taken": 4338,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 13,
+                    "shots": 804,
+                    "hits": 107,
+                    "damage": 4486
+                }
+            },
+            "awards": {
+                "excellent": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Rai Sly Rat",
+            "team": 1,
+            "score": 24,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 12,
+            "deaths": 12,
+            "damage_given": 4501,
+            "damage_taken": 4463,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 12,
+                    "shots": 628,
+                    "hits": 89,
+                    "damage": 4501
+                }
+            },
+            "awards": {
+                "excellent": 1,
+                "deadhand": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Liz Ratbiz",
+            "team": 2,
+            "score": 23,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 8,
+            "deaths": 12,
+            "damage_given": 5372,
+            "damage_taken": 5346,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "9": {
+                    "kills": 8,
+                    "shots": 585,
+                    "hits": 92,
+                    "damage": 5372
+                }
+            },
+            "awards": {},
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Grism Ratmeister",
+            "team": 1,
+            "score": 21,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 7,
+            "deaths": 11,
+            "damage_given": 5083,
+            "damage_taken": 4719,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "7": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "9": {
+                    "kills": 7,
+                    "shots": 651,
+                    "hits": 121,
+                    "damage": 5083
+                }
+            },
+            "awards": {},
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Ayumi Ratoshi",
+            "team": 2,
+            "score": 20,
+            "isbot": true,
+            "playtime": 1112,
+            "kills": 8,
+            "deaths": 12,
+            "damage_given": 4246,
+            "damage_taken": 5125,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "7": {
+                    "kills": 0,
+                    "shots": 1,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "9": {
+                    "kills": 8,
+                    "shots": 638,
+                    "hits": 86,
+                    "damage": 4246
+                }
+            },
+            "awards": {},
+            "items": {},
+            "isanon": false
+        }
+    ]
+}

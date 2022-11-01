@@ -1,0 +1,334 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5LMS",
+    "time": "2022-11-13T20:52:23",
+    "gametype": 10,
+    "team_gt": false,
+    "fraglimit": 5,
+    "capturelimit": 8,
+    "timelimit": 60,
+    "exit_reason": "Fraglimit hit.",
+    "map": "oa_rpg3dm2",
+    "players": [
+        {
+            "name": "Cyborgrat",
+            "team": 0,
+            "score": 5,
+            "isbot": true,
+            "playtime": 1950,
+            "kills": 10,
+            "deaths": 23,
+            "damage_given": 5136,
+            "damage_taken": 5184,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "3": {
+                    "kills": 0,
+                    "shots": 2,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 7,
+                    "shots": 144,
+                    "hits": 62,
+                    "damage": 2903
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 738,
+                    "hits": 155,
+                    "damage": 1081
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 59,
+                    "hits": 4,
+                    "damage": 242
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 436,
+                    "hits": 62,
+                    "damage": 910
+                }
+            },
+            "awards": {
+                "telefrag": 5,
+                "twitchrail": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Skelerat",
+            "team": 0,
+            "score": 4,
+            "isbot": true,
+            "playtime": 1950,
+            "kills": 11,
+            "deaths": 25,
+            "damage_given": 4276,
+            "damage_taken": 5197,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 95,
+                    "hits": 6,
+                    "damage": 36
+                },
+                "5": {
+                    "kills": 10,
+                    "shots": 173,
+                    "hits": 40,
+                    "damage": 2037
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 594,
+                    "hits": 119,
+                    "damage": 831
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 81,
+                    "hits": 3,
+                    "damage": 240
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 441,
+                    "hits": 69,
+                    "damage": 1132
+                }
+            },
+            "awards": {
+                "telefrag": 9,
+                "bullseye": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Merrat",
+            "team": 0,
+            "score": 2,
+            "isbot": true,
+            "playtime": 1950,
+            "kills": 5,
+            "deaths": 23,
+            "damage_given": 4652,
+            "damage_taken": 4839,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 42,
+                    "hits": 5,
+                    "damage": 30
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 9,
+                    "hits": 3,
+                    "damage": 54
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 103,
+                    "hits": 43,
+                    "damage": 2704
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 601,
+                    "hits": 104,
+                    "damage": 728
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 42,
+                    "hits": 4,
+                    "damage": 320
+                },
+                "8": {
+                    "kills": 1,
+                    "shots": 410,
+                    "hits": 52,
+                    "damage": 816
+                }
+            },
+            "awards": {
+                "telefrag": 9
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Grunting Rat",
+            "team": 0,
+            "score": 2,
+            "isbot": true,
+            "playtime": 1930,
+            "kills": 4,
+            "deaths": 24,
+            "damage_given": 4308,
+            "damage_taken": 4983,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 41,
+                    "hits": 2,
+                    "damage": 12
+                },
+                "5": {
+                    "kills": 4,
+                    "shots": 104,
+                    "hits": 43,
+                    "damage": 2380
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 615,
+                    "hits": 90,
+                    "damage": 630
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 49,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 531,
+                    "hits": 77,
+                    "damage": 1286
+                }
+            },
+            "awards": {
+                "telefrag": 18,
+                "airrocket": 1
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 0,
+            "score": 2,
+            "isbot": true,
+            "playtime": 1920,
+            "kills": 6,
+            "deaths": 19,
+            "damage_given": 3118,
+            "damage_taken": 4501,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 37,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 5,
+                    "shots": 76,
+                    "hits": 32,
+                    "damage": 1580
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 551,
+                    "hits": 127,
+                    "damage": 889
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 32,
+                    "hits": 2,
+                    "damage": 127
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 218,
+                    "hits": 28,
+                    "damage": 522
+                }
+            },
+            "awards": {
+                "telefrag": 18
+            },
+            "items": {},
+            "isanon": false
+        },
+        {
+            "name": "Jenna McRatta",
+            "team": 0,
+            "score": 1,
+            "isbot": true,
+            "playtime": 1940,
+            "kills": 7,
+            "deaths": 26,
+            "damage_given": 4126,
+            "damage_taken": 4689,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 41,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 7,
+                    "shots": 111,
+                    "hits": 41,
+                    "damage": 2293
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 566,
+                    "hits": 85,
+                    "damage": 595
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 80,
+                    "hits": 5,
+                    "damage": 400
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 324,
+                    "hits": 44,
+                    "damage": 838
+                }
+            },
+            "awards": {
+                "telefrag": 4
+            },
+            "items": {},
+            "isanon": false
+        }
+    ]
+}

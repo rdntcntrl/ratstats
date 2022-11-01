@@ -1,0 +1,160 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5DUEL",
+    "time": "2022-11-13T19:40:30",
+    "gametype": 1,
+    "team_gt": false,
+    "fraglimit": 0,
+    "capturelimit": 8,
+    "timelimit": 10,
+    "exit_reason": "Timelimit hit.",
+    "map": "pul1duel-oa",
+    "players": [
+        {
+            "name": "^0rat^3bot",
+            "team": 0,
+            "score": 40,
+            "isbot": true,
+            "playtime": 599,
+            "kills": 39,
+            "deaths": 7,
+            "damage_given": 5709,
+            "damage_taken": 2585,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 1,
+                    "shots": 87,
+                    "hits": 61,
+                    "damage": 361
+                },
+                "5": {
+                    "kills": 16,
+                    "shots": 56,
+                    "hits": 32,
+                    "damage": 1607
+                },
+                "6": {
+                    "kills": 16,
+                    "shots": 502,
+                    "hits": 372,
+                    "damage": 2540
+                },
+                "7": {
+                    "kills": 5,
+                    "shots": 31,
+                    "hits": 15,
+                    "damage": 1040
+                }
+            },
+            "awards": {
+                "impressive": 6,
+                "accuracy": 4,
+                "telefrag": 1,
+                "telemissile_frag": 1,
+                "airrocket": 1,
+                "lgrail": 1,
+                "ambush": 1,
+                "killingspree": 2,
+                "rampage": 2,
+                "massacre": 1,
+                "twitchrail": 3
+            },
+            "items": {
+                "item_armor_shard": 15,
+                "item_armor_combat": 6,
+                "item_armor_body": 7,
+                "item_health_small": 32,
+                "item_health": 21,
+                "item_health_mega": 3,
+                "weapon_shotgun": 11,
+                "weapon_grenadelauncher": 8,
+                "weapon_rocketlauncher": 30,
+                "weapon_lightning": 17,
+                "weapon_railgun": 11,
+                "ammo_shells": 15,
+                "ammo_bullets": 14,
+                "ammo_grenades": 11,
+                "ammo_lightning": 6,
+                "ammo_rockets": 11,
+                "ammo_slugs": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "^0mouse^5bot",
+            "team": 0,
+            "score": 7,
+            "isbot": true,
+            "playtime": 599,
+            "kills": 4,
+            "deaths": 40,
+            "damage_given": 2407,
+            "damage_taken": 5759,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 257,
+                    "hits": 29,
+                    "damage": 174
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 8,
+                    "hits": 4,
+                    "damage": 153
+                },
+                "5": {
+                    "kills": 2,
+                    "shots": 48,
+                    "hits": 22,
+                    "damage": 1375
+                },
+                "6": {
+                    "kills": 1,
+                    "shots": 188,
+                    "hits": 61,
+                    "damage": 426
+                },
+                "7": {
+                    "kills": 0,
+                    "shots": 16,
+                    "hits": 1,
+                    "damage": 80
+                }
+            },
+            "awards": {
+                "telefrag": 1,
+                "ambush": 1,
+                "kamikaze": 1,
+                "revenge": 1
+            },
+            "items": {
+                "item_armor_shard": 5,
+                "item_armor_combat": 7,
+                "item_armor_body": 1,
+                "item_health_small": 41,
+                "item_health": 5,
+                "item_health_mega": 3,
+                "weapon_shotgun": 18,
+                "weapon_grenadelauncher": 7,
+                "weapon_rocketlauncher": 30,
+                "weapon_lightning": 19,
+                "weapon_railgun": 16,
+                "ammo_shells": 11,
+                "ammo_bullets": 6,
+                "ammo_grenades": 9,
+                "ammo_lightning": 6,
+                "ammo_rockets": 6,
+                "ammo_slugs": 1
+            },
+            "isanon": false
+        }
+    ]
+}

@@ -1,0 +1,608 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5FFA",
+    "time": "2022-11-13T19:17:37",
+    "gametype": 0,
+    "team_gt": false,
+    "fraglimit": 30,
+    "capturelimit": 8,
+    "timelimit": 15,
+    "exit_reason": "Fraglimit hit.",
+    "map": "oa_shine",
+    "players": [
+        {
+            "name": "Gargoylrat",
+            "team": 0,
+            "score": 30,
+            "isbot": true,
+            "playtime": 343,
+            "kills": 30,
+            "deaths": 23,
+            "damage_given": 3351,
+            "damage_taken": 3176,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 10,
+                    "shots": 1126,
+                    "hits": 234,
+                    "damage": 1388
+                },
+                "5": {
+                    "kills": 9,
+                    "shots": 34,
+                    "hits": 18,
+                    "damage": 784
+                },
+                "6": {
+                    "kills": 5,
+                    "shots": 318,
+                    "hits": 89,
+                    "damage": 716
+                },
+                "7": {
+                    "kills": 3,
+                    "shots": 13,
+                    "hits": 4,
+                    "damage": 197
+                },
+                "8": {
+                    "kills": 3,
+                    "shots": 74,
+                    "hits": 20,
+                    "damage": 266
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "excellent": 4,
+                "frags": 1,
+                "deadhand": 1,
+                "showstopper": 1,
+                "ambush": 1
+            },
+            "items": {
+                "item_armor_body": 1,
+                "item_health_small": 3,
+                "item_health": 5,
+                "item_health_large": 2,
+                "weapon_rocketlauncher": 6,
+                "weapon_lightning": 10,
+                "weapon_railgun": 4,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 2,
+                "ammo_bullets": 4,
+                "ammo_lightning": 1,
+                "ammo_rockets": 2,
+                "item_quad": 1
+            },
+            "isanon": false
+        },
+        {
+            "name": "Merrat",
+            "team": 0,
+            "score": 28,
+            "isbot": true,
+            "playtime": 313,
+            "kills": 30,
+            "deaths": 28,
+            "damage_given": 3731,
+            "damage_taken": 3555,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 12,
+                    "shots": 1018,
+                    "hits": 261,
+                    "damage": 1589
+                },
+                "5": {
+                    "kills": 9,
+                    "shots": 35,
+                    "hits": 17,
+                    "damage": 934
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 120,
+                    "hits": 53,
+                    "damage": 371
+                },
+                "7": {
+                    "kills": 2,
+                    "shots": 16,
+                    "hits": 4,
+                    "damage": 313
+                },
+                "8": {
+                    "kills": 5,
+                    "shots": 132,
+                    "hits": 33,
+                    "damage": 524
+                }
+            },
+            "awards": {
+                "excellent": 4,
+                "frags": 1,
+                "accuracy": 1,
+                "deadhand": 3,
+                "showstopper": 1,
+                "ambush": 1,
+                "kamikaze": 2,
+                "revenge": 2,
+                "vaporized": 1
+            },
+            "items": {
+                "item_armor_combat": 1,
+                "item_health_small": 6,
+                "item_health_large": 1,
+                "weapon_rocketlauncher": 11,
+                "weapon_lightning": 7,
+                "weapon_railgun": 4,
+                "weapon_plasmagun": 9,
+                "ammo_cells": 2,
+                "ammo_lightning": 3,
+                "ammo_rockets": 3,
+                "ammo_slugs": 1,
+                "item_quad": 5
+            },
+            "isanon": false
+        },
+        {
+            "name": "Grunting Rat",
+            "team": 0,
+            "score": 28,
+            "isbot": true,
+            "playtime": 303,
+            "kills": 29,
+            "deaths": 26,
+            "damage_given": 3767,
+            "damage_taken": 3181,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 10,
+                    "shots": 871,
+                    "hits": 227,
+                    "damage": 1324
+                },
+                "3": {
+                    "kills": 2,
+                    "shots": 6,
+                    "hits": 4,
+                    "damage": 135
+                },
+                "5": {
+                    "kills": 5,
+                    "shots": 22,
+                    "hits": 11,
+                    "damage": 663
+                },
+                "6": {
+                    "kills": 8,
+                    "shots": 392,
+                    "hits": 160,
+                    "damage": 1159
+                },
+                "7": {
+                    "kills": 4,
+                    "shots": 25,
+                    "hits": 7,
+                    "damage": 334
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 18,
+                    "hits": 8,
+                    "damage": 152
+                }
+            },
+            "awards": {
+                "impressive": 2,
+                "excellent": 4,
+                "accuracy": 1,
+                "showstopper": 4,
+                "ambush": 1,
+                "revenge": 2
+            },
+            "items": {
+                "item_health_small": 4,
+                "weapon_shotgun": 3,
+                "weapon_rocketlauncher": 6,
+                "weapon_lightning": 7,
+                "weapon_railgun": 13,
+                "weapon_plasmagun": 3,
+                "ammo_shells": 1,
+                "ammo_lightning": 2,
+                "ammo_rockets": 1,
+                "ammo_slugs": 1,
+                "item_quad": 3
+            },
+            "isanon": false
+        },
+        {
+            "name": "Ghost Vermin",
+            "team": 0,
+            "score": 26,
+            "isbot": true,
+            "playtime": 333,
+            "kills": 29,
+            "deaths": 25,
+            "damage_given": 3484,
+            "damage_taken": 3122,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 10,
+                    "shots": 971,
+                    "hits": 230,
+                    "damage": 1354
+                },
+                "5": {
+                    "kills": 9,
+                    "shots": 35,
+                    "hits": 17,
+                    "damage": 1037
+                },
+                "6": {
+                    "kills": 9,
+                    "shots": 300,
+                    "hits": 81,
+                    "damage": 780
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 14,
+                    "hits": 2,
+                    "damage": 102
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 82,
+                    "hits": 13,
+                    "damage": 211
+                }
+            },
+            "awards": {
+                "excellent": 8,
+                "frags": 3,
+                "showstopper": 4,
+                "kamikaze": 1,
+                "killingspree": 1,
+                "revenge": 2,
+                "rat": 2
+            },
+            "items": {
+                "item_armor_combat": 1,
+                "item_health_small": 2,
+                "item_health": 1,
+                "weapon_shotgun": 1,
+                "weapon_rocketlauncher": 10,
+                "weapon_lightning": 7,
+                "weapon_railgun": 7,
+                "weapon_plasmagun": 6,
+                "ammo_shells": 1,
+                "ammo_bullets": 1,
+                "ammo_cells": 2,
+                "ammo_lightning": 1,
+                "ammo_slugs": 2,
+                "item_quad": 1
+            },
+            "isanon": false
+        },
+        {
+            "name": "Socratess",
+            "team": 0,
+            "score": 22,
+            "isbot": true,
+            "playtime": 363,
+            "kills": 23,
+            "deaths": 32,
+            "damage_given": 3196,
+            "damage_taken": 3954,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 10,
+                    "shots": 1104,
+                    "hits": 266,
+                    "damage": 1570
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 3,
+                    "hits": 2,
+                    "damage": 94
+                },
+                "5": {
+                    "kills": 8,
+                    "shots": 27,
+                    "hits": 17,
+                    "damage": 829
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 244,
+                    "hits": 54,
+                    "damage": 428
+                },
+                "7": {
+                    "kills": 2,
+                    "shots": 22,
+                    "hits": 2,
+                    "damage": 129
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 22,
+                    "hits": 9,
+                    "damage": 146
+                }
+            },
+            "awards": {
+                "excellent": 3,
+                "accuracy": 1,
+                "airrocket": 1,
+                "deadhand": 1,
+                "showstopper": 1
+            },
+            "items": {
+                "item_armor_combat": 1,
+                "item_health_small": 2,
+                "item_health": 1,
+                "weapon_shotgun": 3,
+                "weapon_rocketlauncher": 12,
+                "weapon_lightning": 7,
+                "weapon_railgun": 6,
+                "weapon_plasmagun": 6,
+                "ammo_bullets": 3,
+                "ammo_cells": 1,
+                "ammo_lightning": 1,
+                "ammo_rockets": 3,
+                "item_quad": 4
+            },
+            "isanon": false
+        },
+        {
+            "name": "Metalrat",
+            "team": 0,
+            "score": 22,
+            "isbot": true,
+            "playtime": 353,
+            "kills": 25,
+            "deaths": 28,
+            "damage_given": 3565,
+            "damage_taken": 3397,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 7,
+                    "shots": 929,
+                    "hits": 225,
+                    "damage": 1333
+                },
+                "3": {
+                    "kills": 3,
+                    "shots": 7,
+                    "hits": 5,
+                    "damage": 250
+                },
+                "5": {
+                    "kills": 3,
+                    "shots": 13,
+                    "hits": 8,
+                    "damage": 502
+                },
+                "6": {
+                    "kills": 5,
+                    "shots": 212,
+                    "hits": 81,
+                    "damage": 551
+                },
+                "7": {
+                    "kills": 3,
+                    "shots": 30,
+                    "hits": 4,
+                    "damage": 171
+                },
+                "8": {
+                    "kills": 4,
+                    "shots": 171,
+                    "hits": 42,
+                    "damage": 758
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "excellent": 2,
+                "accuracy": 2,
+                "showstopper": 1,
+                "ambush": 1,
+                "kamikaze": 1,
+                "revenge": 1,
+                "vaporized": 2
+            },
+            "items": {
+                "item_health_small": 6,
+                "weapon_shotgun": 3,
+                "weapon_rocketlauncher": 5,
+                "weapon_lightning": 6,
+                "weapon_railgun": 6,
+                "weapon_plasmagun": 8,
+                "ammo_shells": 3,
+                "ammo_bullets": 1,
+                "ammo_cells": 2,
+                "ammo_rockets": 3,
+                "ammo_slugs": 1
+            },
+            "isanon": false
+        },
+        {
+            "name": "Broadrat",
+            "team": 0,
+            "score": 21,
+            "isbot": true,
+            "playtime": 323,
+            "kills": 21,
+            "deaths": 32,
+            "damage_given": 2967,
+            "damage_taken": 3915,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 8,
+                    "shots": 927,
+                    "hits": 243,
+                    "damage": 1432
+                },
+                "3": {
+                    "kills": 3,
+                    "shots": 5,
+                    "hits": 5,
+                    "damage": 252
+                },
+                "5": {
+                    "kills": 6,
+                    "shots": 37,
+                    "hits": 16,
+                    "damage": 794
+                },
+                "6": {
+                    "kills": 2,
+                    "shots": 121,
+                    "hits": 29,
+                    "damage": 194
+                },
+                "7": {
+                    "kills": 2,
+                    "shots": 23,
+                    "hits": 4,
+                    "damage": 240
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 26,
+                    "hits": 4,
+                    "damage": 55
+                }
+            },
+            "awards": {
+                "excellent": 6,
+                "frags": 2,
+                "showstopper": 1,
+                "ambush": 1,
+                "revenge": 1
+            },
+            "items": {
+                "item_health_small": 6,
+                "item_health": 1,
+                "weapon_shotgun": 2,
+                "weapon_rocketlauncher": 11,
+                "weapon_lightning": 7,
+                "weapon_railgun": 6,
+                "weapon_plasmagun": 5,
+                "ammo_shells": 4,
+                "ammo_rockets": 1,
+                "ammo_slugs": 2,
+                "item_quad": 2
+            },
+            "isanon": false
+        },
+        {
+            "name": "Cyborgrat",
+            "team": 0,
+            "score": 18,
+            "isbot": true,
+            "playtime": 293,
+            "kills": 23,
+            "deaths": 31,
+            "damage_given": 2725,
+            "damage_taken": 3819,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 10,
+                    "shots": 950,
+                    "hits": 228,
+                    "damage": 1352
+                },
+                "3": {
+                    "kills": 1,
+                    "shots": 5,
+                    "hits": 4,
+                    "damage": 113
+                },
+                "5": {
+                    "kills": 1,
+                    "shots": 1,
+                    "hits": 1,
+                    "damage": 92
+                },
+                "6": {
+                    "kills": 4,
+                    "shots": 108,
+                    "hits": 35,
+                    "damage": 235
+                },
+                "7": {
+                    "kills": 1,
+                    "shots": 18,
+                    "hits": 3,
+                    "damage": 203
+                },
+                "8": {
+                    "kills": 6,
+                    "shots": 124,
+                    "hits": 52,
+                    "damage": 730
+                }
+            },
+            "awards": {
+                "impressive": 1,
+                "excellent": 6,
+                "frags": 2,
+                "ambush": 1,
+                "kamikaze": 1,
+                "killingspree": 2,
+                "revenge": 2
+            },
+            "items": {
+                "item_armor_combat": 1,
+                "item_health_small": 3,
+                "weapon_shotgun": 2,
+                "weapon_rocketlauncher": 3,
+                "weapon_lightning": 5,
+                "weapon_railgun": 5,
+                "weapon_plasmagun": 8,
+                "ammo_bullets": 4,
+                "ammo_lightning": 1,
+                "ammo_rockets": 1,
+                "item_quad": 1
+            },
+            "isanon": false
+        }
+    ]
+}

@@ -1,0 +1,215 @@
+{
+    "servername": "^7<^0Rat^3Arena^7> Demo Server^7|^5DUEL",
+    "time": "2022-11-13T21:51:12",
+    "gametype": 1,
+    "team_gt": false,
+    "fraglimit": 0,
+    "capturelimit": 8,
+    "timelimit": 50,
+    "exit_reason": "Timelimit hit.",
+    "map": "am_thornish",
+    "players": [
+        {
+            "name": "^0rat^3bot",
+            "team": 0,
+            "score": 45,
+            "isbot": true,
+            "playtime": 3000,
+            "kills": 43,
+            "deaths": 19,
+            "damage_given": 8328,
+            "damage_taken": 4609,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 7,
+                    "shots": 913,
+                    "hits": 272,
+                    "damage": 1612
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 44,
+                    "hits": 18,
+                    "damage": 225
+                },
+                "4": {
+                    "kills": 0,
+                    "shots": 29,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "5": {
+                    "kills": 11,
+                    "shots": 219,
+                    "hits": 28,
+                    "damage": 1612
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 146,
+                    "hits": 4,
+                    "damage": 28
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 181,
+                    "hits": 17,
+                    "damage": 331
+                },
+                "11": {
+                    "kills": 25,
+                    "shots": 4725,
+                    "hits": 216,
+                    "damage": 4130
+                },
+                "13": {
+                    "kills": 0,
+                    "shots": 280,
+                    "hits": 65,
+                    "damage": 390
+                }
+            },
+            "awards": {
+                "bullseye": 10,
+                "deadhand": 3,
+                "showstopper": 6,
+                "killingspree": 4
+            },
+            "items": {
+                "item_armor_shard": 96,
+                "item_armor_body": 5,
+                "item_health_small": 21,
+                "item_health": 16,
+                "item_health_large": 27,
+                "item_health_mega": 2,
+                "weapon_shotgun": 21,
+                "weapon_grenadelauncher": 16,
+                "weapon_rocketlauncher": 51,
+                "weapon_lightning": 11,
+                "weapon_plasmagun": 11,
+                "ammo_bullets": 26,
+                "ammo_grenades": 12,
+                "ammo_cells": 31,
+                "ammo_lightning": 14,
+                "ammo_rockets": 41,
+                "ammo_slugs": 19,
+                "holdable_teleporter": 2,
+                "holdable_medkit": 3,
+                "item_enviro": 2,
+                "item_haste": 11,
+                "item_invis": 11,
+                "item_regen": 1,
+                "holdable_kamikaze": 1,
+                "holdable_invulnerability": 1,
+                "ammo_nails": 23,
+                "ammo_mines": 13,
+                "ammo_belt": 27,
+                "weapon_nailgun": 25,
+                "weapon_prox_launcher": 3,
+                "weapon_chaingun": 13
+            },
+            "isanon": false
+        },
+        {
+            "name": "^0mouse^5bot",
+            "team": 0,
+            "score": 19,
+            "isbot": true,
+            "playtime": 3000,
+            "kills": 17,
+            "deaths": 45,
+            "damage_given": 3799,
+            "damage_taken": 8829,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "kills": 0,
+                    "shots": 1616,
+                    "hits": 42,
+                    "damage": 252
+                },
+                "3": {
+                    "kills": 0,
+                    "shots": 45,
+                    "hits": 3,
+                    "damage": 27
+                },
+                "5": {
+                    "kills": 8,
+                    "shots": 162,
+                    "hits": 23,
+                    "damage": 1510
+                },
+                "6": {
+                    "kills": 0,
+                    "shots": 61,
+                    "hits": 4,
+                    "damage": 28
+                },
+                "8": {
+                    "kills": 0,
+                    "shots": 250,
+                    "hits": 10,
+                    "damage": 186
+                },
+                "11": {
+                    "kills": 8,
+                    "shots": 1140,
+                    "hits": 82,
+                    "damage": 1606
+                },
+                "13": {
+                    "kills": 0,
+                    "shots": 87,
+                    "hits": 7,
+                    "damage": 42
+                }
+            },
+            "awards": {
+                "bullseye": 2,
+                "deadhand": 7,
+                "showstopper": 1
+            },
+            "items": {
+                "item_armor_shard": 131,
+                "item_armor_body": 10,
+                "item_health_small": 19,
+                "item_health": 21,
+                "item_health_large": 31,
+                "item_health_mega": 1,
+                "weapon_shotgun": 47,
+                "weapon_grenadelauncher": 18,
+                "weapon_rocketlauncher": 63,
+                "weapon_lightning": 16,
+                "weapon_plasmagun": 19,
+                "ammo_bullets": 46,
+                "ammo_grenades": 30,
+                "ammo_cells": 24,
+                "ammo_lightning": 16,
+                "ammo_rockets": 51,
+                "ammo_slugs": 16,
+                "holdable_teleporter": 2,
+                "holdable_medkit": 3,
+                "item_quad": 1,
+                "item_enviro": 2,
+                "item_haste": 10,
+                "item_invis": 6,
+                "holdable_kamikaze": 1,
+                "ammo_nails": 14,
+                "ammo_mines": 15,
+                "ammo_belt": 25,
+                "weapon_nailgun": 20,
+                "weapon_prox_launcher": 4,
+                "weapon_chaingun": 13
+            },
+            "isanon": false
+        }
+    ]
+}
