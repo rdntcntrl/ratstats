@@ -164,7 +164,6 @@ class ModalView {
 
     setContent(ctn) {
         this.modal.html(ctn)
-        new DetailView().setItemClick()
         return this
     }
     hide(){
@@ -596,7 +595,6 @@ class DetailView {
                 new ModalView().setContent(element).toggleModal()
             })
         })
-        this.setItemClick()
         if(this.matchdata.gametype==8){
             $(".w_pick,.h_pick").hide()
         }
@@ -674,18 +672,6 @@ class DetailView {
         $($("#" + type).html()).appendTo($(el));
     }
 
-    setItemClick(){
-        $(document).find(".clickitem").click(el=>{
-            let elem = $($(el.target).parents("div")[0])
-            if(elem.find(" .hidden").length>0){
-                elem.find(" .hidden").removeClass("hidden").addClass("hide")
-                $(el.target).html("less...")
-            } else {
-                elem.find(" .hide").removeClass("hide").addClass("hidden")
-                $(el.target).html("more...")
-            }   
-         })
-    }
     
     renderMatchInfo(match) {  
         var scoreright = $("#M_SCORE_RIGHT")
@@ -727,23 +713,12 @@ class PlayerCard {
             this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
             $(elem).find("p").first().html(StatsHelper.playerName(player))
             this.drawBorder(player.team,elem)
-            this.setExpandableItems(elem,duel)
             elem.attr("id", "card_" + player.index ).appendTo($(el));
             $(".table-cell:contains(---)").addClass("text-gray-500").removeClass("text-white")
         }catch(e){
             console.log(e)
             return $("<div>")
         }
-    }
-
-    setExpandableItems(elem,duel){
-        var amount = (duel)?11:10
-        $($(elem.find(".item_stats").children().slice(0,amount))).removeClass("hidden")
-       // $($(elem.find(".award_stats").children())).addClass("hidden")
-        $($(elem.find(".award_stats").children().slice(0,8))).removeClass("hidden")
-       // elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
-       elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden")
-        elem.find(".item_stats").children().length<=amount? elem.find(".item_stats").parent().find(".clickitem").css("visibility","hidden"):""
     }
 
     drawBorder(team,elem){
@@ -769,9 +744,6 @@ class PlayerCard {
         el.append(new SummaryStat("Hits/Shots", hits + "/" + shots));
     }
     
-    static toggleItems(){
-        $(document)
-    }
     renderPlayerCardElement(el, items ,sortby,renderObj) {
         var weaplist = new DetailView().getMatchWeapons()
         if(renderObj == Weapon && weaplist !=null ){
@@ -960,7 +932,6 @@ class Item {
             let div = elem.find("div").first();
             elem.find("p").html(amount);
             elem.find("img").attr("src",this.getItemIcon());
-            (this.item.show)?elem.addClass("showitem"):   elem.addClass("hidden")       
               
             div.first().addClass("rat-tip")
             div.attr("title-new", this.getItemDescription())
