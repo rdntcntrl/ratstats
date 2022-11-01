@@ -72,13 +72,13 @@
 	       "description": ""
 	},
 	"item_redcube": {
-	       "icon":	"",
+	       "icon":	"skull_red.png",
 	       "show": true,
 	       "name": "Red Cube",
 	       "description": ""
 	},
 	"item_bluecube": {
-	       "icon":	"",
+	       "icon":	"skull_blue.png",
 	       "show": true,
 	       "name": "Blue Cube",
 	       "description": ""
