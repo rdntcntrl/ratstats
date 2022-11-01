@@ -3,6 +3,9 @@ tags
 *.swp
 *~
 
+dist/
+build/
+
 node_modules/
 package-lock.json
 package.json
