@@ -579,12 +579,16 @@ class PlayerRow {
             return player.damage_given 
         case "CTF":
         case "CTF_ELIMINATION":
-        case "DOUBLE_D":
+            $(".gametypevar").html("C/R/A/D")
+            return player.captures + "/" + player.flag_recoveries + "/" + player.assists + "/" + player.defends
         case "ONEFCTF":
             $(".gametypevar").html("C/A/D")
             return player.captures + "/" + player.assists + "/" + player.defends
+        case "DOUBLE_D":
+            $(".gametypevar").html("C/A/D")
+            return player.captures + "/" + player.assists + "/" + player.defends
         case "TREASURE_HUNTER":
-                $(".gametypevar").html("CUBES")
+                $(".gametypevar").html("TOKENS")
                 return player.items.item_redcube?player.items.item_redcube:player.items.item_bluecube
         default:
             return player.kills + "/" + player.deaths
