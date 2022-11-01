@@ -27,7 +27,8 @@ demo stats from `demo_stats/` into dist/).
 To run a development server with demo stats that automatically updates the CSS
 when anything is changed, run
 
-    make devserve
+    make demo
+    ./devserve.sh
 
 The server listens on 127.0.0.1:8000
 
@@ -37,7 +38,7 @@ You can replace the stats shown by replacing `build/index.json` and `build/match
 
 After `make dist`, put the map levelshots in `dist/images/lvlshot` (as jpg).
 
-If you run `make devserve`, them in `build/images/lvlshot` instead.
+For the development server (after `make demo`), put them in `build/images/lvlshot` instead.
 
 # License
 

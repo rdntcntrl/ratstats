@@ -1,17 +1,22 @@
-.PHONY: devserve init css css_watch dist clean
+.PHONY: demo dist clean distclean
 
-devserve: init
-	./devserve.sh
+CSS = build/css/output.css
 
-css: init
-	npx tailwindcss -i ./src/css/input.css -o ./build/css/output.css --minify
+demo: build/index.json build/matches
+	mkdir -pv build/images/lvlshot
+	@echo
+	@echo =======================================================
+	@echo Run ./devserve.sh now to launch the development server!
 
-dist: css
-	mkdir -v dist
+$(CSS):
+	mkdir -pv $(@D)
+	npx tailwindcss -i ./src/css/input.css -o $(CSS) --minify
+
+dist: $(CSS)
+	mkdir -pv dist
 	mkdir -pv dist/images/lvlshot
 	mkdir -pv dist/css
-	mkdir -pv dist/matches
-	cp -v build/css/output.css dist/css/
+	cp -v $(CSS) dist/css/
 	cp -rv www/awards_map.json \
 		www/gametypes_map.json \
 		www/items_map.json \
@@ -25,23 +30,19 @@ dist: css
 		www/images/ratmod-head-icon.svg \
 		dist/images/
 
-init: build build/css build/images/lvlshot build/index.json build/matches
+build/index.json:
+	mkdir -pv $(@D)
+	ln -s ../demo_stats/index.json $@
 
-build:
-	mkdir -v build
-
-build/css: build
-	mkdir -pv build/css
-
-build/images/lvlshot: build
-	mkdir -pv build/images/lvlshot
-
-build/index.json: build
-	ln -s ../demo_stats/index.json build/index.json
-
-build/matches: build
-	ln -s ../demo_stats/matches build/matches
+build/matches:
+	mkdir -pv $(@D)
+	ln -s ../demo_stats/matches $@
 
 clean:
 	rm -rf dist
 	rm -rf build
+
+distclean: clean
+	rm -rf package.json
+	rm -rf node_modules
+	rm -rf package-lock.json
