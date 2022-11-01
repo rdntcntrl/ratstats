@@ -1,11 +1,14 @@
+
+//function escapeHTML(str) {
+//    return new Option(str).innerHTML;
+//}
+
 class StatsHelper {
 
     static locationHashChanged() {
        window.location.reload(); 
     }
-    static escapeHtml = (unsafe) => {
-        return unsafe.replace(/<[^>]*>?/gm, '');//replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-    }
+
     static getLocaleDateString(time) {
         var localestr = (navigator.languages || [])[0] || navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en-US'
         return new Date(time).toLocaleDateString(localestr, { year: 'numeric', month: 'numeric', day: '2-digit', minute: '2-digit', hour: '2-digit' })
@@ -20,27 +23,30 @@ class StatsHelper {
     }
 
     static colorName(name) {
-        var result =  this.escapeHtml(name)
-
-        var mtch = [...result.matchAll(/\^([0-9A-Za-z])(.[^\^]*)/g)]
-        mtch.forEach(el => {
-            result = result.replace(el[0], "<font class='text-" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
-        })
+        var result = document.createElement("span");
+        var cname = "^7" + name;
+        var splt = [...cname.split(/(\^[0-8])/g)];
+        for (var i=1; i < splt.length -1; i += 2) {
+            var fragment = document.createElement("span");
+            fragment.className = this.numberToColorName(splt[i].substring(1))
+            fragment.appendChild(document.createTextNode(splt[i+1]))
+            result.appendChild(fragment)
+        }
        
-        return result
+        return result.innerHTML;
     }
 
     static numberToColorName(id) {
         var colors = {
-            "1": "red-600",
-            "2": "green-600",
-            "3": "yellow-600",
-            "4": "blue-600",
-            "5": "blue-300",
-            "6": "pink-600",
-            "7": "white",
-            "8": "orange-500",
-            "0": "black",
+            "1": "text-red-600",
+            "2": "text-green-600",
+            "3": "text-yellow-600",
+            "4": "text-blue-600",
+            "5": "text-blue-300",
+            "6": "text-pink-600",
+            "7": "text-white",
+            "8": "text-orange-500",
+            "0": "text-black",
         }
         return colors[id]
     }
@@ -58,13 +64,8 @@ class StatsHelper {
         return ret;
     }
 
-    static getMapIconTag(map) {
-        map = this.escapeHtml(map)
-        return `<img src="images/lvlshot/${map}.jpg" width="100" height="100"/>`
-    }
-    
     static getMapImagePath(map) {
-         map = this.escapeHtml(map)
+        // map is sanitized by preprocessing to alnum + _
         return `images/lvlshot/${map}.jpg`
     }
 }
