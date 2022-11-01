@@ -1,6 +1,7 @@
 dist/
 www/images/lvlshot/
 www/index.json
+www/matches.json
 www/matches/
 www/css/
 

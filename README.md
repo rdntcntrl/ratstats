@@ -18,7 +18,7 @@ After installing Tailwind, run
 
 The production-ready files will then be put in the `dist/` directory. Note that
 this will **NOT** contain any demo match statistics in `matches/`, nor an
-`index.json` (which lists those matches).
+`matches.json` (which lists those matches).
 
 If you wish to deploy this, those files need to be generated first (or copy the
 demo stats from `demo_stats/` into dist/).
@@ -33,7 +33,7 @@ when anything is changed, run
 
 The server listens on 127.0.0.1:8000
 
-You can replace the stats shown by replacing `www/index.json` and `www/matches`.
+You can replace the stats shown by replacing `www/matches.json` and `www/matches`.
 (These will be deleted by `make clean`)
 
 ## Levelshots

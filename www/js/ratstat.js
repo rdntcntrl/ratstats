@@ -274,7 +274,7 @@ class RatStat {
     gametypeontainer ={}
     matchcontainer = {}
     weaponcontainer =[]
-    indexfile="index.json"
+    indexfile="matches.json"
     constructor() {
         if (RatStat._instance) {
             return RatStat._instance

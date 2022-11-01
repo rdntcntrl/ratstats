@@ -2,7 +2,7 @@
 
 CSS = www/css/output.css
 
-demo: www/index.json www/matches
+demo: www/matches.json www/matches
 	mkdir -pv www/images/lvlshot
 	@echo
 	@echo =======================================================
@@ -31,9 +31,9 @@ dist: $(CSS)
 		www/images/ratmod-head-icon.svg \
 		dist/images/
 
-www/index.json:
+www/matches.json:
 	mkdir -pv $(@D)
-	cp -v demo_stats/index.json $@
+	cp -v demo_stats/matches.json $@
 
 www/matches:
 	mkdir -pv $(@D)
@@ -42,7 +42,7 @@ www/matches:
 clean:
 	rm -rf www/images/lvlshot
 	rm -rf www/css
-	rm -rf www/index.json
+	rm -rf www/matches.json
 	rm -rf www/matches
 	rm -rf dist
 
