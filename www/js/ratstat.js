@@ -572,10 +572,6 @@ class PlayerRow {
             elem.find("div").addClass("border-white-700")
 
         }
-        if(player.isbot){
-            elem.find("div").addClass("border-gray-500")
-            elem.find("div").addClass("text-gray-500")
-        }
         elem.find("div.PLSCORE").html(player.score)
         elem.find("div.PLNAME").html(StatsHelper.playerName(player))
         elem.find("div.PLDUR").html( StatsHelper.formatTime(player.playtime))
