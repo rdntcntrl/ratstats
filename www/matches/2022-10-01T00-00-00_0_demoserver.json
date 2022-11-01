@@ -1,0 +1,150 @@
+{
+    "servername": "^0Rat^3Arena ^7Demo Server",
+    "time": "2022-10-01T00:00:00",
+    "gametype": 1,
+    "team_gt": false,
+    "fraglimit": 0,
+    "capturelimit": 8,
+    "timelimit": 10,
+    "exit_reason": "Timelimit hit.",
+    "map": "aggressor",
+    "players": [
+        {
+            "name": "^0rat^3bot",
+            "team": 0,
+            "score": 41,
+            "isbot": true,
+            "playtime": 599,
+            "kills": 41,
+            "deaths": 14,
+            "damage_given": 6274,
+            "damage_taken": 3218,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "shots": 76,
+                    "hits": 52,
+                    "damage": 305
+                },
+                "5": {
+                    "shots": 43,
+                    "hits": 29,
+                    "damage": 2131
+                },
+                "6": {
+                    "shots": 710,
+                    "hits": 496,
+                    "damage": 3425
+                },
+                "7": {
+                    "shots": 1,
+                    "hits": 0,
+                    "damage": 0
+                },
+                "8": {
+                    "shots": 73,
+                    "hits": 30,
+                    "damage": 413
+                }
+            },
+            "awards": {
+                "accuracy": 5,
+                "airrocket": 2,
+                "deadhand": 1,
+                "ambush": 1,
+                "kamikaze": 3,
+                "killingspree": 4,
+                "rampage": 1,
+                "revenge": 2,
+                "vaporized": 1
+            },
+            "items": {
+                "item_armor_shard": 16,
+                "item_armor_combat": 18,
+                "item_health_small": 12,
+                "item_health": 25,
+                "weapon_shotgun": 6,
+                "weapon_grenadelauncher": 8,
+                "weapon_rocketlauncher": 28,
+                "weapon_lightning": 24,
+                "weapon_railgun": 8,
+                "weapon_plasmagun": 17,
+                "ammo_shells": 7,
+                "ammo_bullets": 13,
+                "ammo_cells": 8,
+                "ammo_rockets": 10
+            }
+        },
+        {
+            "name": "^0mouse^5bot",
+            "team": 0,
+            "score": 14,
+            "isbot": true,
+            "playtime": 599,
+            "kills": 10,
+            "deaths": 41,
+            "damage_given": 2860,
+            "damage_taken": 6323,
+            "captures": 0,
+            "defends": 0,
+            "assists": 0,
+            "flag_recoveries": 0,
+            "weapons": {
+                "2": {
+                    "shots": 143,
+                    "hits": 35,
+                    "damage": 210
+                },
+                "3": {
+                    "shots": 5,
+                    "hits": 2,
+                    "damage": 18
+                },
+                "5": {
+                    "shots": 33,
+                    "hits": 18,
+                    "damage": 904
+                },
+                "6": {
+                    "shots": 535,
+                    "hits": 198,
+                    "damage": 1371
+                },
+                "7": {
+                    "shots": 15,
+                    "hits": 2,
+                    "damage": 160
+                },
+                "8": {
+                    "shots": 64,
+                    "hits": 14,
+                    "damage": 197
+                }
+            },
+            "awards": {
+                "deadhand": 2,
+                "revenge": 1
+            },
+            "items": {
+                "item_armor_shard": 4,
+                "item_armor_combat": 19,
+                "item_health_small": 22,
+                "item_health": 10,
+                "item_health_mega": 1,
+                "weapon_shotgun": 16,
+                "weapon_grenadelauncher": 7,
+                "weapon_rocketlauncher": 26,
+                "weapon_lightning": 20,
+                "weapon_railgun": 24,
+                "weapon_plasmagun": 17,
+                "ammo_shells": 5,
+                "ammo_bullets": 10,
+                "ammo_cells": 15,
+                "ammo_rockets": 8
+            }
+        }
+    ]
+}
