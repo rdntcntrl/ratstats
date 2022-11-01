@@ -1,0 +1,1 @@
+drop mapimages as jpg in here
