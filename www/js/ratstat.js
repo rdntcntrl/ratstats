@@ -4,9 +4,9 @@ const BOT_NAME_PREFIX = '';
 
 const USE_LEVELSHOTS = true;
 
-//function escapeHTML(str) {
-//    return new Option(str).innerHTML;
-//}
+function escapeHTML(str) {
+    return new Option(str).innerHTML;
+}
 
 class StatsHelper {
 
@@ -70,8 +70,9 @@ class StatsHelper {
     }
 
     static getMapImagePath(map) {
-        // map is sanitized by preprocessing to alnum + _
-        return `images/lvlshot/${map}.jpg`
+        // sanitize map name for url usage
+        var map_fn = map.replaceAll(/[^a-z0-9+_-]/g, "")
+        return `images/lvlshot/${map_fn}.jpg`
     }
 }
 
@@ -303,7 +304,7 @@ class MatchList {
         if (USE_LEVELSHOTS) {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
         }
-        var span = $wrapperspan.find("span.mapname").first().html(match.map)
+        var span = $wrapperspan.find("span.mapname").first().html(escapeHTML(match.map))
     }
 
 }
@@ -457,7 +458,7 @@ class DetailView {
         }
         $("#M_SERVER_NAME").html(StatsHelper.colorName(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
-        $("#M_MAP").html(match.map)
+        $("#M_MAP").html(escapeHTML(match.map))
         $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
     }
 
