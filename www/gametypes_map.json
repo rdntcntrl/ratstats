@@ -3,105 +3,105 @@
 		"icon": "",
 		"show": true,
 		"name": "FFA",
-		"description": "",
+		"description": "Free For All",
 		"template": "SINGLE"
 	},
 	"1": {
 		"icon": "",
 		"show": true,
 		"name": "TOURNAMENT",
-		"description": "",
+		"description": "Duel",
 		"template": "DUEL"
 	},
 	"2": {
 		"icon": "",
 		"show": true,
 		"name": "SINGLE_PLAYER",
-		"description": "",
+		"description": "Single Player",
 		"template": "SINGLE"
 	},
 	"3": {
 		"icon": "",
 		"show": true,
 		"name": "TEAM",
-		"description": "",
+		"description": "Team Deathmatch",
 		"template": "TEAM"
 	},
 	"4": {
 		"icon": "",
 		"show": true,
 		"name": "CTF",
-		"description": "",
+		"description": "Capture The Flag",
 		"template": "TEAM"
 	},
 	"5": {
 		"icon": "",
 		"show": true,
 		"name": "ONEFCTF",
-		"description": "",
+		"description": "One Flag CTF",
 		"template": "TEAM"
 	},
 	"6": {
 		"icon": "",
 		"show": true,
 		"name": "OBELISK",
-		"description": "",
+		"description": "Overload",
 		"template": "TEAM"
 	},
 	"7": {
 		"icon": "",
 		"show": true,
 		"name": "HARVESTER",
-		"description": "",
+		"description": "Harvester",
 		"template": "TEAM"
 	},
 	"8": {
 		"icon": "",
 		"show": true,
 		"name": "ELIMINATION",
-		"description": "",
+		"description": "Elimination",
 		"template": "TEAM"
 	},
 	"9": {
 		"icon": "",
 		"show": true,
 		"name": "CTF_ELIMINATION",
-		"description": "",
+		"description": "CTF Elimination",
 		"template": "TEAM"
 	},
 	"10": {
 		"icon": "",
 		"show": true,
 		"name": "LMS",
-		"description": "",
+		"description": "Last Man Standing",
 		"template": "SINGLE"
 	},
 	"11": {
 		"icon": "",
 		"show": true,
 		"name": "DOUBLE_D",
-		"description": "",
+		"description": "Double Domination",
 		"template": "TEAM"
 	},
 	"12": {
 		"icon": "",
 		"show": true,
 		"name": "DOMINATION",
-		"description": "",
+		"description": "Domination",
 		"template": "TEAM"
 	},
 	"13": {
 		"icon": "",
 		"show": true,
 		"name": "TREASURE_HUNTER",
-		"description": "",
+		"description": "Treasure Hunter",
 		"template": "TEAM"
 	},
 	"14": {
 		"icon": "",
 		"show": true,
 		"name": "MULTITOURNAMENT",
-		"description": "",
+		"description": "Duel",
 		"template": "DUEL"
 	}
 }
