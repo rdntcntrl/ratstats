@@ -185,6 +185,16 @@ class RatStat {
         return this.gametypeontainer;
     }
 
+    static getGameType(number) {
+        var gt = new RatStat().getGameTypes()
+        return number >= 0 ? gt[number].name : "UNKNOWN"   
+    }
+
+    static getGameTypeDesc(number) {
+        var gt = new RatStat().getGameTypes()
+        return number >= 0 ? gt[number].description : "Unknown"   
+    }
+
     initMatchData(){
         this.match.players.forEach((player, index) => {
             player.index = index;
@@ -279,11 +289,6 @@ class MatchList {
 
     }
 
-    getGameType(number) {
-        var gt = new RatStat().getGameTypes()
-        return number >= 0 ? gt[number].name : "UNKNOWN"   
-    }
-
     renderMatchRow(match, idx, mtch) {
         console.log("hm")
         var $test = $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
@@ -293,7 +298,7 @@ class MatchList {
         var div = $wrapperspan.find(" div")
         $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
         $(div[1]).html(StatsHelper.colorName(match.servername))
-        $(div[2]).html(this.getGameType(match.gametype))
+        $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
         if (USE_LEVELSHOTS) {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
@@ -411,14 +416,9 @@ class DetailView {
             return this.matchdata.players.filter(function (el) { return el.team == no; })
     }
 
-    getGameType(number) {
-        var gt = new RatStat().getGameTypes()
-        return number >= 0 ? gt[number].name : "UNKNOWN"   
-    }
-
     getMatchGameType() {
       
-        return this.getGameType(this.matchdata.gametype)
+        return RatStat.getGameType(this.matchdata.gametype)
     }
 
     renderMatchContainer(el, prefix="") {
@@ -458,7 +458,7 @@ class DetailView {
         $("#M_SERVER_NAME").html(StatsHelper.colorName(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
         $("#M_MAP").html(match.map)
-        $("#M_GAMETYPE").html(this.getGameType(match.gametype))
+        $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
     }
 
    
