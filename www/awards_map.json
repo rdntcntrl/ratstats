@@ -74,7 +74,7 @@
 	"bullseye": {
 	       "icon":	"medal_rocketsniper.png",
 	       "show": true,
-	       "name": "Bulseye",
+	       "name": "Bullseye",
 	       "description": "Directly hit an opponent far away with a rocket."
 	},
 	"fullsg": {
