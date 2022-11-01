@@ -18,30 +18,14 @@ class StatsHelper {
     static  redWon(match) {
         return match.score_blue < match.score_red
     }
-    
-    static colorName(name,stripcolors=false) {
+
+    static colorName(name) {
         var result =  this.escapeHtml(name)
 
         var mtch = [...result.matchAll(/\^([0-9A-Za-z])(.[^\^]*)/g)]
-        if(stripcolors){
-            try {
-                result = result.replaceAll("\.","")
-                 mtch.forEach(el => {               
-                     result = result.replace(el[0],  el[2]);
-                     result = result.replace(/[&\/\\#,+\.()$~%.'":*?<>{}]/g,'_').replace(".","");
-                     
-                 })
-                 result = result.replaceAll(" ","_")
-                 $(result).length
-            } catch(e){
-                return "errorboy"
-            }
-            
-        }else{
-            mtch.forEach(el => {
-                result = result.replace(el[0], "<font class='text-" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
-            })
-        }
+        mtch.forEach(el => {
+            result = result.replace(el[0], "<font class='text-" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
+        })
        
         return result
     }
@@ -206,7 +190,14 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data; }),
+                $.getJSON("./" + hash + ".json", function (data) { 
+                    _self.match = data; 
+                    // assign a unique index to each player
+                    _self.match.players.forEach((player, index) => {
+                        player.index = index;
+                    });
+
+                }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
@@ -404,16 +395,12 @@ class DetailView {
 class PlayerCard {
     constructor(el, player, resetClass = false, cname = "") {
         console.log(player)
-        let strippedName = StatsHelper.colorName(player.name,true);
-        if ($("#card_"+strippedName).length > 0) {
-            strippedName+=$("#card_"+strippedName).length
-        }
         let template = $("#playercard");
         if (resetClass) {
             template = $("#playercardduel");
         }
-        $(template.html()).attr("id", "card_" +strippedName ).appendTo($(el));
-        var elem = $("#card_"+strippedName) 
+        $(template.html()).attr("id", "card_" + player.index ).appendTo($(el));
+        var elem = $("#card_" + player.index) 
         if (resetClass) {
             $(elem.find("div.bg-gray-700")[1]).addClass(cname)
         }
@@ -540,7 +527,7 @@ class Weapon {
     constructor(weap, no) {
         this.weapon= new RatStat().getWeapon(no)
         let elem =  $($("#playercard_weapon_item").html());
-        elem.addClass("wp_"+StatsHelper.colorName(this.weapon.name,true))
+        elem.addClass("wp_" + no)
         let div =  elem.find("div.w_img_div")
         var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
         div.html(this.getWeaponIcon())
@@ -556,8 +543,6 @@ class Weapon {
         elem.find("div.w_dmg").html(weap.damage)
         var shots =(no>1)?("/" + weap.shots):""
         elem.find("div.w_k_d").html(weap.hits + shots)
-        //var encodedTpl = encodeURIComponent($("#svg").html())
-        //elem.append(`<style> .wp_${StatsHelper.colorName(this.weapon.name,true)} .rat-tip[title-new]:hover:after{content: url("data:image/svg+xml;%20charset=utf8,${encodedTpl}");}</style>`)
         return elem;
     }
 
