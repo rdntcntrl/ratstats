@@ -27,7 +27,17 @@ class StatsHelper {
         return match.score_blue < match.score_red
     }
 
-    static colorName(name) {
+    static playerName(player) {
+        if (player.isbot) {
+            return '<span class="bg-gray-400 px-1 rounded text-gray-200">BOT</span> ' + this.colorString(player.name);
+        }
+        if (player.isanon) {
+            return '<span class="border-blue-200 border rounded text-blue-200 px-1">ANONYMOUS<span>'
+        }
+        return this.colorString(player.name);
+    }
+
+    static colorString(name) {
         var result = document.createElement("span");
         var cname = "^7" + name;
         var splt = [...cname.split(/(\^[0-8])/g)];
@@ -298,7 +308,7 @@ class MatchList {
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
         var div = $wrapperspan.find(" div")
         $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
-        $(div[1]).html(StatsHelper.colorName(match.servername))
+        $(div[1]).html(StatsHelper.colorString(match.servername))
         $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
         if (USE_LEVELSHOTS) {
@@ -456,7 +466,7 @@ class DetailView {
                 scoreleft.addClass("text-blue-600")
             }
         }
-        $("#M_SERVER_NAME").html(StatsHelper.colorName(match.servername))
+        $("#M_SERVER_NAME").html(StatsHelper.colorString(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
         $("#M_MAP").html(escapeHTML(match.map))
         $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
@@ -483,7 +493,7 @@ class PlayerCard {
             this.renderPlayerCardElement($(elem).find("div.award_stats"), player.awards,new RatStat().getAwards(),Award);
             this.renderPlayerCardElement($(elem).find("div.weapon_stats"),player.weapons,new RatStat().getWeapons(),Weapon);
             this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
-            $(elem).find("p").first().html(StatsHelper.colorName(player.name))
+            $(elem).find("p").first().html(StatsHelper.playerName(player))
             if (typeof player.team != "undefined" && player.team != 0) {
                 const tm = (player.team == 1) ? "red" : "blue"
                 $(elem).find("p").parent().addClass( " border-" + tm + "-700")
@@ -567,7 +577,7 @@ class PlayerRow {
             elem.find("div").addClass("text-gray-500")
         }
         elem.find("div.PLSCORE").html(player.score)
-        elem.find("div.PLNAME").html(StatsHelper.colorName(player.name))
+        elem.find("div.PLNAME").html(StatsHelper.playerName(player))
         elem.find("div.PLDUR").html( StatsHelper.formatTime(player.playtime))
         elem.find("div.PLKD").html(this.renderGameTypeColumn(player))
         elem.appendTo($(el));
