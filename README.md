@@ -2,8 +2,19 @@
 
 Web-based game statistics for Ratarena.
 
-Needs Tailwind CSS v2:
-https://v2.tailwindcss.com/docs/installation
+## Installing
+
+Needs `npm`.
+
+Install Tailwind:
+
+    npm install -D tailwindcss
+
+
+## Levelshots
+
+After `make dist`, put the map levelshots in dist/images/lvlshot (as jpg).
+ 
 
 # License
 
