@@ -1,0 +1,398 @@
+{
+	"team_CTF_redflag": {
+	       "icon":	"iconf_red1.png",
+	       "show": true,
+	       "name": "Red Flag",
+	       "description": ""
+	},
+	"team_CTF_blueflag": {
+	       "icon":	"iconf_blu1.png",
+	       "show": true,
+	       "name": "Blue Flag",
+	       "description": ""
+	},
+	"team_CTF_neutralflag": {
+	       "icon":	"iconf_neutral1.png",
+	       "show": true,
+	       "name": "Neutral Flag",
+	       "description": ""
+	},
+	"team_dom_pointWhite": {
+	       "icon":	"iconf_neutral1.png",
+	       "show": true,
+	       "name": "Neutral domination point",
+	       "description": ""
+	},
+	"team_dom_pointRed": {
+	       "icon":	"iconf_red1.png",
+	       "show": true,
+	       "name": "Red domination point",
+	       "description": ""
+	},
+	"team_dom_pointBlue": {
+	       "icon":	"iconf_blu1.png",
+	       "show": true,
+	       "name": "Blue domination point",
+	       "description": ""
+	},
+	"team_DD_pointAblue": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point A (Blue)",
+	       "description": ""
+	},
+	"team_DD_pointBblue": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point B (Blue)",
+	       "description": ""
+	},
+	"team_DD_pointAred": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point A (Red)",
+	       "description": ""
+	},
+	"team_DD_pointBred": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point B (Red)",
+	       "description": ""
+	},
+	"team_DD_pointAwhite": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point A (White)",
+	       "description": ""
+	},
+	"team_DD_pointBwhite": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Point B (White)",
+	       "description": ""
+	},
+	"item_redcube": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Red Cube",
+	       "description": ""
+	},
+	"item_bluecube": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Blue Cube",
+	       "description": ""
+	},
+	"item_coinb": {
+	       "icon":	"ratcoin_blue.png",
+	       "show": true,
+	       "name": "Blue Coin",
+	       "description": ""
+	},
+	"item_coinr": {
+	       "icon":	"ratcoin_red.png",
+	       "show": true,
+	       "name": "Red Coin",
+	       "description": ""
+	},
+	"item_coingold": {
+	       "icon":	"ratcoin_gold.png",
+	       "show": true,
+	       "name": "Gold Coin",
+	       "description": ""
+	},
+	"item_coinsilver": {
+	       "icon":	"ratcoin_silver.png",
+	       "show": true,
+	       "name": "Silver Coin",
+	       "description": ""
+	},
+	"item_coinbronze": {
+	       "icon":	"ratcoin_bronze.png",
+	       "show": true,
+	       "name": "Brozne Coin",
+	       "description": ""
+	},
+	"item_quad": {
+	       "icon":	"quad.png",
+	       "show": true,
+	       "name": "Quad Damage",
+	       "description": ""
+	},
+	"item_enviro": {
+	       "icon":	"envirosuit.png",
+	       "show": true,
+	       "name": "Battle Suit",
+	       "description": ""
+	},
+	"item_haste": {
+	       "icon":	"haste.png",
+	       "show": true,
+	       "name": "Haste",
+	       "description": ""
+	},
+	"item_regen": {
+	       "icon":	"regen.png",
+	       "show": true,
+	       "name": "Regeneration",
+	       "description": ""
+	},
+	"item_invis": {
+	       "icon":	"invis.png",
+	       "show": true,
+	       "name": "Invisibility",
+	       "description": ""
+	},
+	"item_flight": {
+	       "icon":	"flight.png",
+	       "show": true,
+	       "name": "Flight",
+	       "description": ""
+	},
+	"item_scout": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Scout",
+	       "description": ""
+	},
+	"item_guard": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Guard",
+	       "description": ""
+	},
+	"item_doubler": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Doubler",
+	       "description": ""
+	},
+	"item_ammoregen": {
+	       "icon":	"",
+	       "show": true,
+	       "name": "Ammo Regen",
+	       "description": ""
+	},
+	"item_health_mega": {
+	       "icon":	"iconh_mega.png",
+	       "show": true,
+	       "name": "Mega Health",
+	       "description": ""
+	},
+	"item_health_large": {
+	       "icon":	"iconh_red.png",
+	       "show": false,
+	       "name": "50 Health",
+	       "description": ""
+	},
+	"item_health": {
+	       "icon":	"iconh_yellow.png",
+	       "show": false,
+	       "name": "25 Health",
+	       "description": ""
+	},
+	"item_health_small": {
+	       "icon":	"iconh_green.png",
+	       "show": false,
+	       "name": "5 Health",
+	       "description": ""
+	},
+	"item_armor_body": {
+	       "icon":	"iconr_red.png",
+	       "show": true,
+	       "name": "Heavy Armor",
+	       "description": ""
+	},
+	"item_armor_combat": {
+	       "icon":	"iconr_yellow.png",
+	       "show": true,
+	       "name": "Armor",
+	       "description": ""
+	},
+	"item_armor_jacket": {
+	       "icon":	"iconr_green.png",
+	       "show": false,
+	       "name": "Light Armor",
+	       "description": ""
+	},
+	"item_armor_shard": {
+	       "icon":	"iconr_shard.png",
+	       "show": false,
+	       "name": "Armor Shard",
+	       "description": ""
+	},
+	"holdable_teleporter": {
+	       "icon":	"teleporter.png",
+	       "show": false,
+	       "name": "Personal Teleporter",
+	       "description": ""
+	},
+	"holdable_medkit": {
+	       "icon":	"medkit.png",
+	       "show": false,
+	       "name": "Medkit",
+	       "description": ""
+	},
+	"holdable_kamikaze": {
+	       "icon":	"kamikaze.png",
+	       "show": true,
+	       "name": "Kamikaze",
+	       "description": ""
+	},
+	"holdable_portal": {
+	       "icon":	"portal.png",
+	       "show": false,
+	       "name": "Portal",
+	       "description": ""
+	},
+	"holdable_invulnerability": {
+	       "icon":	"invulnerability.png",
+	       "show": false,
+	       "name": "Invulnerability",
+	       "description": ""
+	},
+	"weapon_gauntlet": {
+	       "icon":	"iconw_gauntlet.png",
+	       "show": false,
+	       "name": "Gauntlet",
+	       "description": ""
+	},
+	"weapon_machinegun": {
+	       "icon":	"iconw_machinegun.png",
+	       "show": false,
+	       "name": "Machinegun",
+	       "description": ""
+	},
+	"weapon_shotgun": {
+	       "icon":	"iconw_shotgun.png",
+	       "show": false,
+	       "name": "Shotgun",
+	       "description": ""
+	},
+	"weapon_grenadelauncher": {
+	       "icon":	"iconw_grenade.png",
+	       "show": false,
+	       "name": "Grenade Launcher",
+	       "description": ""
+	},
+	"weapon_rocketlauncher": {
+	       "icon":	"iconw_rocket.png",
+	       "show": false,
+	       "name": "Rocket Launcher",
+	       "description": ""
+	},
+	"weapon_lightning": {
+	       "icon":	"iconw_lightning.png",
+	       "show": false,
+	       "name": "Lightning Gun",
+	       "description": ""
+	},
+	"weapon_railgun": {
+	       "icon":	"iconw_railgun.png",
+	       "show": false,
+	       "name": "Railgun",
+	       "description": ""
+	},
+	"weapon_plasmagun": {
+	       "icon":	"iconw_plasma.png",
+	       "show": false,
+	       "name": "Plasma Gun",
+	       "description": ""
+	},
+	"weapon_bfg": {
+	       "icon":	"iconw_bfg.png",
+	       "show": false,
+	       "name": "BFG10K",
+	       "description": ""
+	},
+	"weapon_nailgun": {
+	       "icon":	"iconw_nailgun.png",
+	       "show": false,
+	       "name": "Nailgun",
+	       "description": ""
+	},
+	"weapon_prox_launcher": {
+	       "icon":	"iconw_proxlauncher.png",
+	       "show": false,
+	       "name": "Prox Launcher",
+	       "description": ""
+	},
+	"weapon_chaingun": {
+	       "icon":	"iconw_chaingun.png",
+	       "show": false,
+	       "name": "Chaingun",
+	       "description": ""
+	},
+	"weapon_grapplinghook": {
+	       "icon":	"iconw_grapple.png",
+	       "show": false,
+	       "name": "Grappling Hook",
+	       "description": ""
+	},
+	"ammo_bullets": {
+	       "icon":	"icona_machinegun.png",
+	       "show": false,
+	       "name": "Bullets",
+	       "description": ""
+	},
+	"ammo_shells": {
+	       "icon":	"icona_shotgun.png",
+	       "show": false,
+	       "name": "Shells",
+	       "description": ""
+	},
+	"ammo_grenades": {
+	       "icon":	"icona_grenade.png",
+	       "show": false,
+	       "name": "Grenades",
+	       "description": ""
+	},
+	"ammo_rockets": {
+	       "icon":	"icona_rocket.png",
+	       "show": false,
+	       "name": "Rockets",
+	       "description": ""
+	},
+	"ammo_lightning": {
+	       "icon":	"icona_lightning.png",
+	       "show": false,
+	       "name": "Lightning",
+	       "description": ""
+	},
+	"ammo_slugs": {
+	       "icon":	"icona_railgun.png",
+	       "show": false,
+	       "name": "Slugs",
+	       "description": ""
+	},
+	"ammo_cells": {
+	       "icon":	"icona_plasma.png",
+	       "show": false,
+	       "name": "Cells",
+	       "description": ""
+	},
+	"ammo_bfg": {
+	       "icon":	"icona_bfg.png",
+	       "show": false,
+	       "name": "BFG Ammo",
+	       "description": ""
+	},
+	"ammo_nails": {
+	       "icon":	"icona_nailgun.png",
+	       "show": false,
+	       "name": "Nails",
+	       "description": ""
+	},
+	"ammo_mines": {
+	       "icon":	"icona_proxlauncher.png",
+	       "show": false,
+	       "name": "Proximity Mines",
+	       "description": ""
+	},
+	"ammo_belt": {
+	       "icon":	"icona_chaingun.png",
+	       "show": false,
+	       "name": "Chaingun Belt",
+	       "description": ""
+	}
+}

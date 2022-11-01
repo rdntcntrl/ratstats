@@ -1,0 +1,285 @@
+<template id="tablerow">
+    <span  class="cursor-pointer table-row bg-gray-800 hover:bg-gray-500">
+        <div class="table-cell py-1 px-3.5 text-center border-l-4  PLSCORE"></div>
+        <div class="table-cell px-4 PLNAME"></div>
+        <div class="table-cell text-center PLDUR"></div>
+        <div class="table-cell text-center PLKD"></div>   
+    </span>
+</template>
+
+
+<template id="playercard_summary_item">
+    <div class="flex flex-col items-center flex-none  py-1">
+        <p class="text-xl">%VALUE%</p>
+        <p class="tracking-tighter leading-tight text-gray-500 text-xs uppercase">%KEY%</p>
+    </div>
+</template>
+
+<template id="playercard_weapon_item">
+    <div class="table-row w_row">
+        <div class="table-cell py-1 text-center w_img_div"><img  src="images/icons/iconw_grenade.png" class="w_img h-5 w-5 inline"></div>
+        <div class="table-cell text-center w_acc">%ACC%</div>
+        <div class="table-cell text-center w_kills"></div>
+        <div class="table-cell text-center w_dmg">%DAMAGE%</div>
+        <div class="table-cell text-center w_k_d">%HITS%/%SHOTS%</div>
+    </div>
+</template>
+
+<template id="playercard_award_item">     
+    <div class="flex flex-col items-center flex-none px-2 py-1">
+        <div style="position:relative"><img src="%IMG%" class="h-11 w-11 inline"></div>
+        <p class="tracking-tighter leading-tight uppercase text-sm text-gray-200 value">%%</p>
+    </div>
+</template>
+
+<template id="playercard_item_item">     
+    <div class="flex flex-col items-center flex-none px-2 py-1">
+        <div style="position:relative"><img src="%IMG%" class="h-8 w-8 inline"></div>
+        <p class="tracking-tighter leading-tight uppercase text-sm text-gray-200 value">%%</p>
+    </div>
+</template>
+
+<template id="playercard">
+    <div class="cursor-default md:max-w-lg w-full md:w-1/2 my-4 md:m-4 flex flex-col justify-start bg-gray-800 text-gray-200 flex flex-col cardmain">
+        <div class="bg-gray-700 w-full py-3 px-3 border-l-8 ">
+            <p class="text-lg leading-none text-gray-200 P_NAME">%%</p>
+        </div>
+        
+        <div class="w-full py-3 px-3">
+            <h3 class="uppercase text-gray-300">Summary Stats</h3>
+            <div class="flex flex-wrap justify-between summary_stats"></div>
+        </div>
+        <div class="w-full py-3 px-3 ">
+            <h3 class="uppercase text-gray-300">Item Stats <span class="text-xs text-gray-500 clickitem cursor-pointer"> more...</span></h3>
+            <div class="flex flex-wrap item_stats"></div>
+        </div>
+        <div class="w-full  bg-gray-700 py-3 px-3">
+            <h3 class="uppercase text-gray-300">Weapon Stats</h3>
+            <div class="table mx-auto w-full">
+                <div class="table-row-group">
+                <div class="table-row">
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Weapon</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Accuracy</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center w_kills">Kills</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Damage</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Hits/Shots</div>
+                </div>
+                </div>
+                <div class="table-row-group weapon_stats">         
+                </div>
+            </div>
+        </div>
+        <div class="w-full px-3 py-3">
+            <h3 class="uppercase text-gray-300">Medals</h3>
+            <div class="flex flex-wrap award_stats">
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="playercardduel">
+    <div class="bg-gray-800 text-gray-200 flex flex-col">
+        <div class="bg-gray-700 w-full py-3 px-3 ">
+            <p class="text-lg text-center leading-none text-gray-200 text-4xl P_NAME"></p>
+        </div>
+        <div class="w-full py-3 px-3">
+            <div class="flex flex-wrap justify-between summary_stats"></div>
+        </div>
+        <div class="w-full py-3 px-3 ">
+            <div class="flex flex-wrap item_stats"></div>
+        </div>
+        <div class="w-full bg-gray-700 py-3 px-3 ">
+            <div class="table mx-auto w-full">
+                <div class="table-row-group">
+                <div class="table-row">
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Weapon</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Accuracy</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center w_kills">Kills</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Damage</div>
+                    <div class="table-cell text-xs uppercase text-gray-500 px-2 text-center">Hits/Shots</div>
+                </div>
+                </div>
+                <div class="table-row-group weapon_stats">         
+                </div>
+            </div>
+        </div>
+        <div class="w-full px-3 py-3">
+            <div class="flex justify-center flex-wrap award_stats">
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="TEAM">     
+        <div class="flex flex-col lg:flex-row">
+            <div id="winningteam" class="table w-full lg:w-1/2 lg:px-1">         
+                <div class="table-row bg-gray-700 text-gray-200">
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-12 text-xs font-medium uppercase tracking-wider">
+                        Score
+                    </div>
+                    <div scope="col" class="table-cell px-4 py-2 text-left  text-xs font-medium uppercase tracking-wider">
+                        Name
+                    </div>   
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider">
+                        Time
+                    </div>
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider gametypevar">
+                        Kills/Deaths
+                    </div>
+                </div>
+                <div id="left_side_team" class="table-row-group">
+               
+                </div>
+            </div>
+
+            <div id="losingteam" class="table pt-4 lg:pt-0 w-full lg:w-1/2 lg:px-1">           
+                <div class="table-row bg-gray-700 text-gray-200">
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-12 text-xs font-medium uppercase tracking-wider">
+                        Score
+                    </div>
+                    <div scope="col" class="table-cell px-4 py-2 text-left  text-xs font-medium uppercase tracking-wider">
+                        Name
+                    </div>
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider">
+                        Time
+                    </div>    
+                    <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider gametypevar">
+                        Kills/Deaths
+                    </div>   
+                </div>
+                <div id="right_side_team" class="table-row-group">
+                     
+                </div>
+            </div>
+        </div>  
+</template>
+
+<template id="DUEL">
+    <div class="flex flex-col lg:flex-row">
+        <div id="winningteam" class="table w-full lg:w-1/2 lg:px-1">          
+            <div id="left_side_team" >
+           
+            </div>
+        </div>
+        <div id="losingteam" class="table pt-4 lg:pt-0 w-full lg:w-1/2 lg:px-1">           
+            <div id="right_side_team"> 
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="SINGLE">   
+    <div class="flex flex-col lg:flex-row">
+        <div id="winningteam" class="table w-full  lg:px-1">         
+            <div class="table-row bg-gray-700 text-gray-200">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-12 text-xs font-medium uppercase tracking-wider">
+                    Score
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-xs font-medium uppercase tracking-wider">
+                    Name
+                </div>   
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider">
+                    Time
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider">
+                    Kills/Deaths
+                </div>
+            </div>
+            <div id="left_side_team" class="table-row-group">
+        
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="HEADTEAM">
+    <div class=" flex-shrink-0 h-full w-32 mx-10 text-8xl flex items-center justify-center">
+        <div id="M_SCORE_LEFT">%%</div>
+    </div>
+    <div class="py-8 text-center">
+        <p id="M_DATE" class="text-sm">%%</p>
+        <p id="M_GAMETYPE" class="text-3xl py-1">%%</p>
+        <p id="M_MAP" class="text-2xl">%%</p>
+        <p id="M_SERVER_NAME" class="text-s">%%</p>
+    </div>
+    <div class=" flex-shrink-0 h-full w-32 mx-10 text-8xl flex items-center justify-center">
+        <div id="M_SCORE_RIGHT">%%</div>
+    </div>
+</template>
+
+<template id="HEADDUEL">
+    <div class=" flex-shrink-0 h-full w-32 mx-10 text-8xl flex items-center justify-center">
+        <div id="M_SCORE_LEFT">%%</div>
+    </div>
+    <div class="py-8 text-center">
+        <p id="M_DATE" class="text-sm">%%</p>
+        <p id="M_GAMETYPE" class="text-3xl py-1">%%</p>
+        <p id="M_MAP" class="text-2xl">%%</p>
+        <p id="M_SERVER_NAME" class="text-s">%%</p>
+    </div>
+    <div class="text-blue-600 flex-shrink-0 h-full w-32 mx-10 text-8xl flex items-center justify-center">
+        <div id="M_SCORE_RIGHT">%%</div>
+    </div>
+</template>
+
+<template id="HEADSINGLE">
+    <div class="py-8 text-center">
+        <p id="M_DATE" class="text-sm">%%</p>
+        <p id="M_GAMETYPE" class="text-3xl py-1">%%</p>
+        <p id="M_MAP" class="text-2xl">%%</p>
+        <p id="M_SERVER_NAME" class="text-s">%%</p>
+    </div>
+</template>
+
+<template id="indexbody">
+    <div class="flex flex-col lg:flex-row">
+        <div id="winningteam" class="table w-full lg:w lg:px-1">   
+            <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
+                    Map
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-xs font-medium uppercase tracking-wider">
+                    Server
+                </div>   
+                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-xs font-medium uppercase tracking-wider">
+                    Gametype
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-xs font-medium uppercase tracking-wider">
+                    Players
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
+                    Date
+                </div>
+            </div>
+            <div id="matchlist" class="table-row-group divide-y divide-y-reverse divide-rose-400">
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="matchrow">
+    <a  class="cursor-pointer table-row hover:bg-gray-500">
+        <div class="table-cell align-middle text-center border-l-4  m_map bg-center">
+            <span class="w-full bg-gray-900 h-20 align-middle bg-opacity-70 mapname" style="display: block;line-height: 80px;backdrop-filter: blur(0.5px);">overek</span>
+        </div>
+        <div class="table-cell align-middle px-4 m_server_name"></div>
+        <div class="table-cell align-middle text-center m_playercount"></div>
+        <div class="table-cell align-middle text-center m_gametype"></div>   
+        <div class="table-cell align-middle text-center m_date"></div>   
+    </a>
+
+</template>
+
+
+<template id="svg">
+    <svg width="200" height="60"
+     xmlns="http://www.w3.org/2000/svg">
+ <foreignObject width="100%" height="100%" x="0" y="0">
+    
+	<div xmlns="http://www.w3.org/1999/xhtml" style="color: blue">
+		<span>Mapname</span><span style="color: red">Aggressor</span>>
+	</div>
+ </foreignObject>
+</svg>
+</template>

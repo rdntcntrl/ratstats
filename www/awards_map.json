@@ -1,0 +1,218 @@
+{
+	"capture": {
+	       "icon":	"medal_capture.png",
+	       "show": true,
+	       "name": "Capture",
+	       "description": "Captured a flag."
+	},
+	"defend": {
+	       "icon":	"medal_defend.png",
+	       "show": true,
+	       "name": "Defense",
+	       "description": "Fragged an opponent who was either close to base or close to the flag carrier."
+	},
+	"assist": {
+	       "icon":	"medal_assist.png",
+	       "show": true,
+	       "name": "Assist",
+	       "description": "Returned the flag, allowing a teammate to score."
+	},
+	"thawbuddy": {
+	       "icon":	"medal_thawbuddy.png",
+	       "show": true,
+	       "name": "Thaw",
+	       "description": "Thawed a teammate."
+	},
+	"rat": {
+	       "icon":	"medal_rat.png",
+	       "show": true,
+	       "name": "Rat",
+	       "description": "Displayed rat-like behavior."
+	},
+	"impressive": {
+	       "icon":	"medal_impressive.png",
+	       "show": true,
+	       "name": "Impressive",
+	       "description": "Hit two rails in a row."
+	},
+	"excellent": {
+	       "icon":	"medal_excellent.png",
+	       "show": true,
+	       "name": "Excellent",
+	       "description": "Fragged two opponents within a short period of time."
+	},
+	"frags": {
+	       "icon":	"medal_frags.png",
+	       "show": true,
+	       "name": "Frags",
+	       "description": "Fragged three opponents with a short period of time."
+	},
+	"humiliation": {
+	       "icon":	"medal_gauntlet.png",
+	       "show": true,
+	       "name": "Humiliation",
+	       "description": "Fragged an opponent with gauntlet."
+	},
+	"accuracy": {
+	       "icon":	"medal_accuracy.png",
+	       "show": true,
+	       "name": "Accuracy",
+	       "description": "Hit an opponent multiple times with the same weapon and perfect accuracy."
+	},
+	"telefrag": {
+	       "icon":	"medal_telefrag.png",
+	       "show": true,
+	       "name": "Telefrag",
+	       "description": "Teleported into another player's personal space."
+	},
+	"telemissile_frag": {
+	       "icon":	"medal_teleprojectile.png",
+	       "show": true,
+	       "name": "Interdimensional",
+	       "description": "Fragged an opponent by firing through a teleporter."
+	},
+	"bullseye": {
+	       "icon":	"medal_rocketsniper.png",
+	       "show": true,
+	       "name": "Bulseye",
+	       "description": "Directly hit an opponent far away with a rocket."
+	},
+	"fullsg": {
+	       "icon":	"medal_fullsg.png",
+	       "show": true,
+	       "name": "Point Blank",
+	       "description": "Hit with all shotgun pellets."
+	},
+	"immortality": {
+	       "icon":	"medal_immortality.png",
+	       "show": true,
+	       "name": "Immortality",
+	       "description": "Received 800 damage while staying alive."
+	},
+	"airrocket": {
+	       "icon":	"medal_airrocket.png",
+	       "show": true,
+	       "name": "Air-Rocket",
+	       "description": "Hit an opponent with a rocket while they were in the air."
+	},
+	"airgrenade": {
+	       "icon":	"medal_airnade.png",
+	       "show": true,
+	       "name": "Air-Nade",
+	       "description": "Hit an opponent with a grenade while they were in the air."
+	},
+	"rocketrail": {
+	       "icon":	"medal_rocketrail.png",
+	       "show": true,
+	       "name": "Combo Kill (Rocket -> Rail)",
+	       "description": "Made an opponent fly into the air with a rocket, then fragged them with a rail slug."
+	},
+	"lgrail": {
+	       "icon":	"medal_lgrail.png",
+	       "show": true,
+	       "name": "Combo Kill (Lightning -> Rail)",
+	       "description": "Fragged an opponent by dealing lightning damage first and then finishing them off with a rail slug."
+	},
+	"railtwo": {
+	       "icon":	"medal_multirail.png",
+	       "show": true,
+	       "name": "Rail Master",
+	       "description": "Shot through two opponents with a single rail slug."
+	},
+	"deadhand": {
+	       "icon":	"medal_grave.png",
+	       "show": true,
+	       "name": "Dead Hand",
+	       "description": "Fragged an opponent with a projectile fired prior to dying."
+	},
+	"showstopper": {
+	       "icon":	"medal_stopper.png",
+	       "show": true,
+	       "name": "Show Stopper",
+	       "description": "Fragged someone who had a powerup."
+	},
+	"ambush": {
+	       "icon":	"medal_ambush.png",
+	       "show": true,
+	       "name": "Ambush",
+	       "description": "Fragged an opponent who just spawned or came through a portal."
+	},
+	"kamikaze": {
+	       "icon":	"medal_kamikaze.png",
+	       "show": true,
+	       "name": "Kamikaze",
+	       "description": "Fragged an opponent while taking his own life."
+	},
+	"strongman": {
+	       "icon":	"medal_strongman.png",
+	       "show": true,
+	       "name": "Strongman",
+	       "description": "Fraged all of the enemy team on your own."
+	},
+	"hero": {
+	       "icon":	"medal_star.png",
+	       "show": true,
+	       "name": "Hero",
+	       "description": "Got the flag out of the enemy based, returned their own flag and then caputred, all alone."
+	},
+	"revenge": {
+	       "icon":	"medal_revenge.png",
+	       "show": true,
+	       "name": "Revenge",
+	       "description": "Fragged the opponent who fragged them quickly after respawn."
+	},
+	"berserker": {
+	       "icon":	"medal_berserker.png",
+	       "show": true,
+	       "name": "Berserker",
+	       "description": "Got 3 gaunt frags in a row without dying."
+	},
+	"vaporized": {
+	       "icon":	"medal_vaporized.png",
+	       "show": true,
+	       "name": "Vaporized",
+	       "description": "Fragged an opponent by doing more than 100 plasma damage within 800ms."
+	},
+	"twitchrail": {
+	       "icon":	"medal_aimbot.png",
+	       "show": true,
+	       "name": "Aimbot",
+	       "description": "Turned very quickly and hit an opponent with railgun."
+	},
+	"butcher": {
+	       "icon":	"medal_butcher.png",
+	       "show": true,
+	       "name": "Butcher",
+	       "description": "Gibbed a corpse using gauntlet."
+	},
+	"killingspree": {
+	       "icon":	"medal_killspree10.png",
+	       "show": true,
+	       "name": "Killing Spree",
+	       "description": ""
+	},
+	"rampage": {
+	       "icon":	"medal_killspree20.png",
+	       "show": true,
+	       "name": "Rampage",
+	       "description": ""
+	},
+	"massacre": {
+	       "icon":	"medal_killspree30.png",
+	       "show": true,
+	       "name": "Massacre",
+	       "description": ""
+	},
+	"unstoppable": {
+	       "icon":	"medal_killspree40.png",
+	       "show": true,
+	       "name": "Unstoppable",
+	       "description": ""
+	},
+	"grimreaper": {
+	       "icon":	"medal_killspree50.png",
+	       "show": true,
+	       "name": "Grim Reaper",
+	       "description": ""
+	}
+}

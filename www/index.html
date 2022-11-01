@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ratstats - matchview</title>
+    <link href="./contrib/css/tailwind2.min.css" rel="stylesheet">
+    <link href="./contrib/fonts/overpass-mono.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script type="application/javascript" src="./contrib/js/jquery.js"></script>
+    <script type="application/javascript" src="./js/ratstat.js"></script>
+    <script>
+        $(document).ready(function () {
+            new RatStat().start()
+        });
+    </script>
+</head>
+
+<body class="bg-gray-900 text-gray-200" style="font-family: 'Overpass Mono', sans-serif;">
+    <noscript>Needs Javascript.</noscript>
+    <div class="hidden fixed inset-0 bg-gray-900 bg-opacity-90  h-full w-full" id="my-modal"></div>
+    <div class="hidden fixed cursor-pointer flex h-screen w-screen justify-center items-center inset-0 bg-sky-500/50"
+        id="modal-container">
+    </div>
+    <div id="background-img" class="opacity-30 top-0 left-0 bottom-0 right-0 fixed w-full h-full hexagon-back"
+        style="z-index:-100"></div>
+    <div class="bg-gradient-to-b from-transparent to-gray-900 top-0 left-0 bottom-0 right-0 fixed w-full h-full" style="z-index:-99"> </div>
+    <a href="#"><header class="h-12 text-sm bg-gray-900 border-b-2 border-gray-500 text-left flex flex-row justify-start items-center">
+        <div class="pl-4 pr-1"><img src="images/ratmod-head-icon.svg" class="w-6 h-6" /></div>
+        <div class="px-2">ratstats
+            <span class="text-gray-400 px-2 text-xs">statistics for matches played on ratmod</span>
+        </div>
+    </header> </a>
+    <div id="content" class="flex justify-center">
+       
+        <div class="w-full p-5 max-w-screen-xl md:px-20 md:py-10">
+            <div class="overflow-hidden min-w-full my-5">
+                <div id="matchheader" class="flex w-full justify-center items-center"></div>
+            </div>
+            <div id="matchcontainer" class="min-w-full my-5"></div>
+            <div id="playercards-container" class="hidden flex flex-row flex-wrap justify-center w-full"></div>
+            <footer class="h-40 my-20 py-10 flex flex-col justify-center content-center items-center">
+                <div class="py-5"><img src="images/ratmod-head-icon.svg" class="w-14 h-14"></div>
+                <div>ratmod. by the rats, for the rats</div>
+                <div> <a href="https://ratmod.github.io">ratmod documentation</a> </div>
+            </footer>
+        </div>
+    </div>
+    <span id="templates"></span>
+</body>
+
+</html>
