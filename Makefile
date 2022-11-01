@@ -1,9 +1,9 @@
 .PHONY: demo dist clean distclean
 
-CSS = build/css/output.css
+CSS = www/css/output.css
 
-demo: build/index.json build/matches
-	mkdir -pv build/images/lvlshot
+demo: www/index.json www/matches
+	mkdir -pv www/images/lvlshot
 	@echo
 	@echo =======================================================
 	@echo Run ./devserve.sh now to launch the development server!
@@ -14,7 +14,8 @@ $(CSS):
 
 dist: $(CSS)
 	mkdir -pv dist
-	mkdir -pv dist/images/lvlshot
+	#mkdir -pv dist/images/lvlshot
+	mkdir -pv dist/images/
 	mkdir -pv dist/css
 	cp -v $(CSS) dist/css/
 	cp -rv www/awards_map.json \
@@ -30,17 +31,20 @@ dist: $(CSS)
 		www/images/ratmod-head-icon.svg \
 		dist/images/
 
-build/index.json:
+www/index.json:
 	mkdir -pv $(@D)
-	ln -s ../demo_stats/index.json $@
+	cp -v demo_stats/index.json $@
 
-build/matches:
+www/matches:
 	mkdir -pv $(@D)
-	ln -s ../demo_stats/matches $@
+	cp -rv demo_stats/matches $(@D)
 
 clean:
+	rm -rf www/images/lvlshot
+	rm -rf www/css
+	rm -rf www/index.json
+	rm -rf www/matches
 	rm -rf dist
-	rm -rf build
 
 distclean: clean
 	rm -rf package.json

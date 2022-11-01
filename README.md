@@ -13,6 +13,7 @@ Install Tailwind:
 
 After installing Tailwind, run
 
+    make clean
     make dist
 
 The production-ready files will then be put in the `dist/` directory. Note that
@@ -32,13 +33,14 @@ when anything is changed, run
 
 The server listens on 127.0.0.1:8000
 
-You can replace the stats shown by replacing `build/index.json` and `build/matches`.
+You can replace the stats shown by replacing `www/index.json` and `www/matches`.
+(These will be deleted by `make clean`)
 
 ## Levelshots
 
 After `make dist`, put the map levelshots in `dist/images/lvlshot` (as jpg).
 
-For the development server (after `make demo`), put them in `build/images/lvlshot` instead.
+For the development server (after `make demo`), put them in `www/images/lvlshot` instead.
 
 # License
 
