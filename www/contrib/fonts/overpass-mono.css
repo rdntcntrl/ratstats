@@ -1,7 +1,7 @@
 
 
 @font-face {
-  font-family: 'overpass-mono';
+  font-family: 'Overpass Mono';
   src: local('Overpass Mono'),
        url('OverpassMono-Light.woff2') format('woff2');
        font-weight: 300;
@@ -11,7 +11,7 @@
 
 
 @font-face {
-  font-family: 'overpass-mono';
+  font-family: 'Overpass Mono';
   src: local('Overpass Mono'),
        url('OverpassMono-Regular.woff2') format('woff2');
        font-weight: 400;
@@ -21,7 +21,7 @@
 
 
 @font-face {
-  font-family: 'overpass-mono';
+  font-family: 'Overpass Mono';
   src: local('Overpass Mono'),
        url('OverpassMono-SemiBold.woff2') format('woff2');
        font-weight: 500;
@@ -31,7 +31,7 @@
 
 
 @font-face {
-  font-family: 'overpass-mono';
+  font-family: 'Overpass Mono';
   src: local('Overpass Mono'),
        url('OverpassMono-Bold.woff2') format('woff2');
        font-weight: 600;
