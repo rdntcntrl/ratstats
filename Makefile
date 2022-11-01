@@ -25,16 +25,22 @@ dist: css
 		www/images/ratmod-head-icon.svg \
 		dist/images/
 
-init: build build/css build/images/lvlshot
+init: build build/css build/images/lvlshot build/index.json build/matches
 
 build:
 	mkdir -v build
 
-build/css:
+build/css: build
 	mkdir -pv build/css
 
-build/images/lvlshot:
+build/images/lvlshot: build
 	mkdir -pv build/images/lvlshot
+
+build/index.json: build
+	ln -s ../demo_stats/index.json build/index.json
+
+build/matches: build
+	ln -s ../demo_stats/matches build/matches
 
 clean:
 	rm -rf dist

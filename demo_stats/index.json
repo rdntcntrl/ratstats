@@ -1,0 +1,30 @@
+{
+    "matches/2022-10-01T00-00-00_0_demoserver.json": {
+        "servername": "^0Rat^3Arena ^7Demo Server",
+        "map": "aggressor",
+        "players": 2,
+        "time": "2022-10-01T00:00:00",
+        "gametype": 1
+    },
+    "matches/2022-10-01T02-00-00_0_demoserver.json": {
+        "servername": "^0Rat^3Arena ^7Demo Server",
+        "map": "pul1ctf",
+        "players": 8,
+        "time": "2022-10-01T02:00:00",
+        "gametype": 4
+    },
+    "matches/2022-10-01T03-00-00_0_demoserver.json": {
+        "servername": "^0Rat^3Arena ^7Demo Server",
+        "map": "oa_shine",
+        "players": 10,
+        "time": "2022-10-01T03:00:00",
+        "gametype": 0
+    },
+    "matches/2022-10-01T04-00-00_0_demoserver.json": {
+        "servername": "^0Rat^3Arena ^7Demo Server",
+        "map": "oa_rpg3dm2",
+        "players": 4,
+        "time": "2022-10-01T04:00:00",
+        "gametype": 3
+    }
+}
