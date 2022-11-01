@@ -70,6 +70,10 @@ class StatsHelper {
         return result.innerHTML;
     }
 
+    static stripColors(str) {
+        return str.replaceAll(/\^[0-8]/g, "")
+    }
+
     static numberToColorName(id) {
         var colors = {
             "0": "text-black",
@@ -390,7 +394,7 @@ class MatchList {
         Object.keys(this.matchdata).reverse().forEach((mtch) => {
             this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
             this.maps = StatsHelper.sort(this.maps)
-            var svname = this.matchdata[mtch].servername.replaceAll(/[\^0-9]/g, "").split("|")[0]
+            var svname = StatsHelper.stripColors(this.matchdata[mtch].servername).split("|")[0]
             this.servernames[svname]=this.matchdata[mtch].servername.split("|")[0]
             this.servernames =  StatsHelper.sort(this.servernames)
             this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
