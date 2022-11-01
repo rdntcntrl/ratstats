@@ -181,7 +181,7 @@ class RatStat {
         return this.gametypeontainer;
     }
 
-    prefixBots(){
+    initMatchData(){
         this.match.players.forEach((player, index) => {
             player.index = index;
             if (player.isbot) {
@@ -208,7 +208,7 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.prefixBots() }),
+                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
