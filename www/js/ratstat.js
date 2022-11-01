@@ -1,4 +1,7 @@
-const BOT_NAME_PREFIX = '\u{1f916} ';
+const BOT_NAME_PREFIX = '';
+// uncomment this to get bot icon in front of bot names:
+//const BOT_NAME_PREFIX = '\u{1f916} ';
+
 const USE_LEVELSHOTS = true;
 
 //function escapeHTML(str) {
