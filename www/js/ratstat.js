@@ -1,3 +1,5 @@
+const BOT_NAME_PREFIX = '\u{1f916} ';
+const USE_LEVELSHOTS = true;
 
 //function escapeHTML(str) {
 //    return new Option(str).innerHTML;
@@ -196,6 +198,9 @@ class RatStat {
                     // assign a unique index to each player
                     _self.match.players.forEach((player, index) => {
                         player.index = index;
+                        if (player.isbot) {
+                            player.name = BOT_NAME_PREFIX + player.name;
+                        }
                     });
 
                 }),
@@ -242,7 +247,9 @@ class MatchList {
         $(div[1]).html(StatsHelper.colorName(match.servername))
         $(div[2]).html(this.getGameType(match.gametype))
         $(div[3]).html(match.players)
-        $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
+        if (USE_LEVELSHOTS) {
+            $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
+        }
         var span = $wrapperspan.find("span.mapname").first().html(match.map)
     }
 
