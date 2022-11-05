@@ -239,11 +239,6 @@
             "assists": 1,
             "flag_recoveries": 6,
             "weapons": {
-                "0": {
-                    "shots": 1,
-                    "hits": 0,
-                    "damage": 0
-                },
                 "2": {
                     "shots": 2300,
                     "hits": 68,
