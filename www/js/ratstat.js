@@ -95,8 +95,8 @@ class ModalView {
     constructor() {
         if (ModalView._instance) {
             return ModalView._instance
-          }
-          ModalView._instance = this;
+        }
+        ModalView._instance = this;
         
         this.modal.click(function (el) {
             if(el.target.id == "modal-container")
@@ -159,9 +159,11 @@ class RatStat {
     getAwards(){
         return this.awardcontainer;
     }
+
     getItems(){
         return this.itemcontainer;
     }
+
     setWeapons(data){
         var self = this
         Object.keys(data).forEach(function (key,idx) {
@@ -238,11 +240,13 @@ class MatchList {
     renderMatchList(el) {
         $($("#indexbody").html()).appendTo("#matchcontainer");
     }
+
     renderMatchRows(matches) {
         Object.keys(matches).reverse().forEach((mtch, idx) => {
             this.renderMatchRow(matches[mtch], idx, mtch)
         })
     }
+
     getGameType(number) {
         var gt = new RatStat().getGameTypes()
         return number >= 0 ? gt[number].name : "UNKNOWN"   
@@ -364,6 +368,7 @@ class DetailView {
         var gt = new RatStat().getGameTypes()
         return number >= 0 ? gt[number].name : "UNKNOWN"   
     }
+
     getMatchGameType() {
       
         return this.getGameType(this.matchdata.gametype)
