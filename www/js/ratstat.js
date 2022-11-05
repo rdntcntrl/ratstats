@@ -3,9 +3,11 @@ class StatsHelper {
     static locationHashChanged() {
        window.location.reload(); 
     }
-    static escapeHtml = (unsafe) => {
-        return unsafe.replace(/<[^>]*>?/gm, '');//replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+    
+    static stripHtml = (unsafe) => {
+        return unsafe.replace(/<[^>]*>?/gm, '');
     }
+    
     static getLocaleDateString(time) {
         var localestr = (navigator.languages || [])[0] || navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en-US'
         return new Date(time).toLocaleDateString(localestr, { year: 'numeric', month: 'numeric', day: '2-digit', minute: '2-digit', hour: '2-digit' })
@@ -20,7 +22,7 @@ class StatsHelper {
     }
     
     static colorName(name,stripcolors=false) {
-        var result =  this.escapeHtml(name)
+        var result =  this.stripHtml(name)
 
         var mtch = [...result.matchAll(/\^([0-9A-Za-z])(.[^\^]*)/g)]
         if(stripcolors){
@@ -39,7 +41,7 @@ class StatsHelper {
             
         }else{
             mtch.forEach(el => {
-                result = result.replace(el[0], "<font class='text-" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
+                result = result.replace(el[0], "<font class='" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
             })
         }
        
@@ -48,20 +50,20 @@ class StatsHelper {
 
     static numberToColorName(id) {
         var colors = {
-            "1": "red-600",
-            "2": "green-600",
-            "3": "yellow-600",
-            "4": "blue-600",
-            "5": "blue-300",
-            "6": "pink-600",
-            "7": "white",
-            "8": "orange-500",
-            "0": "black",
+            "1": "text-red-600",
+            "2": "text-green-600",
+            "3": "text-yellow-600",
+            "4": "text-blue-600",
+            "5": "text-blue-300",
+            "6": "text-pink-600",
+            "7": "text-white",
+            "8": "text-orange-500",
+            "0": "text-black",
         }
         return colors[id]
     }
 
-    static fancyTimeFormat(duration) {
+    static formatTime(duration) {
         var hrs = ~~(duration / 3600);
         var mins = ~~((duration % 3600) / 60);
         var secs = ~~duration % 60;
@@ -75,12 +77,12 @@ class StatsHelper {
     }
 
     static getMapIconTag(map) {
-        map = this.escapeHtml(map)
+        map = this.stripHtml(map)
         return `<img src="images/lvlshot/${map}.jpg" width="100" height="100"/>`
     }
     
     static getMapImagePath(map) {
-         map = this.escapeHtml(map)
+         map = this.stripHtml(map)
         return `images/lvlshot/${map}.jpg`
     }
 }
@@ -170,9 +172,11 @@ class RatStat {
             }
         })
     }
+
     getWeapon(no){
         return this.weaponcontainer[no-1];
     }
+
     getWeapons(){
         return this.weaponcontainer;
     }
@@ -184,6 +188,7 @@ class RatStat {
     getItem(name){
         return this.itemcontainer[name];
     }
+
     getGameTypes(){
         return this.gametypeontainer;
     }
@@ -221,10 +226,13 @@ class RatStat {
 class MatchList {
     matchdata = {}
     constructor(data) {
-       
-        this.matchdata = data
-        this.renderMatchList()
-        this.renderMatchRows(data)
+        try{ 
+            this.matchdata = data
+            this.renderMatchList()
+            this.renderMatchRows(data)
+        }catch(e){
+            return $("<div></div>")
+        }
     }
 
     renderMatchList(el) {
@@ -263,7 +271,6 @@ class DetailView {
 
     templatefnc = {
         "TEAM":function(el){
-            console.log(el.gametemplate)
             el.setTeams()
             if (el.redWon()) {
                 new Team("#left_side_team", "red" )
@@ -273,7 +280,7 @@ class DetailView {
                 new Team("#right_side_team", "red")
             }
         },
-        "SINGLE":function(el){ console.log(el.matchdata.gametemplate);new Single("#left_side_team", el.getPlayers(0))},
+        "SINGLE":function(el){new Single("#left_side_team", el.getPlayers(0))},
         "DUEL":(function(el){ 
             var duel = el.getPlayers(0)
             el.setDuelScore(duel)
@@ -281,29 +288,31 @@ class DetailView {
            
         })
     }
-        constructor(match) {
-           // console.log(match)
-        if (DetailView.instance) {
-            return DetailView.instance
-        }
-        DetailView.instance = this;
-        this.matchdata = match
-        this.matchdata.gametemplate = this.getTemplate(match.gametype)
-        this.renderMatchContainer("#matchcontainer")
-        this.renderMatchContainer("#matchheader", "HEAD")
-        this.renderTemplate()
-        this.renderMatchInfo(this.matchdata)
-        document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
-            el2.onclick = function (el1) {
-                var element = document.getElementById("playercards-container").children[index].outerHTML
-                new ModalView().setContent(element).toggleModal()
+    constructor(match) {
+        try{   
+            if (DetailView.instance) {
+                return DetailView.instance
             }
-        })
+            DetailView.instance = this;
+            this.matchdata = match
+            this.matchdata.gametemplate = this.getTemplate(match.gametype)
+            this.renderMatchContainer("#matchcontainer")
+            this.renderMatchContainer("#matchheader", "HEAD")
+            this.renderTemplate()
+            this.renderMatchInfo(this.matchdata)
+            document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
+                el2.onclick = function (el1) {
+                    var element = document.getElementById("playercards-container").children[index].outerHTML
+                    new ModalView().setContent(element).toggleModal()
+                }
+            })
+        }catch(e){
+            return $("<div></div>")
+        }
        
     }
 
     renderTemplate(){
-        console.log(this.matchdata.gametemplate)
         this.templatefnc[this.matchdata.gametemplate](this)
     }
 
@@ -369,8 +378,10 @@ class DetailView {
         $(document).find(".clickitem").click(el=>{
             if($(document).find("div.item_stats .hidden").length>0){
                 $(document).find("div.item_stats .hidden").removeClass("hidden").addClass("hide")
+                $(".clickitem").html("less...")
             } else {
                 $(document).find("div.item_stats .hide").removeClass("hide").addClass("hidden")
+                $(".clickitem").html("more...")
             }
              
          })
@@ -403,35 +414,38 @@ class DetailView {
 
 class PlayerCard {
     constructor(el, player, resetClass = false, cname = "") {
-        console.log(player)
-        let strippedName = StatsHelper.colorName(player.name,true);
-        if ($("#card_"+strippedName).length > 0) {
-            strippedName+=$("#card_"+strippedName).length
-        }
-        let template = $("#playercard");
-        if (resetClass) {
-            template = $("#playercardduel");
-        }
-        $(template.html()).attr("id", "card_" +strippedName ).appendTo($(el));
-        var elem = $("#card_"+strippedName) 
-        if (resetClass) {
-            $(elem.find("div.bg-gray-700")[1]).addClass(cname)
-        }
-        $(elem.find("div.bg-gray-700")[0]).addClass(cname)
-    
-        this.renderPlayerCardSummary($(elem).find("div.summary_stats"), player);
-        this.renderPlayerCardElement($(elem).find("div.award_stats"), player.awards,new RatStat().getAwards(),Award);
-        this.renderPlayerCardElement($(elem).find("div.weapon_stats"),player.weapons,new RatStat().getWeapons(),Weapon);
-        this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
-        $(elem).find("p").first().html(StatsHelper.colorName(player.name))
-        if (typeof player.team != "undefined" && player.team != 0) {
-            const tm = (player.team == 1) ? "red" : "blue"
-            $(elem).find("p").parent().addClass( " border-" + tm + "-700")
-         } else {
-            $(elem).find("p").parent().addClass("border-white-700")
- 
-         }
+        try {
+            let strippedName = StatsHelper.colorName(player.name,true);
+            if ($("#card_"+strippedName).length > 0) {
+                strippedName+=$("#card_"+strippedName).length
+            }
+            let template = $("#playercard");
+            if (resetClass) {
+                template = $("#playercardduel");
+            }
+            $(template.html()).attr("id", "card_" +strippedName ).appendTo($(el));
+            var elem = $("#card_"+strippedName) 
+            if (resetClass) {
+                $(elem.find("div.bg-gray-700")[1]).addClass(cname)
+            }
+            $(elem.find("div.bg-gray-700")[0]).addClass(cname)
         
+            this.renderPlayerCardSummary($(elem).find("div.summary_stats"), player);
+            this.renderPlayerCardElement($(elem).find("div.award_stats"), player.awards,new RatStat().getAwards(),Award);
+            this.renderPlayerCardElement($(elem).find("div.weapon_stats"),player.weapons,new RatStat().getWeapons(),Weapon);
+            this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
+            $(elem).find("p").first().html(StatsHelper.colorName(player.name))
+            if (typeof player.team != "undefined" && player.team != 0) {
+                const tm = (player.team == 1) ? "red" : "blue"
+                $(elem).find("p").parent().addClass( " border-" + tm + "-700")
+            } else {
+                $(elem).find("p").parent().addClass("border-white-700")
+    
+            }
+         
+        }catch(e){
+            return $("<div></div>")
+        }
  
     }
 
@@ -470,14 +484,18 @@ class PlayerCard {
 
 class PlayerRow {
     constructor(el,player){
-        this.renderPlayerRow(el, player)
+        try {
+            this.renderPlayerRow(el, player)
+        }catch(e){
+            return $("<div></div>")
+        }
     }
 
     renderPlayerRow(el, player) {
         let elem =  $($("#tablerow").html());
         if (typeof player.team != "undefined" && player.team != 0) {
-           const tm = (player.team == 1) ? "red" : "blue"
-           elem.find("div").addClass( " border-" + tm + "-700")
+           const tm = (player.team == 1) ? "border-red-700" : "border-blue-700"
+           elem.find("div").addClass( tm)
         } else {
             elem.find("div").addClass("border-white-700")
 
@@ -488,7 +506,7 @@ class PlayerRow {
         }
         elem.find("div.PLSCORE").html(player.score)
         elem.find("div.PLNAME").html(StatsHelper.colorName(player.name))
-        elem.find("div.PLDUR").html( StatsHelper.fancyTimeFormat(player.playtime))
+        elem.find("div.PLDUR").html( StatsHelper.formatTime(player.playtime))
         elem.find("div.PLKD").html(this.renderGameTypeColumn(player))
         elem.appendTo($(el));
    }
@@ -505,8 +523,8 @@ class PlayerRow {
             $(".gametypevar").html("C/A/D")
             return player.captures + "/" + player.assists + "/" + player.defends
         case "TREASURE_HUNTER":
-                $(".gametypevar").html("COINS")
-                return player.captures + "/" + player.assists + "/" + player.defends
+                $(".gametypevar").html("CUBES")
+                return player.items.item_redcube?player.items.item_redcube:player.items.item_bluecube
         default:
             return player.kills + "/" + player.deaths
       }
@@ -519,8 +537,8 @@ class EmptyRow {
       
         let elem =  $($("#tablerow").html());
         if (typeof team != "undefined" && team != 0) {
-           const tm = (team == 1) ? "red" : "blue"
-           elem.find("div").addClass( " border-" + tm + "-700")
+           const tm = (team == 1) ? "border-red-700" : "border-blue-700"
+           elem.find("div").addClass( tm)
         } else {
             elem.find("div").addClass("border-white-700")
 
@@ -538,27 +556,29 @@ class Weapon {
     weapon=null
 
     constructor(weap, no) {
-        this.weapon= new RatStat().getWeapon(no)
-        let elem =  $($("#playercard_weapon_item").html());
-        elem.addClass("wp_"+StatsHelper.colorName(this.weapon.name,true))
-        let div =  elem.find("div.w_img_div")
-        var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
-        div.html(this.getWeaponIcon())
-        div.addClass("rat-tip")
-        div.attr("title-new", this.getWeaponDescription())
-        elem.find("div.w_acc").html(acc)
-        if(weap.kills){
-            elem.find("div.w_kills").html(weap.kills)
-        } else {
-            elem.find("div.w_kills").hide()
-            $("div.w_kills").hide()
+        try {
+            this.weapon= new RatStat().getWeapon(no)
+            let elem =  $($("#playercard_weapon_item").html());
+            elem.addClass("wp_"+StatsHelper.colorName(this.weapon.name,true))
+            let div =  elem.find("div.w_img_div")
+            var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
+            div.html(this.getWeaponIcon())
+            div.addClass("rat-tip")
+            div.attr("title-new", this.getWeaponDescription())
+            elem.find("div.w_acc").html(acc)
+            if(weap.kills){
+                elem.find("div.w_kills").html(weap.kills)
+            } else {
+                elem.find("div.w_kills").hide()
+                $("div.w_kills").hide()
+            }
+            elem.find("div.w_dmg").html(weap.damage)
+            var shots =(no>1)?("/" + weap.shots):""
+            elem.find("div.w_k_d").html(weap.hits + shots)
+            return elem;
+        }catch(e){
+            return $("<div></div>")
         }
-        elem.find("div.w_dmg").html(weap.damage)
-        var shots =(no>1)?("/" + weap.shots):""
-        elem.find("div.w_k_d").html(weap.hits + shots)
-        //var encodedTpl = encodeURIComponent($("#svg").html())
-        //elem.append(`<style> .wp_${StatsHelper.colorName(this.weapon.name,true)} .rat-tip[title-new]:hover:after{content: url("data:image/svg+xml;%20charset=utf8,${encodedTpl}");}</style>`)
-        return elem;
     }
 
     getWeaponIcon() {
@@ -576,16 +596,19 @@ class Weapon {
 class Award {
     item = {}
     constructor(item, name) {
-     
-        this.item= new RatStat().getAward(name)
-        let elem =  $($("#playercard_award_item").html());
-        let div =elem.find("div").first();
-        elem.find("p").first().html(item);
-        elem.find("img").first().attr("src",this.getItemIcon());
-        if(this.item.show==false){ div.addClass("hidden")}
-        div.addClass("rat-tip") 
-        div.attr("title-new", this.getItemDescription())
-        return elem;
+        try{
+            this.item= new RatStat().getAward(name)
+            let elem =  $($("#playercard_award_item").html());
+            let div =elem.find("div").first();
+            elem.find("p").first().html(item);
+            elem.find("img").first().attr("src",this.getItemIcon());
+            if(this.item.show==false){ div.addClass("hidden")}
+            div.addClass("rat-tip") 
+            div.attr("title-new", this.getItemDescription())
+            return elem;
+        }catch(e){
+            return $("<div></div>")
+        }
     }
 
     getItemIcon() {
@@ -605,15 +628,19 @@ class Item {
     item=null
    
     constructor(amount, name) {
-        this.item = new RatStat().getItem(name)
-        let elem =  $($("#playercard_item_item").html());    
-        let div = elem.find("div").first();
-        elem.find("p").html(amount);
-        elem.find("img").attr("src",this.getItemIcon());
-        if(!this.item.show){elem.addClass("hidden");}
-        div.first().addClass("rat-tip")
-        div.attr("title-new", this.getItemDescription())
-        return elem;
+        try{
+            this.item = new RatStat().getItem(name)
+            let elem =  $($("#playercard_item_item").html());    
+            let div = elem.find("div").first();
+            elem.find("p").html(amount);
+            elem.find("img").attr("src",this.getItemIcon());
+            if(!this.item.show){elem.addClass("hidden");}
+            div.first().addClass("rat-tip")
+            div.attr("title-new", this.getItemDescription())
+            return elem;
+        }catch(e){
+            return $("<div></div>")
+        }
     }
 
     getItemIcon() {
@@ -653,7 +680,6 @@ class Duel {
 
 class Team {
     constructor(el, team) { 
-        console.log()
         var players = new DetailView().getTeam(team)  
         players.forEach(pl => {
             new Player(el, pl);
