@@ -117,12 +117,8 @@
                     "shots": 15,
                     "hits": 2,
                     "damage": 160
-                },
-                "8": {
-                    "shots": 64,
-                    "hits": 14,
-                    "damage": 197
                 }
+                
             },
             "awards": {
                 "deadhand": 2,
