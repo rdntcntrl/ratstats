@@ -393,11 +393,12 @@ class DetailView {
 
     setItemClick(){
         $(document).find(".clickitem").click(el=>{
-            if($(document).find("div.item_stats .hidden").length>0){
-                $(document).find("div.item_stats .hidden").removeClass("hidden").addClass("hide")
+            console.log(el.target)
+            if($(el.target).parent().find("div.item_stats .hidden").length>0){
+                $(el.target).parent().find("div.item_stats .hidden").removeClass("hidden").addClass("hide")
                 $(".clickitem").html("less...")
             } else {
-                $(document).find("div.item_stats .hide").removeClass("hide").addClass("hidden")
+                $(el.target).parent().find("div.item_stats .hide").removeClass("hide").addClass("hidden")
                 $(".clickitem").html("more...")
             }
              
@@ -706,6 +707,7 @@ class Duel {
             new PlayerCard(el, players[1], true, "border-blue-700 border-l-4");
             new PlayerCard(el1, players[0], true, "border-red-700 border-r-4");
         }
+        new DetailView().setItemClick()
     }
 }
 
