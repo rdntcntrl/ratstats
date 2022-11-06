@@ -25,17 +25,16 @@ class StatsHelper {
     }
 
     static colorName(name) {
-        var result = document.createElement("span");
+        var result = $("<span>");
         var cname = "^7" + name;
         var splt = [...cname.split(/(\^[0-8])/g)];
         for (var i=1; i < splt.length -1; i += 2) {
-            var fragment = document.createElement("span");
-            fragment.className = this.numberToColorName(splt[i].substring(1))
-            fragment.appendChild(document.createTextNode(splt[i+1]))
-            result.appendChild(fragment)
+            var fragment =  $("<span>");
+            fragment.addClass(this.numberToColorName(splt[i].substring(1)))
+            fragment.append(splt[i+1])
+            result.append(fragment)
         }
-       
-        return result.innerHTML;
+        return result.html();
     }
 
     static numberToColorName(id) {
@@ -182,6 +181,15 @@ class RatStat {
         return this.gametypeontainer;
     }
 
+    prefixBots(){
+        this.match.players.forEach((player, index) => {
+            player.index = index;
+            if (player.isbot) {
+                player.name = BOT_NAME_PREFIX + player.name;
+            }
+        });
+    }
+
     loadIndexdata(hash) {
         var _self = this;
         return new Promise(resolve => {
@@ -200,17 +208,7 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { 
-                    _self.match = data; 
-                    // assign a unique index to each player
-                    _self.match.players.forEach((player, index) => {
-                        player.index = index;
-                        if (player.isbot) {
-                            player.name = BOT_NAME_PREFIX + player.name;
-                        }
-                    });
-
-                }),
+                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.prefixBots() }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
