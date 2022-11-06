@@ -1,13 +1,16 @@
+const BOT_NAME_PREFIX = '\u{1f916} ';
+const USE_LEVELSHOTS = true;
+
+//function escapeHTML(str) {
+//    return new Option(str).innerHTML;
+//}
+
 class StatsHelper {
 
     static locationHashChanged() {
        window.location.reload(); 
     }
-    
-    static stripHtml = (unsafe) => {
-        return unsafe.replace(/<[^>]*>?/gm, '');
-    }
-    
+
     static getLocaleDateString(time) {
         var localestr = (navigator.languages || [])[0] || navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en-US'
         return new Date(time).toLocaleDateString(localestr, { year: 'numeric', month: 'numeric', day: '2-digit', minute: '2-digit', hour: '2-digit' })
@@ -20,36 +23,24 @@ class StatsHelper {
     static  redWon(match) {
         return match.score_blue < match.score_red
     }
-    
-    static colorName(name,stripcolors=false) {
-        var result =  this.stripHtml(name)
 
-        var mtch = [...result.matchAll(/\^([0-9A-Za-z])(.[^\^]*)/g)]
-        if(stripcolors){
-            try {
-                result = result.replaceAll("\.","")
-                 mtch.forEach(el => {               
-                     result = result.replace(el[0],  el[2]);
-                     result = result.replace(/[&\/\\#,+\.()$~%.'":*?<>{}]/g,'_').replace(".","");
-                     
-                 })
-                 result = result.replaceAll(" ","_")
-                 $(result).length
-            } catch(e){
-                return "errorboy"
-            }
-            
-        }else{
-            mtch.forEach(el => {
-                result = result.replace(el[0], "<font class='" + this.numberToColorName(el[1]) + "'>" + el[2] + "</font>")
-            })
+    static colorName(name) {
+        var result = document.createElement("span");
+        var cname = "^7" + name;
+        var splt = [...cname.split(/(\^[0-8])/g)];
+        for (var i=1; i < splt.length -1; i += 2) {
+            var fragment = document.createElement("span");
+            fragment.className = this.numberToColorName(splt[i].substring(1))
+            fragment.appendChild(document.createTextNode(splt[i+1]))
+            result.appendChild(fragment)
         }
        
-        return result
+        return result.innerHTML;
     }
 
     static numberToColorName(id) {
         var colors = {
+            "0": "text-black",
             "1": "text-red-600",
             "2": "text-green-600",
             "3": "text-yellow-600",
@@ -58,7 +49,6 @@ class StatsHelper {
             "6": "text-pink-600",
             "7": "text-white",
             "8": "text-orange-500",
-            "0": "text-black",
         }
         return colors[id]
     }
@@ -76,13 +66,8 @@ class StatsHelper {
         return ret;
     }
 
-    static getMapIconTag(map) {
-        map = this.stripHtml(map)
-        return `<img src="images/lvlshot/${map}.jpg" width="100" height="100"/>`
-    }
-    
     static getMapImagePath(map) {
-         map = this.stripHtml(map)
+        // map is sanitized by preprocessing to alnum + _
         return `images/lvlshot/${map}.jpg`
     }
 }
@@ -215,7 +200,17 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data; }),
+                $.getJSON("./" + hash + ".json", function (data) { 
+                    _self.match = data; 
+                    // assign a unique index to each player
+                    _self.match.players.forEach((player, index) => {
+                        player.index = index;
+                        if (player.isbot) {
+                            player.name = BOT_NAME_PREFIX + player.name;
+                        }
+                    });
+
+                }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
@@ -298,7 +293,9 @@ class MatchList {
         $(div[1]).html(StatsHelper.colorName(match.servername))
         $(div[2]).html(this.getGameType(match.gametype))
         $(div[3]).html(match.players)
-        $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
+        if (USE_LEVELSHOTS) {
+            $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
+        }
         var span = $wrapperspan.find("span.mapname").first().html(match.map)
     }
 
@@ -468,16 +465,12 @@ class DetailView {
 class PlayerCard {
     constructor(el, player, resetClass = false, cname = "") {
         try {
-            let strippedName = StatsHelper.colorName(player.name,true);
-            if ($("#card_"+strippedName).length > 0) {
-                strippedName+=$("#card_"+strippedName).length
-            }
             let template = $("#playercard");
             if (resetClass) {
                 template = $("#playercardduel");
             }
-            $(template.html()).attr("id", "card_" +strippedName ).appendTo($(el));
-            var elem = $("#card_"+strippedName) 
+            $(template.html()).attr("id", "card_" + player.index ).appendTo($(el));
+            var elem = $("#card_" + player.index) 
             if (resetClass) {
                 $(elem.find("div.bg-gray-700")[1]).addClass(cname)
             }
@@ -491,11 +484,10 @@ class PlayerCard {
             if (typeof player.team != "undefined" && player.team != 0) {
                 const tm = (player.team == 1) ? "red" : "blue"
                 $(elem).find("p").parent().addClass( " border-" + tm + "-700")
-            } else {
+             } else {
                 $(elem).find("p").parent().addClass("border-white-700")
-    
-            }
-         
+     
+             }
         }catch(e){
             console.log(e)
             return $("<div></div>")
@@ -626,7 +618,7 @@ class Weapon {
         try {
             this.weapon= new RatStat().getWeapon(no)
             let elem =  $($("#playercard_weapon_item").html());
-            elem.addClass("wp_"+StatsHelper.colorName(this.weapon.name,true))
+            elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
             var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
             div.html(this.getWeaponIcon())
