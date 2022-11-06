@@ -143,7 +143,8 @@ class RatStat {
           RatStat._instance = this;
     }
     
-    async start() {
+    async start(filter=null) {
+        $("#matchcontainer").html("")
         var _self = this;
         var hash = window.location.hash.replace("#", "");
         if (hash != "") {
@@ -151,10 +152,11 @@ class RatStat {
             new DetailView(_self.match)
         } else {
             await this.loadIndexdata()
-            new MatchList(_self.matchcontainer);
+            new MatchList(_self.matchcontainer,filter);
         }
         window.onhashchange = StatsHelper.locationHashChanged;
     }
+
 
     getAwards(){
         return this.awardcontainer;
@@ -227,12 +229,15 @@ class RatStat {
 
 class MatchList {
     matchdata = {}
-    constructor(data) {
+    filter = null
+    constructor(data,filter) {
         try{ 
+            this.filter = filter
             this.matchdata = data
             this.renderMatchList()
-            this.renderMatchRows(data)
+            this.renderMatchRows(data,filter)
         }catch(e){
+            console.log(e)
             return $("<div></div>")
         }
     }
@@ -241,10 +246,40 @@ class MatchList {
         $($("#indexbody").html()).appendTo("#matchcontainer");
     }
 
-    renderMatchRows(matches) {
+    renderMatchRows(matches,filter=null) {
+        var self= this
         Object.keys(matches).reverse().forEach((mtch, idx) => {
+            if(self.matchFilter(matches[mtch])){
             this.renderMatchRow(matches[mtch], idx, mtch)
+            }
         })
+    }
+
+    matchFilter(match){
+        if(this.filter){
+            var val = true
+            Object.keys(this.filter).forEach(filt=>{
+             
+                switch(filt){
+                    case"map":
+                        val =   match.map==this.filter[filt]
+                        break
+                    case"servername":
+                        val =   match.servername==this.filter[filt]
+                        break
+                    case "date":
+                        val =   match.time.split("T")[0]==this.filter[filt]
+                        break
+                    case"gametype":
+                        val =  (match.gametype==this.filter[filt])
+                        break
+                }
+            })
+            return val
+        } else{
+            return true
+        }
+
     }
 
     getGameType(number) {
@@ -253,6 +288,7 @@ class MatchList {
     }
 
     renderMatchRow(match, idx, mtch) {
+        console.log("hm")
         var $test = $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
         var $wrapperspan = $("#row_" + idx)
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
