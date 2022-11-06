@@ -289,7 +289,6 @@ class DetailView {
             var duel = el.getPlayers(0)
             el.setDuelScore(duel)
             new Duel("#left_side_team", "#right_side_team", duel)
-           
         })
     }
     constructor(match) {
@@ -299,6 +298,7 @@ class DetailView {
             }
             DetailView.instance = this;
             this.matchdata = match
+            this.matchdata.matchweapons = null
             this.matchdata.gametemplate = this.getTemplate(match.gametype)
             this.renderMatchContainer("#matchcontainer")
             this.renderMatchContainer("#matchheader", "HEAD")
@@ -311,6 +311,7 @@ class DetailView {
                 }
             })
         }catch(e){
+            console.log(e)
             return $("<div></div>")
         }
        
@@ -325,6 +326,8 @@ class DetailView {
     }
 
     setDuelScore(duel){
+        let weapon = Object.keys(duel[0].weapons).concat(Object.keys(duel[1].weapons)).sort()
+        this.matchdata.matchweapons = [...new Set(weapon)]
         this.matchdata.score_blue = duel[1].score
         this.matchdata.score_red = duel[0].score
     }
@@ -336,6 +339,15 @@ class DetailView {
 
     getMatchData(){
         return this.matchdata
+    }
+
+    getMatchWeapons(){
+        try {
+            return this.matchdata.matchweapons.reduce((a, v) => ({ ...a, [v]: v}), {})
+        }catch(e){
+            return null
+        }
+        
     }
 
     getTeam(name){
@@ -449,6 +461,7 @@ class PlayerCard {
             }
          
         }catch(e){
+            console.log(e)
             return $("<div></div>")
         }
  
@@ -472,13 +485,26 @@ class PlayerCard {
         $(document)
     }
     renderPlayerCardElement(el, items ,sortby,renderObj) {
+        var weaplist = new DetailView().getMatchWeapons()
+        if(renderObj == Weapon && weaplist !=null ){
+            sortby = weaplist
+        }
         if(Object.keys(items).length>0){
             Object.keys(sortby).forEach((wp) => {
-                Object.keys(items).forEach((itm,idx)=>{
-                    if(itm == wp){
-                        el.append(new renderObj(items[itm], itm));
+                if(renderObj == Weapon && weaplist !=null){
+                    console.log(wp)
+                    if(wp.indexOf(items) ){
+                        el.append(new renderObj(items[wp], wp));
+                    } else {
+                        el.append(new renderObj(items[itm], 0));
                     }
-                })
+                } else{
+                    Object.keys(items).forEach((itm,idx)=>{                 
+                        if(itm == wp){
+                            el.append(new renderObj(items[itm], itm));
+                        }
+                    })
+                }
             })    
         } else {
             $(el).parent().hide();
@@ -582,7 +608,7 @@ class Weapon {
             elem.find("div.w_k_d").html(weap.hits + shots)
             return elem;
         }catch(e){
-            return $("<div></div>")
+            return $(`<div class="table-row w_row wp_empty" style="visibility: hidden;"><img  class="h-8 w-5" ></div>`)
         }
     }
 
