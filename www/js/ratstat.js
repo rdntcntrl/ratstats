@@ -1,9 +1,12 @@
-const BOT_NAME_PREFIX = '\u{1f916} ';
+const BOT_NAME_PREFIX = '';
+// uncomment this to get bot icon in front of bot names:
+//const BOT_NAME_PREFIX = '\u{1f916} ';
+
 const USE_LEVELSHOTS = true;
 
-//function escapeHTML(str) {
-//    return new Option(str).innerHTML;
-//}
+function escapeHTML(str) {
+    return new Option(str).innerHTML;
+}
 
 class StatsHelper {
 
@@ -67,8 +70,9 @@ class StatsHelper {
     }
 
     static getMapImagePath(map) {
-        // map is sanitized by preprocessing to alnum + _
-        return `images/lvlshot/${map}.jpg`
+        // sanitize map name for url usage
+        var map_fn = map.replaceAll(/[^a-z0-9+_-]/g, "")
+        return `images/lvlshot/${map_fn}.jpg`
     }
 }
 
@@ -182,6 +186,16 @@ class RatStat {
         return this.gametypeontainer;
     }
 
+    static getGameType(number) {
+        var gt = new RatStat().getGameTypes()
+        return number >= 0 ? gt[number].name : "UNKNOWN"   
+    }
+
+    static getGameTypeDesc(number) {
+        var gt = new RatStat().getGameTypes()
+        return number >= 0 ? gt[number].description : "Unknown"   
+    }
+
     initMatchData(){
         this.match.players.forEach((player, index) => {
             player.index = index;
@@ -276,11 +290,6 @@ class MatchList {
 
     }
 
-    getGameType(number) {
-        var gt = new RatStat().getGameTypes()
-        return number >= 0 ? gt[number].name : "UNKNOWN"   
-    }
-
     renderMatchRow(match, idx, mtch) {
         console.log("hm")
         var $test = $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
@@ -290,12 +299,12 @@ class MatchList {
         var div = $wrapperspan.find(" div")
         $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
         $(div[1]).html(StatsHelper.colorName(match.servername))
-        $(div[2]).html(this.getGameType(match.gametype))
+        $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
         if (USE_LEVELSHOTS) {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
         }
-        var span = $wrapperspan.find("span.mapname").first().html(match.map)
+        var span = $wrapperspan.find("span.mapname").first().html(escapeHTML(match.map))
     }
 
 }
@@ -408,14 +417,9 @@ class DetailView {
             return this.matchdata.players.filter(function (el) { return el.team == no; })
     }
 
-    getGameType(number) {
-        var gt = new RatStat().getGameTypes()
-        return number >= 0 ? gt[number].name : "UNKNOWN"   
-    }
-
     getMatchGameType() {
       
-        return this.getGameType(this.matchdata.gametype)
+        return RatStat.getGameType(this.matchdata.gametype)
     }
 
     renderMatchContainer(el, prefix="") {
@@ -454,8 +458,8 @@ class DetailView {
         }
         $("#M_SERVER_NAME").html(StatsHelper.colorName(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
-        $("#M_MAP").html(match.map)
-        $("#M_GAMETYPE").html(this.getGameType(match.gametype))
+        $("#M_MAP").html(escapeHTML(match.map))
+        $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
     }
 
    
@@ -576,12 +580,16 @@ class PlayerRow {
             return player.damage_given 
         case "CTF":
         case "CTF_ELIMINATION":
-        case "DOUBLE_D":
+            $(".gametypevar").html("C/R/A/D")
+            return player.captures + "/" + player.flag_recoveries + "/" + player.assists + "/" + player.defends
         case "ONEFCTF":
             $(".gametypevar").html("C/A/D")
             return player.captures + "/" + player.assists + "/" + player.defends
+        case "DOUBLE_D":
+            $(".gametypevar").html("C/A/D")
+            return player.captures + "/" + player.assists + "/" + player.defends
         case "TREASURE_HUNTER":
-                $(".gametypevar").html("CUBES")
+                $(".gametypevar").html("TOKENS")
                 return player.items.item_redcube?player.items.item_redcube:player.items.item_bluecube
         default:
             return player.kills + "/" + player.deaths
