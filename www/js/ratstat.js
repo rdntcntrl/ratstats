@@ -25,29 +25,30 @@ class StatsHelper {
     }
 
     static colorName(name) {
-        var result = $("<span>");
+        var result = document.createElement("span");
         var cname = "^7" + name;
         var splt = [...cname.split(/(\^[0-8])/g)];
         for (var i=1; i < splt.length -1; i += 2) {
-            var fragment =  $("<span>");
-            fragment.addClass(this.numberToColorName(splt[i].substring(1)))
-            fragment.append(splt[i+1])
-            result.append(fragment)
+            var fragment = document.createElement("span");
+            fragment.className = this.numberToColorName(splt[i].substring(1))
+            fragment.appendChild(document.createTextNode(splt[i+1]))
+            result.appendChild(fragment)
         }
-        return result.html();
+       
+        return result.innerHTML;
     }
 
     static numberToColorName(id) {
         var colors = {
             "0": "text-black",
-            "1": "text-red-600",
-            "2": "text-green-600",
-            "3": "text-yellow-600",
-            "4": "text-blue-600",
-            "5": "text-blue-300",
-            "6": "text-pink-600",
+            "1": "text-red-500",
+            "2": "text-lime-500",
+            "3": "text-yellow-400",
+            "4": "text-indigo-500",
+            "5": "text-cyan-500",
+            "6": "text-pink-500",
             "7": "text-white",
-            "8": "text-orange-500",
+            "8": "text-orange-600",
         }
         return colors[id]
     }

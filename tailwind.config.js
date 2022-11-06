@@ -1,8 +1,8 @@
 module.exports = {
     content : [
-      '../../templates/*.html', 
-      '../../*.html', 
-      '../../js/ratstat.js', 
+      'www/templates/*.html', 
+      'www/*.html', 
+      'www/js/ratstat.js', 
       ],
   theme: {
     extend: {},
