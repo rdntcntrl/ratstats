@@ -393,15 +393,14 @@ class DetailView {
 
     setItemClick(){
         $(document).find(".clickitem").click(el=>{
-            console.log(el.target)
-            if($(el.target).parent().find("div.item_stats .hidden").length>0){
-                $(el.target).parent().find("div.item_stats .hidden").removeClass("hidden").addClass("hide")
-                $(".clickitem").html("less...")
+            let elem = $($(el.target).parents("div")[0])
+            if(elem.find("div.item_stats .hidden").length>0){
+                elem.find("div.item_stats .hidden").removeClass("hidden").addClass("hide")
+                $(el.target).html("less...")
             } else {
-                $(el.target).parent().find("div.item_stats .hide").removeClass("hide").addClass("hidden")
-                $(".clickitem").html("more...")
-            }
-             
+                elem.find("div.item_stats .hide").removeClass("hide").addClass("hidden")
+                $(el.target).html("more...")
+            }   
          })
     }
     
