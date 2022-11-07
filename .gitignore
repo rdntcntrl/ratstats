@@ -1,10 +1,13 @@
+dist/
+www/images/lvlshot/
+www/index.json
+www/matches/
+www/css/
+
 TAGS
 tags
 *.swp
 *~
-
-dist/
-build/
 
 node_modules/
 package-lock.json
