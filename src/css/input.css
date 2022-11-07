@@ -80,3 +80,13 @@ body{
     background-size: cover;
     background-position: center;
 }
+
+span.mapname{
+    display: block;line-height: 80px;
+}
+
+span.blur1 {
+    backdrop-filter: blur(0.5px);
+}
+
+

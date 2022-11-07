@@ -4,15 +4,14 @@ const BOT_NAME_PREFIX = '';
 
 const USE_LEVELSHOTS = true;
 
+function escapeHTML(str) {
+    return new Option(str).innerHTML;
+}
 
 class StatsHelper {
 
     static locationHashChanged() {
        window.location.reload(); 
-    }
-
-    static  escapeHTML(str) {
-        return new Option(str).innerHTML;
     }
 
     static getLocaleDateString(time) {
@@ -28,27 +27,7 @@ class StatsHelper {
         return match.score_blue < match.score_red
     }
 
-    static sort(obj1){
-       return Object.keys(obj1).sort().reduce(
-            (obj, key) => { 
-              obj[key] = obj1[key]; 
-              return obj;
-            }, 
-            {}
-          );
-    }
-
-    static playerName(player) {
-        if (player.isbot) {
-            return '<span class="border-gray-200 border rounded text-gray-200 px-1">BOT</span> ' + this.colorString(player.name);
-        }
-        if (player.isanon) {
-            return '<span class="border-blue-200 border rounded text-blue-200 px-1">ANONYMOUS<span>'
-        }
-        return this.colorString(player.name);
-    }
-
-    static colorString(name) {
+    static colorName(name) {
         var result = document.createElement("span");
         var cname = "^7" + name;
         var splt = [...cname.split(/(\^[0-8])/g)];
@@ -90,13 +69,9 @@ class StatsHelper {
         return ret;
     }
 
-    static stripColor(map){
-        return map.replaceAll(/[^a-z0-9+_-]/g, "")
-    }
-
     static getMapImagePath(map) {
         // sanitize map name for url usage
-        var map_fn = this.stripColor(map)
+        var map_fn = map.replaceAll(/[^a-z0-9+_-]/g, "")
         return `images/lvlshot/${map_fn}.jpg`
     }
 }
@@ -121,65 +96,23 @@ class ModalView {
 
     setContent(ctn) {
         this.modal.html(ctn)
-       // new DetailView().setItemClick()
+        new DetailView().setItemClick()
         return this
     }
 
     toggleModal() {
-        
         if (this.modalbg.css("display") == "flex") {
             this.modalbg.css("display", "none");
             this.modal.css("display", "none");
-            $(".mapname").addClass("blur1")
         } else {
             this.modalbg.css("display", "flex");
             this.modal.css("display", "flex");
-            $(".mapname").removeClass("blur1")
+
         }
         if(this.modal.height()-$("#modal-container div").height()<0){
             $("#modal-container > div").addClass("nocenter")
         } 
     }
-}
-
-class FilterView {
-    _instance = null
-    items = null
-    constructor(items) {
-        this.items= items
-        this.start()
-        if (FilterView._instance) {
-            return FilterView._instance
-        }
-        FilterView._instance = this;
-  
-    }
-    start(){
-        new ModalView().setContent($("#filter").html())
-        //this.setFilterButtonClick()
-        $(".mapname").removeClass("blur")
-        this.populateSelectBox("#mapselect",this.items.maps)
-        this.populateSelectBox("#serverselect",this.items.servers)
-        this.populateSelectBox("#gtselect",this.items.gametypes)
-    }
-
-    setFilterButtonClick(){
-        $("button").click(el=>{
-            new ModalView().toggleModal()
-        })
-        $("#filterstart").click(el=>{
-            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val()}})
-            
-        })
-    }
-
-    populateSelectBox(id,elements){
-        var $dropdown = $(id);
-        $.each(elements, function( key, value) {
-            $dropdown.append($("<option />").val(value).text(key));
-        });
-    }
-
 }
 
 class RatStat {
@@ -191,7 +124,7 @@ class RatStat {
     gametypeontainer ={}
     matchcontainer = {}
     weaponcontainer =[]
-    indexfile="index.json"
+
     constructor() {
         if (RatStat._instance) {
             return RatStat._instance
@@ -199,24 +132,16 @@ class RatStat {
           RatStat._instance = this;
     }
     
-    async start(ratobj={filter:null}) {
+    async start(filter=null) {
         $("#matchcontainer").html("")
         var _self = this;
-        if(ratobj.file){
-            this.indexfile=ratobj.file
-        }
         var hash = window.location.hash.replace("#", "");
         if (hash != "") {
             await this.loadMatchdata(hash)
             new DetailView(_self.match)
         } else {
             await this.loadIndexdata()
-            var matchlist = new MatchList(_self.matchcontainer)
-            console.log(ratobj.filter)
-            matchlist.filter=ratobj.filter
-            matchlist.render(_self.matchcontainer);
-            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes})
-            fltview.setFilterButtonClick()
+            new MatchList(_self.matchcontainer,filter);
         }
         window.onhashchange = StatsHelper.locationHashChanged;
     }
@@ -285,7 +210,7 @@ class RatStat {
         return new Promise(resolve => {
                 $.when(
                     $("#templates").load("./templates/templates.html"),
-                    $.getJSON("./"+_self.indexfile, function (data) { _self.matchcontainer = data; }),
+                    $.getJSON("./index.json", function (data) { _self.matchcontainer = data; }),
                     $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
                 ).then(function () {           
                     resolve(true);
@@ -313,18 +238,12 @@ class RatStat {
 class MatchList {
     matchdata = {}
     filter = null
-    maps ={}
-    servernames = {}
-    gametypes ={}
-    _instance = null
-       
-    constructor(data) {
+    constructor(data,filter) {
         try{ 
+            this.filter = filter
             this.matchdata = data
-            if (MatchList._instance) {
-                return MatchList._instance
-            }
-            MatchList._instance = this;
+            this.renderMatchList()
+            this.renderMatchRows(data,filter)
         }catch(e){
             console.log(e)
             return $("<div></div>")
@@ -332,59 +251,39 @@ class MatchList {
     }
 
     renderMatchList(el) {
-        $("#matchcontainer").html("")
         $($("#indexbody").html()).appendTo("#matchcontainer");
     }
 
-    render(data=null){
-        if(data)
-        this.matchdata = data
-        this.renderMatchList()
-        this.renderMatchRows()
-    }
-
-    renderMatchRows() {
+    renderMatchRows(matches,filter=null) {
         var self= this
-        Object.keys(this.matchdata).reverse().forEach((mtch, idx) => {
-            this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
-            this.maps = StatsHelper.sort(this.maps)
-            var svname = this.matchdata[mtch].servername.replaceAll(/[\^0-9]/g, "").split("|")[0]
-            this.servernames[svname]=this.matchdata[mtch].servername.split("|")[0]
-            this.servernames =  StatsHelper.sort(this.servernames)
-            this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
-            this.gametypes = StatsHelper.sort(this.gametypes)
-            if(self.matchFilter(this.matchdata[mtch])){
-                this.renderMatchRow(this.matchdata[mtch], idx, mtch)
+        Object.keys(matches).reverse().forEach((mtch, idx) => {
+            if(self.matchFilter(matches[mtch])){
+            this.renderMatchRow(matches[mtch], idx, mtch)
             }
         })
-      
     }
 
     matchFilter(match){
         if(this.filter){
-            var vali = false
+            var val = true
             Object.keys(this.filter).forEach(filt=>{
              
                 switch(filt){
                     case"map":
-                    if(this.filter[filt]=="ALL") break
-                        vali =  (match.map==this.filter[filt]) //new FilterView().setFilterButtonClick()
+                        val =   match.map==this.filter[filt]
                         break
                     case"servername":
-                    if(this.filter[filt]=="ALL") break
-                        vali =   match.servername.split("|")[0].trim() == this.filter[filt].trim()
+                        val =   match.servername==this.filter[filt]
                         break
                     case "date":
-                        if(this.filter[filt]=="ALL") break
-                        vali =   match.time.split("T")[0]==this.filter[filt]
+                        val =   match.time.split("T")[0]==this.filter[filt]
                         break
                     case"gametype":
-                    if(this.filter[filt]=="ALL") break
-                        vali =  (parseInt(match.gametype)==parseInt(this.filter[filt]))
+                        val =  (match.gametype==this.filter[filt])
                         break
                 }
             })
-            return vali
+            return val
         } else{
             return true
         }
@@ -392,19 +291,20 @@ class MatchList {
     }
 
     renderMatchRow(match, idx, mtch) {
-        $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
+        console.log("hm")
+        var $test = $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
         var $wrapperspan = $("#row_" + idx)
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
         var div = $wrapperspan.find(" div")
         $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
-        $(div[1]).html(StatsHelper.colorString(match.servername))
+        $(div[1]).html(StatsHelper.colorName(match.servername))
         $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
         if (USE_LEVELSHOTS) {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
         }
-        $wrapperspan.find("span.mapname").first().html(StatsHelper.escapeHTML(match.map))
+        var span = $wrapperspan.find("span.mapname").first().html(escapeHTML(match.map))
     }
 
 }
@@ -556,9 +456,9 @@ class DetailView {
                 scoreleft.addClass("text-blue-600")
             }
         }
-        $("#M_SERVER_NAME").html(StatsHelper.colorString(match.servername))
+        $("#M_SERVER_NAME").html(StatsHelper.colorName(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
-        $("#M_MAP").html(StatsHelper.escapeHTML(match.map))
+        $("#M_MAP").html(escapeHTML(match.map))
         $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
     }
 
@@ -583,7 +483,7 @@ class PlayerCard {
             this.renderPlayerCardElement($(elem).find("div.award_stats"), player.awards,new RatStat().getAwards(),Award);
             this.renderPlayerCardElement($(elem).find("div.weapon_stats"),player.weapons,new RatStat().getWeapons(),Weapon);
             this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
-            $(elem).find("p").first().html(StatsHelper.playerName(player))
+            $(elem).find("p").first().html(StatsHelper.colorName(player.name))
             if (typeof player.team != "undefined" && player.team != 0) {
                 const tm = (player.team == 1) ? "red" : "blue"
                 $(elem).find("p").parent().addClass( " border-" + tm + "-700")
@@ -662,8 +562,12 @@ class PlayerRow {
             elem.find("div").addClass("border-white-700")
 
         }
+        if(player.isbot){
+            elem.find("div").addClass("border-gray-500")
+            elem.find("div").addClass("text-gray-500")
+        }
         elem.find("div.PLSCORE").html(player.score)
-        elem.find("div.PLNAME").html(StatsHelper.playerName(player))
+        elem.find("div.PLNAME").html(StatsHelper.colorName(player.name))
         elem.find("div.PLDUR").html( StatsHelper.formatTime(player.playtime))
         elem.find("div.PLKD").html(this.renderGameTypeColumn(player))
         elem.appendTo($(el));

@@ -230,8 +230,51 @@
         <p id="M_SERVER_NAME" class="text-s">%%</p>
     </div>
 </template>
-
+<template id="filter">
+    <div class="bg-gray-800 text-gray-200 flex flex-col filterbox">
+        <div class="bg-gray-700 w-full py-3 px-3 border-l-8 ">
+            <p class="text-lg leading-none text-gray-200 P_NAME">Filter Settings</p>
+        </div>
+        
+        <div class="w-full py-3 px-3">
+            <h3 class=" text-gray-300">Map</h3>
+            <select class="w-full " id="mapselect">
+                <option value="ALL">
+                    ALL
+                </option>
+            </select>
+        </div>
+        <div class="w-full py-3 px-3  bg-gray-700">
+            <h3 class=" text-gray-300">Servername</h3>
+          <select class="w-full "  id="serverselect">
+            <option value="ALL">
+                    ALL
+                </option>
+            </select>
+        </div>
+        <div class="w-full  py-3 px-3">
+            <h3 class=" text-gray-300">Gametype</h3>
+            <select class="w-full " id="gtselect">
+                <option value="ALL">
+                    ALL
+                </option>
+            </select>
+        </div>
+        <div class="w-full px-3 py-3  bg-gray-700">
+            <h3 class=" text-gray-300">Date</h3>
+            <select class="w-full " id="mapselect">
+                <option value="ALL">
+                    ALL
+                </option>
+            </select>
+        </div>
+        <div class="w-full px-3 py-3">
+            <button class="bg-gray-500" id="filterstart">Filter</button> <button class="bg-gray-500" id="filterreset">Reset</button>
+        </div>
+    </div>
+</template>
 <template id="indexbody">
+    <button>Filter</button>
     <div class="flex flex-col lg:flex-row">
         <div id="winningteam" class="table w-full lg:w lg:px-1">   
             <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full">
@@ -261,7 +304,7 @@
 <template id="matchrow">
     <a  class="cursor-pointer table-row hover:bg-gray-500">
         <div class="table-cell align-middle text-center border-l-4  m_map bg-center">
-            <span class="w-full bg-gray-900 h-20 align-middle bg-opacity-70 mapname" style="display: block;line-height: 80px;backdrop-filter: blur(0.5px);">oa_shine</span>
+            <span class="w-full bg-gray-900 h-20 align-middle bg-opacity-70 mapname blur1">oa_shine</span>
         </div>
         <div class="table-cell align-middle px-4 m_server_name"></div>
         <div class="table-cell align-middle text-center m_playercount"></div>
