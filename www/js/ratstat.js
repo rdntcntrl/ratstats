@@ -77,6 +77,25 @@ class StatsHelper {
         return colors[id]
     }
 
+    static timeSince(date) {
+        var matchdate = new Date(new Date(date).getTime()  )
+        var now = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000)
+        var seconds = Math.floor((now - matchdate) / 1000);
+        var interval = seconds / 86400;
+        if (interval > 1) {
+          return StatsHelper.getLocaleDateString(matchdate) 
+        }
+        interval = seconds / 3600;
+        if (interval > 1) {
+          return Math.floor(interval) + " hours ago";
+        }
+        interval = seconds / 60;
+        if (interval > 1) {
+          return Math.floor(interval) + " minutes ago";
+        }
+        return Math.floor(seconds) + " seconds ago";
+    }
+
     static formatTime(duration) {
         var hrs = ~~(duration / 3600);
         var mins = ~~((duration % 3600) / 60);
@@ -397,7 +416,7 @@ class MatchList {
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
         var div = $wrapperspan.find(" div")
-        $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
+        $(div[4]).html(StatsHelper.timeSince(match.time))
         $(div[1]).html(StatsHelper.colorString(match.servername))
         $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
