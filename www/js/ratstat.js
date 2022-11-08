@@ -264,6 +264,7 @@ class RatStat {
     
     async start(ratobj={filter:null}) {
         $("#matchcontainer").html("")
+      
         var _self = this;
         if(ratobj.file){
             this.indexfile=ratobj.file
@@ -399,6 +400,8 @@ class MatchList {
     renderMatchList(el) {
         $("#matchcontainer").html("")
         $($("#indexbody").html()).appendTo("#matchcontainer");
+        if($("#cbox footer").length==0)
+        $($("#footer").html()).appendTo("#cbox");
     }
 
     render(data=null){
@@ -515,6 +518,7 @@ class DetailView {
             this.renderMatchContainer("#matchheader", "HEAD")
             this.renderTemplate()
             this.renderMatchInfo(this.matchdata)
+            if($("#cbox footer").length==0)  $($("#footer").html()).appendTo("#cbox");
             document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
                 el2.onclick = function (el1) {
                     var element = document.getElementById("playercards-container").children[index].outerHTML
