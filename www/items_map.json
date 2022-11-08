@@ -254,78 +254,91 @@
 	"weapon_gauntlet": {
 	       "icon":	"iconw_gauntlet.png",
 	       "show": false,
+		   "weapon_id":1,
 	       "name": "Gauntlet",
 	       "description": ""
 	},
 	"weapon_machinegun": {
 	       "icon":	"iconw_machinegun.png",
 	       "show": false,
+		   "weapon_id":2,
 	       "name": "Machinegun",
 	       "description": ""
 	},
 	"weapon_shotgun": {
 	       "icon":	"iconw_shotgun.png",
 	       "show": false,
+		   "weapon_id":3,
 	       "name": "Shotgun",
 	       "description": ""
 	},
 	"weapon_grenadelauncher": {
 	       "icon":	"iconw_grenade.png",
 	       "show": false,
+		   "weapon_id":4,
 	       "name": "Grenade Launcher",
 	       "description": ""
 	},
 	"weapon_rocketlauncher": {
 	       "icon":	"iconw_rocket.png",
 	       "show": false,
+		   "weapon_id":5,
 	       "name": "Rocket Launcher",
 	       "description": ""
 	},
 	"weapon_lightning": {
 	       "icon":	"iconw_lightning.png",
 	       "show": false,
+		   "weapon_id":6,
 	       "name": "Lightning Gun",
 	       "description": ""
 	},
 	"weapon_railgun": {
 	       "icon":	"iconw_railgun.png",
 	       "show": false,
+		   "weapon_id":7,
 	       "name": "Railgun",
 	       "description": ""
 	},
 	"weapon_plasmagun": {
 	       "icon":	"iconw_plasma.png",
 	       "show": false,
+		   "weapon_id":8,
 	       "name": "Plasma Gun",
 	       "description": ""
 	},
 	"weapon_bfg": {
 	       "icon":	"iconw_bfg.png",
 	       "show": false,
+		   "weapon_id":9,
 	       "name": "BFG10K",
 	       "description": ""
 	},
 	"weapon_nailgun": {
 	       "icon":	"iconw_nailgun.png",
 	       "show": false,
+		   "weapon_id":11,
 	       "name": "Nailgun",
 	       "description": ""
 	},
 	"weapon_prox_launcher": {
 	       "icon":	"iconw_proxlauncher.png",
 	       "show": false,
+		   "weapon_id":12,
 	       "name": "Prox Launcher",
 	       "description": ""
 	},
 	"weapon_chaingun": {
 	       "icon":	"iconw_chaingun.png",
 	       "show": false,
+		   "weapon_id":13,
 	       "name": "Chaingun",
 	       "description": ""
 	},
 	"weapon_grapplinghook": {
 	       "icon":	"iconw_grapple.png",
 	       "show": false,
+		   "weapon_id":10,
 	       "name": "Grappling Hook",
 	       "description": ""
 	},

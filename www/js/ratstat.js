@@ -2,16 +2,25 @@ const BOT_NAME_PREFIX = '';
 // uncomment this to get bot icon in front of bot names:
 //const BOT_NAME_PREFIX = '\u{1f916} ';
 
-const USE_LEVELSHOTS = true;
+const USE_LEVELSHOTS = false;
 
-function escapeHTML(str) {
-    return new Option(str).innerHTML;
-}
 
 class StatsHelper {
 
     static locationHashChanged() {
        window.location.reload(); 
+    }
+
+    static DatePicker(el){
+        const input = document.getElementById(el);
+        const datepicker = new TheDatepicker.Datepicker(input);
+        datepicker.options.setInputFormat('Y-m-d');
+        datepicker.options.setDarkMode(true);
+        datepicker.render();
+    }
+
+    static  escapeHTML(str) {
+        return new Option(str).innerHTML;
     }
 
     static getLocaleDateString(time) {
@@ -25,6 +34,16 @@ class StatsHelper {
 
     static  redWon(match) {
         return match.score_blue < match.score_red
+    }
+
+    static sort(obj1){
+       return Object.keys(obj1).sort().reduce(
+            (obj, key) => { 
+              obj[key] = obj1[key]; 
+              return obj;
+            }, 
+            {}
+          );
     }
 
     static playerName(player) {
@@ -66,6 +85,36 @@ class StatsHelper {
         return colors[id]
     }
 
+    static timeSince(date) {
+        var matchdate = new Date(new Date(date).getTime()  )
+        var now = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000)
+        var seconds = Math.floor((now - matchdate) / 1000);
+        var interval = seconds / 86400;
+        if (interval > 1) {
+          return StatsHelper.getLocaleDateString(matchdate) 
+        }
+        interval = seconds / 3600;
+        if (interval > 1) {
+          return Math.floor(interval) + " hours ago";
+        }
+        interval = seconds / 60;
+        if (interval > 1) {
+          return Math.floor(interval) + " minutes ago";
+        }
+        return Math.floor(seconds) + " seconds ago";
+    }
+
+    static scrollToTop(){
+        $("body").append($('<span class="hidden toTop">back to Top</span>'))
+        var el = $('.toTop')
+        $(window).scroll(function () {
+            ($(this).scrollTop() > 300)?el.fadeIn():el.fadeOut();
+        });
+        el.click(function () { 
+            $('body,html').animate({scrollTop: 0}, 400);
+        });
+    }
+
     static formatTime(duration) {
         var hrs = ~~(duration / 3600);
         var mins = ~~((duration % 3600) / 60);
@@ -79,9 +128,13 @@ class StatsHelper {
         return ret;
     }
 
+    static stripColor(map){
+        return map.replaceAll(/[^a-z0-9+_-]/g, "")
+    }
+
     static getMapImagePath(map) {
         // sanitize map name for url usage
-        var map_fn = map.replaceAll(/[^a-z0-9+_-]/g, "")
+        var map_fn = this.stripColor(map)
         return `images/lvlshot/${map_fn}.jpg`
     }
 }
@@ -106,23 +159,66 @@ class ModalView {
 
     setContent(ctn) {
         this.modal.html(ctn)
-        new DetailView().setItemClick()
+       // new DetailView().setItemClick()
         return this
     }
 
     toggleModal() {
+        
         if (this.modalbg.css("display") == "flex") {
             this.modalbg.css("display", "none");
             this.modal.css("display", "none");
+            $(".mapname").addClass("blur1")
         } else {
             this.modalbg.css("display", "flex");
             this.modal.css("display", "flex");
-
+            $(".mapname").removeClass("blur1")
         }
         if(this.modal.height()-$("#modal-container div").height()<0){
             $("#modal-container > div").addClass("nocenter")
         } 
     }
+}
+
+class FilterView {
+    _instance = null
+    items = null
+    constructor(items) {
+        this.items= items
+        this.start()
+        if (FilterView._instance) {
+            return FilterView._instance
+        }
+        FilterView._instance = this;
+  
+    }
+    start(){
+        $(".filterbox").hide()
+        StatsHelper.DatePicker("datepicker")
+        this.populateSelectBox("#mapselect",this.items.maps)
+        this.populateSelectBox("#serverselect",this.items.servers)
+        this.populateSelectBox("#gtselect",this.items.gametypes)
+    }
+
+    setFilterButtonClick(){
+        $(".tableheader").click(el=>{
+            $(".filterbox").toggle()
+        })
+        $("#filterstart").click(el=>{
+            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
+        })
+        $("#filterreset").click(el=>{
+            new RatStat().start()  
+        })
+    }
+
+    populateSelectBox(id,elements){
+        var $dropdown = $(id);
+        $.each(elements, function( key, value) {
+            $dropdown.append($("<option />").val(value).text(key));
+        });
+    }
+
 }
 
 class RatStat {
@@ -134,7 +230,7 @@ class RatStat {
     gametypeontainer ={}
     matchcontainer = {}
     weaponcontainer =[]
-
+    indexfile="index.json"
     constructor() {
         if (RatStat._instance) {
             return RatStat._instance
@@ -142,16 +238,24 @@ class RatStat {
           RatStat._instance = this;
     }
     
-    async start(filter=null) {
+    async start(ratobj={filter:null}) {
         $("#matchcontainer").html("")
         var _self = this;
+        if(ratobj.file){
+            this.indexfile=ratobj.file
+        }
         var hash = window.location.hash.replace("#", "");
         if (hash != "") {
             await this.loadMatchdata(hash)
             new DetailView(_self.match)
         } else {
+            StatsHelper.scrollToTop()
             await this.loadIndexdata()
-            new MatchList(_self.matchcontainer,filter);
+            var matchlist = new MatchList(_self.matchcontainer)
+            matchlist.filter=ratobj.filter
+            matchlist.render(_self.matchcontainer);
+            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes})
+            fltview.setFilterButtonClick()
         }
         window.onhashchange = StatsHelper.locationHashChanged;
     }
@@ -177,7 +281,7 @@ class RatStat {
     }
 
     getWeapon(no){
-        return this.weaponcontainer[no-1];
+        return this.weaponcontainer.filter(el=> el.weapon_id == no)[0];
     }
 
     getWeapons(){
@@ -220,7 +324,8 @@ class RatStat {
         return new Promise(resolve => {
                 $.when(
                     $("#templates").load("./templates/templates.html"),
-                    $.getJSON("./index.json", function (data) { _self.matchcontainer = data; }),
+                    $.getJSON("./"+_self.indexfile, function (data) { _self.matchcontainer = data; }),
+                        
                     $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
                 ).then(function () {           
                     resolve(true);
@@ -233,7 +338,8 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() }),
+                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() })
+                .fail(function(event, jqxhr, exception) {window.location.hash="#";new RatStat().start()}),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
@@ -248,12 +354,18 @@ class RatStat {
 class MatchList {
     matchdata = {}
     filter = null
-    constructor(data,filter) {
+    maps ={}
+    servernames = {}
+    gametypes ={}
+    _instance = null
+       
+    constructor(data) {
         try{ 
-            this.filter = filter
             this.matchdata = data
-            this.renderMatchList()
-            this.renderMatchRows(data,filter)
+            if (MatchList._instance) {
+                return MatchList._instance
+            }
+            MatchList._instance = this;
         }catch(e){
             console.log(e)
             return $("<div></div>")
@@ -261,39 +373,65 @@ class MatchList {
     }
 
     renderMatchList(el) {
+        $("#matchcontainer").html("")
         $($("#indexbody").html()).appendTo("#matchcontainer");
     }
 
-    renderMatchRows(matches,filter=null) {
+    render(data=null){
+        if(data)
+        this.matchdata = data
+        this.renderMatchList()
+        this.renderMatchRows()
+    }
+
+    renderMatchRows() {
         var self= this
-        Object.keys(matches).reverse().forEach((mtch, idx) => {
-            if(self.matchFilter(matches[mtch])){
-            this.renderMatchRow(matches[mtch], idx, mtch)
+        var idx = 0
+        Object.keys(this.matchdata).reverse().forEach((mtch) => {
+            this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
+            this.maps = StatsHelper.sort(this.maps)
+            var svname = this.matchdata[mtch].servername.replaceAll(/[\^0-9]/g, "").split("|")[0]
+            this.servernames[svname]=this.matchdata[mtch].servername.split("|")[0]
+            this.servernames =  StatsHelper.sort(this.servernames)
+            this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
+            this.gametypes = StatsHelper.sort(this.gametypes)
+            if(self.matchFilter(this.matchdata[mtch])){
+                
+                this.renderMatchRow(this.matchdata[mtch], idx, mtch)
+                idx++
             }
         })
+      
     }
 
     matchFilter(match){
         if(this.filter){
-            var val = true
+            var vali = true
             Object.keys(this.filter).forEach(filt=>{
              
                 switch(filt){
                     case"map":
-                        val =   match.map==this.filter[filt]
+                    if(this.filter[filt]=="ALL") break
+                        vali =  (vali && match.map==this.filter[filt]) //new FilterView().setFilterButtonClick()
                         break
                     case"servername":
-                        val =   match.servername==this.filter[filt]
+                    if(this.filter[filt]=="ALL") break
+                        vali =   vali && match.servername.split("|")[0].trim() == this.filter[filt].trim()
                         break
                     case "date":
-                        val =   match.time.split("T")[0]==this.filter[filt]
+                    if(this.filter[filt]=="") break
+                        vali =   vali && match.time.split("T")[0]==this.filter[filt]
                         break
                     case"gametype":
-                        val =  (match.gametype==this.filter[filt])
+                    if(this.filter[filt]=="ALL") break
+                        vali =  vali && (parseInt(match.gametype)==parseInt(this.filter[filt]))
                         break
                 }
+                if(this.filter[filt]=="ALL" && !vali){
+                    return false
+                }
             })
-            return val
+            return vali
         } else{
             return true
         }
@@ -301,20 +439,19 @@ class MatchList {
     }
 
     renderMatchRow(match, idx, mtch) {
-        console.log("hm")
-        var $test = $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
+        $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
         var $wrapperspan = $("#row_" + idx)
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
         var div = $wrapperspan.find(" div")
-        $(div[4]).html(StatsHelper.getLocaleDateString(match.time))
+        $(div[4]).html(StatsHelper.timeSince(match.time))
         $(div[1]).html(StatsHelper.colorString(match.servername))
         $(div[2]).html(RatStat.getGameTypeDesc(match.gametype))
         $(div[3]).html(match.players)
         if (USE_LEVELSHOTS) {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
         }
-        var span = $wrapperspan.find("span.mapname").first().html(escapeHTML(match.map))
+        $wrapperspan.find("span.mapname").first().html(StatsHelper.escapeHTML(match.map))
     }
 
 }
@@ -468,7 +605,7 @@ class DetailView {
         }
         $("#M_SERVER_NAME").html(StatsHelper.colorString(match.servername))
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
-        $("#M_MAP").html(escapeHTML(match.map))
+        $("#M_MAP").html(StatsHelper.escapeHTML(match.map))
         $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
     }
 
@@ -503,7 +640,7 @@ class PlayerCard {
              }
         }catch(e){
             console.log(e)
-            return $("<div></div>")
+            return $("<div>")
         }
  
     }
@@ -533,7 +670,6 @@ class PlayerCard {
         if(Object.keys(items).length>0){
             Object.keys(sortby).forEach((wp) => {
                 if(renderObj == Weapon && weaplist !=null){
-                    console.log(wp)
                     if(wp.indexOf(items) ){
                         el.append(new renderObj(items[wp], wp));
                     } else {
@@ -559,7 +695,7 @@ class PlayerRow {
         try {
             this.renderPlayerRow(el, player)
         }catch(e){
-            return $("<div></div>")
+            return $("<div>")
         }
     }
 
@@ -656,6 +792,7 @@ class Weapon {
     getWeaponIcon() {
         return `<img src="images/icons/${this.weapon.icon}" class="h-5 w-5 inline rat-tip" title-new="${this.weapon.name} : ${this.weapon.description}"/>`
     }
+
     getWeaponDescription() {
         var text = ""+this.weapon.name+""
         if(this.weapon.description != ""){

@@ -57,4 +57,7 @@ Licensed under GPLv2 (see LICENSE)
 - Tailwind CSS:
   https://tailwindcss.com/
   MIT license
+- The Datepicker
+  https://github.com/thedatepicker/thedatepicker
+  MIT license
 
