@@ -275,7 +275,7 @@ class RatStat {
             if (key.startsWith("weapon_")) {
                 var tmp = data[key]
                 tmp.key = key
-                self.weaponcontainer.push(tmp)
+                self.weaponcontainer[tmp.weapon_id]=tmp
             }
         })
     }
@@ -531,7 +531,8 @@ class DetailView {
 
     getMatchWeapons(){
         try {
-            return this.matchdata.matchweapons.reduce((a, v) => ({ ...a, [v]: v}), {})
+            console.log(this.matchdata.matchweapons)
+            return (this.matchdata.matchweapons !=null)?this.matchdata.matchweapons.reduce((a, v) => ({ ...a, [v]: v}), {}):null
         }catch(e){
             return null
         }
@@ -664,9 +665,11 @@ class PlayerCard {
     }
     renderPlayerCardElement(el, items ,sortby,renderObj) {
         var weaplist = new DetailView().getMatchWeapons()
+        console.log(sortby)
         if(renderObj == Weapon && weaplist !=null ){
             sortby = weaplist
         }
+        console.log(sortby)
         if(Object.keys(items).length>0){
             Object.keys(sortby).forEach((wp) => {
                 if(renderObj == Weapon && weaplist !=null){
