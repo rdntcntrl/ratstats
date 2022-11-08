@@ -193,8 +193,6 @@ class FilterView {
   
     }
     start(){
-        //new ModalView().setContent($("#filter").html())
-        //this.setFilterButtonClick()
         $(".filterbox").hide()
         StatsHelper.DatePicker("datepicker")
         this.populateSelectBox("#mapselect",this.items.maps)
@@ -207,8 +205,10 @@ class FilterView {
             $(".filterbox").toggle()
         })
         $("#filterstart").click(el=>{
-            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})
-            
+            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
+        })
+        $("#filterreset").click(el=>{
+            new RatStat().start()  
         })
     }
 
