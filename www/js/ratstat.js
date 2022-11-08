@@ -281,7 +281,7 @@ class RatStat {
     }
 
     getWeapon(no){
-        return this.weaponcontainer[no-1];
+        return this.weaponcontainer.filter(el=> el.weapon_id == no)[0];
     }
 
     getWeapons(){
@@ -766,7 +766,11 @@ class Weapon {
 
     constructor(weap, no) {
         try {
+            console.log(no)
+            console.log(this.weapon)
             this.weapon= new RatStat().getWeapon(no)
+            console.log(no)
+            console.log(this.weapon)
             let elem =  $($("#playercard_weapon_item").html());
             elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
