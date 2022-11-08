@@ -670,7 +670,6 @@ class PlayerCard {
         if(Object.keys(items).length>0){
             Object.keys(sortby).forEach((wp) => {
                 if(renderObj == Weapon && weaplist !=null){
-                    console.log(wp)
                     if(wp.indexOf(items) ){
                         el.append(new renderObj(items[wp], wp));
                     } else {
@@ -766,11 +765,7 @@ class Weapon {
 
     constructor(weap, no) {
         try {
-            console.log(no)
-            console.log(this.weapon)
             this.weapon= new RatStat().getWeapon(no)
-            console.log(no)
-            console.log(this.weapon)
             let elem =  $($("#playercard_weapon_item").html());
             elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
