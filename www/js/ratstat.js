@@ -640,7 +640,7 @@ class PlayerCard {
              }
         }catch(e){
             console.log(e)
-            return $("<div></div>")
+            return $("<div>")
         }
  
     }
@@ -696,7 +696,7 @@ class PlayerRow {
         try {
             this.renderPlayerRow(el, player)
         }catch(e){
-            return $("<div></div>")
+            return $("<div>")
         }
     }
 
@@ -793,6 +793,7 @@ class Weapon {
     getWeaponIcon() {
         return `<img src="images/icons/${this.weapon.icon}" class="h-5 w-5 inline rat-tip" title-new="${this.weapon.name} : ${this.weapon.description}"/>`
     }
+
     getWeaponDescription() {
         var text = ""+this.weapon.name+""
         if(this.weapon.description != ""){
