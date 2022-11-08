@@ -159,7 +159,7 @@ class ModalView {
 
     setContent(ctn) {
         this.modal.html(ctn)
-       // new DetailView().setItemClick()
+        new DetailView().setItemClick()
         return this
     }
 
