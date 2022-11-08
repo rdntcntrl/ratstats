@@ -17,12 +17,16 @@
 
 <template id="playercard_weapon_item">
     <div class="table-row w_row">
-        <div class="table-cell py-1 text-center w_img_div"><img  src="images/icons/iconw_grenade.png" class="w_img h-5 w-5 inline"></div>
+        <div class="table-cell py-1 text-center w_img_div"><img src="images/icons/" class="h-5 w-5 inline rat-tip" title-new=""/></div>
         <div class="table-cell text-center w_acc">%ACC%</div>
         <div class="table-cell text-center w_kills"></div>
         <div class="table-cell text-center w_dmg">%DAMAGE%</div>
         <div class="table-cell text-center w_k_d">%HITS%/%SHOTS%</div>
     </div>
+</template>
+
+<template id="playercard_weapon_empty">
+    <div class="table-row w_row wp_empty" style="visibility: hidden;"><img  class="h-8 w-5" /></div>
 </template>
 
 <template id="playercard_award_item">     
@@ -253,6 +257,7 @@
                 <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
                     Date
                 </div>
+                <div class="arrow up"></div>
             </div>
             <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full filterbox ">
                 <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider">

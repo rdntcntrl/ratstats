@@ -2,7 +2,7 @@ const BOT_NAME_PREFIX = '';
 // uncomment this to get bot icon in front of bot names:
 //const BOT_NAME_PREFIX = '\u{1f916} ';
 
-const USE_LEVELSHOTS = false;
+const USE_LEVELSHOTS = true;
 
 
 class StatsHelper {
@@ -83,6 +83,10 @@ class StatsHelper {
             "8": "text-orange-600",
         }
         return colors[id]
+    }
+
+    static stripColors(str) {
+        return str.replaceAll(/\^[0-8]/g, "")
     }
 
     static timeSince(date) {
@@ -193,16 +197,36 @@ class FilterView {
   
     }
     start(){
-        $(".filterbox").hide()
+        this.applyFilterBoxState()
         StatsHelper.DatePicker("datepicker")
         this.populateSelectBox("#mapselect",this.items.maps)
         this.populateSelectBox("#serverselect",this.items.servers)
         this.populateSelectBox("#gtselect",this.items.gametypes)
     }
 
+    applyFilterBoxState(){
+        var fboxstate = localStorage.getItem('filterboxstate')
+        if(fboxstate){
+            if(fboxstate=="none"){
+                $(".filterbox").hide()
+                $(".arrow").removeClass("up").addClass("down")
+            }
+        }else{
+            $(".filterbox").hide()
+            $(".arrow").removeClass("up").addClass("down")
+        }
+    }
+
     setFilterButtonClick(){
         $(".tableheader").click(el=>{
             $(".filterbox").toggle()
+            localStorage.setItem('filterboxstate', $(".filterbox").css("display"));
+            if( $(".filterbox").css("display")=="table-row"){
+                $(".arrow").removeClass("down").addClass("up")
+               
+            } else {
+                $(".arrow").removeClass("up").addClass("down")
+            }
         })
         $("#filterstart").click(el=>{
             new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
@@ -275,7 +299,7 @@ class RatStat {
             if (key.startsWith("weapon_")) {
                 var tmp = data[key]
                 tmp.key = key
-                self.weaponcontainer.push(tmp)
+                self.weaponcontainer[tmp.weapon_id]=tmp
             }
         })
     }
@@ -390,13 +414,12 @@ class MatchList {
         Object.keys(this.matchdata).reverse().forEach((mtch) => {
             this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
             this.maps = StatsHelper.sort(this.maps)
-            var svname = this.matchdata[mtch].servername.replaceAll(/[\^0-9]/g, "").split("|")[0]
-            this.servernames[svname]=this.matchdata[mtch].servername.split("|")[0]
+            var svname = StatsHelper.stripColors(this.matchdata[mtch].servername).split("^7|")[0]
+            this.servernames[svname]=this.matchdata[mtch].servername.split("^7|")[0]
             this.servernames =  StatsHelper.sort(this.servernames)
             this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
             this.gametypes = StatsHelper.sort(this.gametypes)
             if(self.matchFilter(this.matchdata[mtch])){
-                
                 this.renderMatchRow(this.matchdata[mtch], idx, mtch)
                 idx++
             }
@@ -416,7 +439,7 @@ class MatchList {
                         break
                     case"servername":
                     if(this.filter[filt]=="ALL") break
-                        vali =   vali && match.servername.split("|")[0].trim() == this.filter[filt].trim()
+                        vali =   vali && match.servername.split("^7|")[0].trim() == this.filter[filt].trim()
                         break
                     case "date":
                     if(this.filter[filt]=="") break
@@ -500,7 +523,7 @@ class DetailView {
             })
         }catch(e){
             console.log(e)
-            return $("<div></div>")
+            return $("<div>")
         }
        
     }
@@ -531,7 +554,8 @@ class DetailView {
 
     getMatchWeapons(){
         try {
-            return this.matchdata.matchweapons.reduce((a, v) => ({ ...a, [v]: v}), {})
+            console.log(this.matchdata.matchweapons)
+            return (this.matchdata.matchweapons !=null)?this.matchdata.matchweapons.reduce((a, v) => ({ ...a, [v]: v}), {}):null
         }catch(e){
             return null
         }
@@ -664,9 +688,11 @@ class PlayerCard {
     }
     renderPlayerCardElement(el, items ,sortby,renderObj) {
         var weaplist = new DetailView().getMatchWeapons()
+        console.log(sortby)
         if(renderObj == Weapon && weaplist !=null ){
             sortby = weaplist
         }
+        console.log(sortby)
         if(Object.keys(items).length>0){
             Object.keys(sortby).forEach((wp) => {
                 if(renderObj == Weapon && weaplist !=null){
@@ -770,7 +796,7 @@ class Weapon {
             elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
             var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
-            div.html(this.getWeaponIcon())
+            div.find("img").attr("src",div.find("img").attr("src")+this.weapon.icon)
             div.addClass("rat-tip")
             div.attr("title-new", this.getWeaponDescription())
             elem.find("div.w_acc").html(acc)
@@ -785,20 +811,12 @@ class Weapon {
             elem.find("div.w_k_d").html(weap.hits + shots)
             return elem;
         }catch(e){
-            return $(`<div class="table-row w_row wp_empty" style="visibility: hidden;"><img  class="h-8 w-5" ></div>`)
+            return $($("#playercard_weapon_empty").html())
         }
-    }
-
-    getWeaponIcon() {
-        return `<img src="images/icons/${this.weapon.icon}" class="h-5 w-5 inline rat-tip" title-new="${this.weapon.name} : ${this.weapon.description}"/>`
     }
 
     getWeaponDescription() {
-        var text = ""+this.weapon.name+""
-        if(this.weapon.description != ""){
-            text +=  `: ${this.weapon.description}`
-        }
-        return text
+        return this.weapon.name+((this.weapon.description != "")?`: ${this.weapon.description}`:"")
     }
 }
 
@@ -816,7 +834,7 @@ class Award {
             div.attr("title-new", this.getItemDescription())
             return elem;
         }catch(e){
-            return $("<div></div>")
+            return $("<div>")
         }
     }
 
@@ -848,7 +866,7 @@ class Item {
             div.attr("title-new", this.getItemDescription())
             return elem;
         }catch(e){
-            return $("<div></div>")
+            return $("<div>")
         }
     }
 
