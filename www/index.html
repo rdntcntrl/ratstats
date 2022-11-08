@@ -5,12 +5,14 @@
     <title>ratstats - matchview</title>
     <link rel="icon" type="image/svg+xml" href="images/ratmod-head-icon.svg">
     <link href="./css/output.css" rel="stylesheet">
+    <link href="./contrib/css/the-datepicker.css" rel="stylesheet">
     <link href="./contrib/fonts/overpass-mono.css" rel="stylesheet">
     <script type="application/javascript" src="./contrib/js/jquery.js"></script>
+    <script type="application/javascript" src="./contrib/js/datepicker.js"></script>
     <script type="application/javascript" src="./js/ratstat.js"></script>
     <script>
         $(document).ready(function () {
-            new RatStat().start()
+            new RatStat().start({file:"matches/index.json"})
         });
     </script>
 </head>

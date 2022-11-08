@@ -2,13 +2,21 @@ const BOT_NAME_PREFIX = '';
 // uncomment this to get bot icon in front of bot names:
 //const BOT_NAME_PREFIX = '\u{1f916} ';
 
-const USE_LEVELSHOTS = true;
+const USE_LEVELSHOTS = false;
 
 
 class StatsHelper {
 
     static locationHashChanged() {
        window.location.reload(); 
+    }
+
+    static DatePicker(el){
+        const input = document.getElementById(el);
+        const datepicker = new TheDatepicker.Datepicker(input);
+        datepicker.options.setInputFormat('Y-m-d');
+        datepicker.options.setDarkMode(true);
+        datepicker.render();
     }
 
     static  escapeHTML(str) {
@@ -96,6 +104,17 @@ class StatsHelper {
         return Math.floor(seconds) + " seconds ago";
     }
 
+    static scrollToTop(){
+        $("body").append($('<span class="hidden toTop">back to Top</span>'))
+        var el = $('.toTop')
+        $(window).scroll(function () {
+            ($(this).scrollTop() > 300)?el.fadeIn():el.fadeOut();
+        });
+        el.click(function () { 
+            $('body,html').animate({scrollTop: 0}, 400);
+        });
+    }
+
     static formatTime(duration) {
         var hrs = ~~(duration / 3600);
         var mins = ~~((duration % 3600) / 60);
@@ -174,20 +193,21 @@ class FilterView {
   
     }
     start(){
-        new ModalView().setContent($("#filter").html())
+        //new ModalView().setContent($("#filter").html())
         //this.setFilterButtonClick()
-        $(".mapname").removeClass("blur")
+        $(".filterbox").hide()
+        StatsHelper.DatePicker("datepicker")
         this.populateSelectBox("#mapselect",this.items.maps)
         this.populateSelectBox("#serverselect",this.items.servers)
         this.populateSelectBox("#gtselect",this.items.gametypes)
     }
 
     setFilterButtonClick(){
-        $("button").click(el=>{
-            new ModalView().toggleModal()
+        $(".tableheader").click(el=>{
+            $(".filterbox").toggle()
         })
         $("#filterstart").click(el=>{
-            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val()}})
+            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})
             
         })
     }
@@ -229,9 +249,9 @@ class RatStat {
             await this.loadMatchdata(hash)
             new DetailView(_self.match)
         } else {
+            StatsHelper.scrollToTop()
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
-            console.log(ratobj.filter)
             matchlist.filter=ratobj.filter
             matchlist.render(_self.matchcontainer);
             var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes})
@@ -305,6 +325,7 @@ class RatStat {
                 $.when(
                     $("#templates").load("./templates/templates.html"),
                     $.getJSON("./"+_self.indexfile, function (data) { _self.matchcontainer = data; }),
+                        
                     $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
                 ).then(function () {           
                     resolve(true);
@@ -317,7 +338,8 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() }),
+                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() })
+                .fail(function(event, jqxhr, exception) {window.location.hash="#";new RatStat().start()}),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
@@ -364,7 +386,8 @@ class MatchList {
 
     renderMatchRows() {
         var self= this
-        Object.keys(this.matchdata).reverse().forEach((mtch, idx) => {
+        var idx = 0
+        Object.keys(this.matchdata).reverse().forEach((mtch) => {
             this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
             this.maps = StatsHelper.sort(this.maps)
             var svname = this.matchdata[mtch].servername.replaceAll(/[\^0-9]/g, "").split("|")[0]
@@ -373,7 +396,9 @@ class MatchList {
             this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
             this.gametypes = StatsHelper.sort(this.gametypes)
             if(self.matchFilter(this.matchdata[mtch])){
+                
                 this.renderMatchRow(this.matchdata[mtch], idx, mtch)
+                idx++
             }
         })
       
@@ -381,26 +406,29 @@ class MatchList {
 
     matchFilter(match){
         if(this.filter){
-            var vali = false
+            var vali = true
             Object.keys(this.filter).forEach(filt=>{
              
                 switch(filt){
                     case"map":
                     if(this.filter[filt]=="ALL") break
-                        vali =  (match.map==this.filter[filt]) //new FilterView().setFilterButtonClick()
+                        vali =  (vali && match.map==this.filter[filt]) //new FilterView().setFilterButtonClick()
                         break
                     case"servername":
                     if(this.filter[filt]=="ALL") break
-                        vali =   match.servername.split("|")[0].trim() == this.filter[filt].trim()
+                        vali =   vali && match.servername.split("|")[0].trim() == this.filter[filt].trim()
                         break
                     case "date":
-                        if(this.filter[filt]=="ALL") break
-                        vali =   match.time.split("T")[0]==this.filter[filt]
+                    if(this.filter[filt]=="") break
+                        vali =   vali && match.time.split("T")[0]==this.filter[filt]
                         break
                     case"gametype":
                     if(this.filter[filt]=="ALL") break
-                        vali =  (parseInt(match.gametype)==parseInt(this.filter[filt]))
+                        vali =  vali && (parseInt(match.gametype)==parseInt(this.filter[filt]))
                         break
+                }
+                if(this.filter[filt]=="ALL" && !vali){
+                    return false
                 }
             })
             return vali

@@ -11,22 +11,24 @@
     display: none;
 }
 
-body{
+body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-#modal-container{
+#modal-container {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
 .cardmain {
     height: fit-content;
     -ms-overflow-style: none;
     scrollbar-width: none;
     position: relative;
 }
+
 .nocenter {
     height: fit-content;
     -ms-overflow-style: none;
@@ -34,45 +36,45 @@ body{
     position: relative;
     top: -50%;
 
-    transform: translate(0,50%);
+    transform: translate(0, 50%);
 }
 
 .rat-tip[title-new]:hover:after {
     content: attr(title-new);
     position: absolute;
-    top : 20px;
+    top: 20px;
     left: -100%;
-    border:  rgba(17,24,39,255) 3px solid;
+    border: rgba(17, 24, 39, 255) 3px solid;
     padding: 10px;
     display: block;
     z-index: 1001;
-    background-color: rgba(55,65,81,255);
+    background-color: rgba(55, 65, 81, 255);
     color: #ffffff;
     min-width: 200px;
     max-width: 300px;
     text-decoration: none;
-    text-align:center;
-    
-  }
+    text-align: center;
 
+}
 
-  .table-cell.rat-tip[title-new]{
-   
+.table-cell.rat-tip[title-new] {
+
     position: relative;
 
-  }
+}
 
-  .table-cell.rat-tip[title-new]:hover:after {
-    background-color: rgba(31,41,55,255);
+.table-cell.rat-tip[title-new]:hover:after {
+    background-color: rgba(31, 41, 55, 255);
     margin: 20px 0px 0px 100%;
-  }
+}
 
-  .matchimage p {
+.matchimage p {
     text-shadow: 1px 1px 3px black;
     width: 100%;
     padding: 6px 8vw;
     background: #4c4c50cf;
 }
+
 .matchimage {
     background-image: url(/images/lvlshot/aggressor.jpg);
     border: 1px solid slategray;
@@ -81,12 +83,21 @@ body{
     background-position: center;
 }
 
-span.mapname{
-    display: block;line-height: 80px;
+span.mapname {
+    display: block;
+    line-height: 80px;
 }
 
 span.blur1 {
     backdrop-filter: blur(0.5px);
 }
 
-
+.toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor:pointer;
+}
+.the-datepicker__button {
+    color: white!important;
+}

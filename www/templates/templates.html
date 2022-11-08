@@ -231,53 +231,13 @@
     </div>
 </template>
 <template id="filter">
-    <div class="bg-gray-800 text-gray-200 flex flex-col filterbox">
-        <div class="bg-gray-700 w-full py-3 px-3 border-l-8 ">
-            <p class="text-lg leading-none text-gray-200 P_NAME">Filter Settings</p>
-        </div>
-        
-        <div class="w-full py-3 px-3">
-            <h3 class=" text-gray-300">Map</h3>
-            <select class="w-full " id="mapselect">
-                <option value="ALL">
-                    ALL
-                </option>
-            </select>
-        </div>
-        <div class="w-full py-3 px-3  bg-gray-700">
-            <h3 class=" text-gray-300">Servername</h3>
-          <select class="w-full "  id="serverselect">
-            <option value="ALL">
-                    ALL
-                </option>
-            </select>
-        </div>
-        <div class="w-full  py-3 px-3">
-            <h3 class=" text-gray-300">Gametype</h3>
-            <select class="w-full " id="gtselect">
-                <option value="ALL">
-                    ALL
-                </option>
-            </select>
-        </div>
-        <div class="w-full px-3 py-3  bg-gray-700">
-            <h3 class=" text-gray-300">Date</h3>
-            <select class="w-full " id="mapselect">
-                <option value="ALL">
-                    ALL
-                </option>
-            </select>
-        </div>
-        <div class="w-full px-3 py-3">
-            <button class="bg-gray-500" id="filterstart">Filter</button> <button class="bg-gray-500" id="filterreset">Reset</button>
-        </div>
-    </div>
+    
+
 </template>
 <template id="indexbody">
-    <button>Filter</button>
     <div class="flex flex-col lg:flex-row">
         <div id="winningteam" class="table w-full lg:w lg:px-1">   
-            <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full">
+            <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full tableheader">
                 <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
                     Map
                 </div>
@@ -292,6 +252,52 @@
                 </div>
                 <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
                     Date
+                </div>
+            </div>
+            <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full filterbox ">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider">
+                    <select class="  text-black" id="mapselect">
+                        <option value="ALL">
+                            ALL
+                        </option>
+                    </select>
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider">
+                    <select class=" text-black"  id="serverselect">
+                        <option value="ALL">
+                                ALL
+                            </option>
+                        </select>
+                </div>   
+                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider">
+                    <select class="  text-black" id="gtselect">
+                        <option value="ALL">
+                            ALL
+                        </option>
+                    </select>
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-m font-medium uppercase tracking-wider">
+                  
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider">
+                    <input class="  text-black" id="datepicker" type="text"/>
+                </div>
+            </div>
+            <div class="table-row bg-gray-700 text-gray-200 min-w-full w-full filterbox ">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
+                    
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider">
+                    
+                </div>   
+                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider">
+                  
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-m font-medium uppercase tracking-wider">
+                   
+                </div>
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider">
+                    <button class="bg-gray-500" id="filterstart">Filter</button> <button class="bg-gray-500" id="filterreset">Reset</button>
                 </div>
             </div>
             <div id="matchlist" class="table-row-group divide-y divide-y-reverse divide-rose-400">
@@ -315,22 +321,8 @@
 </template>
 
 
-<template id="svg">
-    <svg width="200" height="60"
-     xmlns="http://www.w3.org/2000/svg">
- <foreignObject width="100%" height="100%" x="0" y="0">
-    
-	<div xmlns="http://www.w3.org/1999/xhtml" style="color: blue">
-		<span>Mapname</span><span style="color: red">Aggressor</span>>
-	</div>
- </foreignObject>
-</svg>
-</template>
-
-
-
 <template id="footer">
     <div>
-        
+
     </div>
 </template>
