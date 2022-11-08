@@ -128,13 +128,13 @@ class StatsHelper {
         return ret;
     }
 
-    static stripColor(map){
+    // sanitize map name for url usage
+    static sanitizeMapName(map){
         return map.replaceAll(/[^a-z0-9+_-]/g, "")
     }
 
     static getMapImagePath(map) {
-        // sanitize map name for url usage
-        var map_fn = this.stripColor(map)
+        var map_fn = this.sanitizeMapName(map)
         return `images/lvlshot/${map_fn}.jpg`
     }
 }

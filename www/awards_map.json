@@ -147,7 +147,7 @@
 	       "icon":	"medal_strongman.png",
 	       "show": true,
 	       "name": "Strongman",
-	       "description": "Fraged all of the enemy team on your own."
+	       "description": "Fragged all of the enemy team on your own."
 	},
 	"hero": {
 	       "icon":	"medal_star.png",
