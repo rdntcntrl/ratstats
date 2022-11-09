@@ -875,7 +875,8 @@ class Item {
             let div = elem.find("div").first();
             elem.find("p").html(amount);
             elem.find("img").attr("src",this.getItemIcon());
-            if(!this.item.show){elem.addClass("hidden");}
+            (this.item.show)?elem.addClass("showitem"):   elem.addClass("hidden")       
+              
             div.first().addClass("rat-tip")
             div.attr("title-new", this.getItemDescription())
             return elem;
