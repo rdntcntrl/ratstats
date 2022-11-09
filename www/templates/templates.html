@@ -26,7 +26,15 @@
 </template>
 
 <template id="playercard_weapon_empty">
-    <div class="table-row w_row wp_empty" style="visibility: hidden;"><img  class="h-8 w-5" /></div>
+
+    <div class="table-row w_row wp_5 text-gray-500">
+        <div class="table-cell py-1 text-center w_img_div rat-tip" title-new="Rocket Launcher"><img src="images/icons/" class="h-5 w-5 inline rat-tip" title-new=""></div>
+        <div class="table-cell text-center w_acc">---</div>
+        <div class="table-cell text-center w_kills" style="display: none;">---</div>
+        <div class="table-cell text-center w_dmg">---</div>
+        <div class="table-cell text-center w_k_d">---</div>
+    </div>
+   <!-- <div class="table-row w_row wp_empty" style="visibility: hidden;"><img  class="h-8 w-5" /></div>-->
 </template>
 
 <template id="playercard_award_item">     
@@ -45,20 +53,21 @@
 
 <template id="playercard">
     <div class="cursor-default md:max-w-lg w-full md:w-1/2 my-4 md:m-4 flex flex-col justify-start bg-gray-800 text-gray-200 flex flex-col cardmain">
-        <div class="bg-gray-700 w-full py-3 px-3 border-l-8 ">
+        <div class=" w-full py-3 px-3 border-l-8 bg-gray-700">
             <p class="text-lg leading-none text-gray-200 P_NAME">%%</p>
         </div>
         
-        <div class="w-full py-3 px-3">
-            <h3 class="uppercase text-gray-300">Summary</h3>
+        <div class="w-full py-3 px-3 ">
+         <!--   <h3 class="uppercase text-gray-300">Summary</h3>-->
             <div class="flex flex-wrap justify-between summary_stats"></div>
         </div>
-        <div class="w-full py-3 px-3 ">
-            <h3 class="uppercase text-gray-300">Items <span class="text-xs text-gray-500 clickitem cursor-pointer"> more...</span></h3>
-            <div class="flex flex-wrap item_stats"></div>
+        <div class="w-full py-3 px-3 flex justify-center flex-wrap bg-gray-800 border-t-2 border-gray-700">
+            <div class="flex flex-wrap item_stats statsfold justify-center"></div>
+            <span class="w-full text-xs pl-2 text-center text-gray-500 clickitem cursor-pointer"> more...</span>
+            <!--   <h3 class="uppercase text-gray-300">Items </h3>-->
         </div>
-        <div class="w-full  bg-gray-700 py-3 px-3">
-            <h3 class="uppercase text-gray-300">Weapons</h3>
+        <div class="w-full  py-3 px-3 border-t-2 border-gray-700">
+            <!--   <h3 class="uppercase text-gray-300">Weapons</h3>-->
             <div class="table mx-auto w-full">
                 <div class="table-row-group">
                 <div class="table-row">
@@ -73,9 +82,9 @@
                 </div>
             </div>
         </div>
-        <div class="w-full px-3 py-3">
-            <h3 class="uppercase text-gray-300">Medals</h3>
-            <div class="flex flex-wrap award_stats">
+        <div class="w-full px-3 py-3  bg-gray-800 border-t-2 border-gray-700">
+            <!--   <h3 class="uppercase text-gray-300">Medals</h3>-->
+            <div class="flex flex-wrap justify-center award_stats statsfold">
             </div>
         </div>
     </div>
@@ -84,15 +93,15 @@
 <template id="playercardduel">
     <div class="bg-gray-800 text-gray-200 flex flex-col">
         <div class="bg-gray-700 w-full py-3 px-3 ">
-            <p class="text-lg text-center leading-none text-gray-200 text-4xl P_NAME"></p>
+            <p class="text-lg text-center leading-none text-gray-200 text-xl P_NAME"></p>
         </div>
         <div class="w-full py-3 px-3">
             <div class="flex flex-wrap justify-between summary_stats"></div>
         </div>
-        <div class="w-full py-3 px-3 "> <div class="text-xs text-gray-500 clickitem cursor-pointer"> more...</div>
-            <div class="flex flex-wrap item_stats"></div>
+        <div class="w-full py-3 px-3 flex justify-center flex-wrap border-t-2 border-gray-700">
+            <div class="flex flex-wrap justify-center item_stats statsfold"></div> <div class="w-full text-xs pl-2 text-center text-gray-500 clickitem cursor-pointer"> more...</div>
         </div>
-        <div class="w-full bg-gray-700 py-3 px-3 ">
+        <div class="w-full bg-gray-800 py-3 px-3 border-t-2 border-gray-700 ">
             <div class="table mx-auto w-full">
                 <div class="table-row-group">
                 <div class="table-row">
@@ -107,9 +116,9 @@
                 </div>
             </div>
         </div>
-        <div class="w-full px-3 py-3">
-            <div class="flex justify-center flex-wrap award_stats">
-            </div>
+        <div class="w-full px-3 py-3 border-t-2 border-gray-700" >
+            <div class="flex justify-center flex-wrap award_stats statsfold">
+            </div><div class="w-full text-xs pl-2 text-center text-gray-500 clickitem cursor-pointer"> more...</div>
         </div>
     </div>
 </template>
