@@ -188,8 +188,10 @@ class ModalView {
 class FilterView {
     _instance = null
     items = null
-    constructor(items) {
+    filter={}
+    constructor(items,filter=null) {
         this.items= items
+        this.filter = filter
         this.start()
         if (FilterView._instance) {
             return FilterView._instance
@@ -197,13 +199,26 @@ class FilterView {
         FilterView._instance = this;
   
     }
+    setFilter(){
+        var suffix ="select"
+        if(this.filter){
+            Object.keys(this.filter).forEach(el=>{
+                suffix= el=="date"?"picker":"select"
+                $("#"+el+suffix).val(""+this.filter[el]).change()
+            })
+        }
+    }
+
     start(){
         this.applyFilterBoxState()
         StatsHelper.DatePicker("datepicker")
         this.populateSelectBox("#mapselect",this.items.maps)
-        this.populateSelectBox("#serverselect",this.items.servers)
+        this.populateSelectBox("#serversselect",this.items.servers)
         this.populateSelectBox("#gtselect",this.items.gametypes)
+        this.setFilter()
     }
+
+    
 
     applyFilterBoxState(){
         var fboxstate = localStorage.getItem('filterboxstate')
@@ -230,7 +245,7 @@ class FilterView {
             }
         })
         $("#filterstart").click(el=>{
-            new RatStat().start({filter:{gametype:$("#gtselect").val(),servername:$("#serverselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
+            new RatStat().start({filter:{gt:$("#gtselect").val(),servers:$("#serversselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
         })
         $("#filterreset").click(el=>{
             new RatStat().start()  
@@ -282,12 +297,15 @@ class RatStat {
             var matchlist = new MatchList(_self.matchcontainer)
             matchlist.filter=ratobj.filter
             matchlist.render(_self.matchcontainer);
-            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes})
+            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},ratobj.filter)
             fltview.setFilterButtonClick()
         }
         window.onhashchange = StatsHelper.locationHashChanged;
     }
 
+    getFilter(){
+        return this.filter;
+    }
 
     getAwards(){
         return this.awardcontainer;
@@ -450,7 +468,7 @@ class MatchList {
                     if(this.filter[filt]=="ALL") break
                         vali =  (vali && match.map==this.filter[filt]) //new FilterView().setFilterButtonClick()
                         break
-                    case"servername":
+                    case"servers":
                     if(this.filter[filt]=="ALL") break
                         vali =   vali && match.servername.split("^7|")[0].trim() == this.filter[filt].trim()
                         break
@@ -458,7 +476,7 @@ class MatchList {
                     if(this.filter[filt]=="") break
                         vali =   vali && match.time.split("T")[0]==this.filter[filt]
                         break
-                    case"gametype":
+                    case"gt":
                     if(this.filter[filt]=="ALL") break
                         // compare via description, because Tournament and Multitournament are both
                         // called "Duel" and only appear once in the selectbox
@@ -643,7 +661,6 @@ class DetailView {
     }
 
     setItemClick(){
-        console.log("jhk")
         $(document).find(".clickitem").click(el=>{
            
             let elem = $($(el.target).parents("div")[0])
