@@ -270,10 +270,10 @@ class RatStat {
         if(ratobj.file){
             this.indexfile=ratobj.file
         }
+        $("#playercards-container").html("")
         var hash = window.location.hash.replace("#", "");
         if (hash != "") {
             await this.loadMatchdata(hash)
-            console.log(this.match)
             if(this.match!= null)
             new DetailView(this.match)
         } else {
@@ -366,7 +366,7 @@ class RatStat {
         return new Promise(resolve => {
             $.when(
                 $("#templates").load("./templates/templates.html"),
-                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() })
+                $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   })
                 .fail(function(event, jqxhr, exception) {this.match=null;window.location.hash="#";//new RatStat().start()
             }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
@@ -413,7 +413,6 @@ class MatchList {
     }
 
     render(data=null){
-        console.log(data)
         if(data)
         this.matchdata = data
         $("#matchcontainer_hidden").html("")
@@ -426,7 +425,6 @@ class MatchList {
         var self= this
         var idx = 0
         Object.keys(this.matchdata).reverse().forEach((mtch) => {
-        console.log(mtch)
             this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
             this.maps = StatsHelper.sort(this.maps)
             var svname = StatsHelper.stripColors(this.matchdata[mtch].servername.split("^7|")[0])
@@ -478,7 +476,6 @@ class MatchList {
 
     renderMatchRow(match, idx, mtch) {
         var elem=  $($('#matchrow').html()).attr("id", "row_" + idx)
-        console.log(match)
         var $wrapperspan =  $($('#matchrow').html())
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
@@ -522,7 +519,6 @@ class DetailView {
     }
     constructor(match=null) {
         try{   
-            console.log(match)
             if(match){
                 
                 this.matchdata = match
@@ -530,8 +526,6 @@ class DetailView {
                 this.render(match)
             } else {
                 if (DetailView.instance) {
-                    // console.log(match)
-                     //this.render(match)
                      return DetailView.instance
                  }
             }
@@ -542,27 +536,37 @@ class DetailView {
         }
        
     }
-
+    initPlayers(){
+        this.matchdata.players.forEach((player, index) => {
+            player.index = index;
+            if (player.isbot) {
+                player.name = BOT_NAME_PREFIX + player.name;
+            }
+        });
+    }
     render(match){
         this.matchdata = match
-        console.log(this.matchdata)
+        this.initPlayers()
         this.matchdata.matchweapons = this.getMatchWeapons()
         this.matchdata.gametemplate = this.getTemplate(match.gametype)
         $("#matchcontainer_hidden").html("")
+
         this.renderMatchContainer("#matchcontainer_hidden")
         this.renderMatchContainer("#matchheader", "HEAD")
         this.renderTemplate()
         this.renderMatchInfo(this.matchdata)
         if($("#cbox footer").length==0) $("#cbox").append($($("#footer").html()));
-        document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
-            el2.onclick = function (el1) {
-                var element = document.getElementById("playercards-container").children[index].outerHTML
+        $(".plrow").each((index,el2) => {
+            $(el2).click(el1=> {
+                var id = $(el1.target).parents(".plrow")[0].id.split("_")[1]
+                var element = $("#playercards-container").children()[id].outerHTML
                 new ModalView().setContent(element).toggleModal()
-            }
+            })
         })
     }
 
     renderTemplate(){
+        $("#playercards-container").html("")
         this.templatefnc[this.matchdata.gametemplate](this)
     }
 
@@ -675,8 +679,8 @@ class PlayerCard {
     constructor(el, player, duel = false, cname = "") {
         try {
             let template = (duel)?$("#playercardduel"):$("#playercard");
-            $(template.html()).attr("id", "card_" + player.index ).appendTo($(el));
-            var elem = $("#card_" + player.index) 
+            
+            var elem = $($(template.html())) 
             if (duel) $(elem.find("div.bg-gray-700")[1]).addClass(cname)
             $(elem.find("div.bg-gray-700")[0]).addClass(cname)
             this.renderPlayerCardSummary($(elem).find("div.summary_stats"), player);
@@ -686,6 +690,7 @@ class PlayerCard {
             $(elem).find("p").first().html(StatsHelper.playerName(player))
             this.drawBorder(player.team,elem)
             this.setExpandableItems(elem)
+            elem.attr("id", "card_" + player.index ).appendTo($(el));
         }catch(e){
             console.log(e)
             return $("<div>")
@@ -777,6 +782,8 @@ class PlayerRow {
         elem.find("div.PLNAME").html(StatsHelper.playerName(player))
         elem.find("div.PLDUR").html( StatsHelper.formatTime(player.playtime))
         elem.find("div.PLKD").html(this.renderGameTypeColumn(player))
+        elem.attr("id","player_"+player.index)
+        elem.addClass("plrow")
         elem.appendTo($(el));
    }
 
@@ -941,6 +948,7 @@ class SummaryStat {
 }
 
 class Duel {
+    
     constructor(el, el1, players) {
         if (new DetailView().redWon()) {
             new PlayerCard(el, players[0], true, "border-red-700 border-l-4");
@@ -955,6 +963,7 @@ class Duel {
 
 class Team {
     constructor(el, team) { 
+       
         var players = new DetailView().getTeam(team)  
         players.forEach(pl => {
             new Player(el, pl);
@@ -968,6 +977,7 @@ class Team {
 }
 
 class Single {
+    
     constructor(el) { 
         var players = new DetailView().getPlayers(0)  
         players.forEach(pl => {
