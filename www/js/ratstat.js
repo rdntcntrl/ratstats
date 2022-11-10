@@ -8,7 +8,8 @@ const USE_LEVELSHOTS = true;
 class StatsHelper {
 
     static locationHashChanged() {
-       window.location.reload(); 
+      // window.location.reload(); 
+      new RatStat().start()
     }
 
     static DatePicker(el){
@@ -263,7 +264,7 @@ class RatStat {
     }
     
     async start(ratobj={filter:null}) {
-        $("#matchcontainer").html("")
+        //$("#matchcontainer").html("")
       
         var _self = this;
         if(ratobj.file){
@@ -272,7 +273,9 @@ class RatStat {
         var hash = window.location.hash.replace("#", "");
         if (hash != "") {
             await this.loadMatchdata(hash)
-            new DetailView(_self.match)
+            console.log(this.match)
+            if(this.match!= null)
+            new DetailView(this.match)
         } else {
             StatsHelper.scrollToTop()
             await this.loadIndexdata()
@@ -364,7 +367,8 @@ class RatStat {
             $.when(
                 $("#templates").load("./templates/templates.html"),
                 $.getJSON("./" + hash + ".json", function (data) { _self.match = data;   _self.initMatchData() })
-                .fail(function(event, jqxhr, exception) {window.location.hash="#";new RatStat().start()}),
+                .fail(function(event, jqxhr, exception) {this.match=null;window.location.hash="#";//new RatStat().start()
+            }),
                 $.getJSON("./items_map.json", function (data) { _self.itemcontainer = data;_self.setWeapons(data) }),
                 $.getJSON("./awards_map.json", function (data) { _self.awardcontainer = data; }),
                 $.getJSON("./gametypes_map.json", function (data) { _self.gametypeontainer = data; })
@@ -384,37 +388,45 @@ class MatchList {
     gametypes ={}
     _instance = null
        
-    constructor(data) {
+    constructor(data=null) {
         try{ 
-            this.matchdata = data
-            if (MatchList._instance) {
-                return MatchList._instance
+            if(data){
+                this.matchdata = data
+               
+                MatchList._instance = this;
+            } else{
+                if (MatchList._instance) {
+                    return MatchList._instance
+                }
             }
-            MatchList._instance = this;
+            
         }catch(e){
             console.log(e)
-            return $("<div></div>")
+            return $("<div>")
         }
     }
 
     renderMatchList(el) {
-        $("#matchcontainer").html("")
-        $($("#indexbody").html()).appendTo("#matchcontainer");
-        if($("#cbox footer").length==0)
-        $($("#footer").html()).appendTo("#cbox");
+        $("#matchcontainer_hidden").html($($("#indexbody").html()))
+        $("#matchheader").html("")
+        if($("#cbox footer").length==0) $("#cbox").append($($("#footer").html()));
     }
 
     render(data=null){
+        console.log(data)
         if(data)
         this.matchdata = data
+        $("#matchcontainer_hidden").html("")
         this.renderMatchList()
         this.renderMatchRows()
+        $("#matchcontainer").html($("#matchcontainer_hidden").html())
     }
 
     renderMatchRows() {
         var self= this
         var idx = 0
         Object.keys(this.matchdata).reverse().forEach((mtch) => {
+        console.log(mtch)
             this.maps[this.matchdata[mtch].map]=this.matchdata[mtch].map
             this.maps = StatsHelper.sort(this.maps)
             var svname = StatsHelper.stripColors(this.matchdata[mtch].servername.split("^7|")[0])
@@ -427,7 +439,7 @@ class MatchList {
                 idx++
             }
         })
-      
+       
     }
 
     matchFilter(match){
@@ -465,8 +477,9 @@ class MatchList {
     }
 
     renderMatchRow(match, idx, mtch) {
-        $($('#matchrow').html()).attr("id", "row_" + idx).appendTo("#matchlist");
-        var $wrapperspan = $("#row_" + idx)
+        var elem=  $($('#matchrow').html()).attr("id", "row_" + idx)
+        console.log(match)
+        var $wrapperspan =  $($('#matchrow').html())
         $wrapperspan.addClass(StatsHelper.toggleRowBgCSS(idx))
         $($wrapperspan).attr("href","./#" + mtch.split(".")[0] );
         var div = $wrapperspan.find(" div")
@@ -478,6 +491,8 @@ class MatchList {
             $(div[0]).css({ "background-image": "url(" + StatsHelper.getMapImagePath(match.map) + ")" })
         }
         $wrapperspan.find("span.mapname").first().html(StatsHelper.escapeHTML(match.map))
+        $wrapperspan.attr("id", "row_" + idx)
+        $wrapperspan.appendTo("#matchcontainer_hidden #matchlist");
     }
 
 }
@@ -505,31 +520,46 @@ class DetailView {
             new Duel("#left_side_team", "#right_side_team", duel)
         })
     }
-    constructor(match) {
+    constructor(match=null) {
         try{   
-            if (DetailView.instance) {
-                return DetailView.instance
+            console.log(match)
+            if(match){
+                
+                this.matchdata = match
+                DetailView.instance = this;
+                this.render(match)
+            } else {
+                if (DetailView.instance) {
+                    // console.log(match)
+                     //this.render(match)
+                     return DetailView.instance
+                 }
             }
-            DetailView.instance = this;
-            this.matchdata = match
-            this.matchdata.matchweapons = null
-            this.matchdata.gametemplate = this.getTemplate(match.gametype)
-            this.renderMatchContainer("#matchcontainer")
-            this.renderMatchContainer("#matchheader", "HEAD")
-            this.renderTemplate()
-            this.renderMatchInfo(this.matchdata)
-            if($("#cbox footer").length==0) $($("#footer").html()).appendTo("#cbox");
-            document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
-                el2.onclick = function (el1) {
-                    var element = document.getElementById("playercards-container").children[index].outerHTML
-                    new ModalView().setContent(element).toggleModal()
-                }
-            })
+       
         }catch(e){
             console.log(e)
             return $("<div>")
         }
        
+    }
+
+    render(match){
+        this.matchdata = match
+        console.log(this.matchdata)
+        this.matchdata.matchweapons = this.getMatchWeapons()
+        this.matchdata.gametemplate = this.getTemplate(match.gametype)
+        $("#matchcontainer_hidden").html("")
+        this.renderMatchContainer("#matchcontainer_hidden")
+        this.renderMatchContainer("#matchheader", "HEAD")
+        this.renderTemplate()
+        this.renderMatchInfo(this.matchdata)
+        if($("#cbox footer").length==0) $("#cbox").append($($("#footer").html()));
+        document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
+            el2.onclick = function (el1) {
+                var element = document.getElementById("playercards-container").children[index].outerHTML
+                new ModalView().setContent(element).toggleModal()
+            }
+        })
     }
 
     renderTemplate(){
@@ -597,6 +627,7 @@ class DetailView {
     }
 
     renderMatchContainer(el, prefix="") {
+        $(el).html()
         var type = prefix + this.matchdata.gametemplate
         $($("#" + type).html()).appendTo($(el));
     }
@@ -634,8 +665,9 @@ class DetailView {
         $("#M_DATE").html(StatsHelper.getLocaleDateString(match.time))
         $("#M_MAP").html(StatsHelper.escapeHTML(match.map))
         $("#M_GAMETYPE").html(RatStat.getGameTypeDesc(match.gametype))
+        $("#matchcontainer").html($("#matchcontainer_hidden").html())
     }
-
+    
    
 }
 
