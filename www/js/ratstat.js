@@ -704,12 +704,11 @@ class PlayerCard {
 
     setExpandableItems(elem,duel){
         var amount = (duel)?11:10
-        console.log(elem)
         $($(elem.find(".item_stats").children().slice(0,amount))).removeClass("hidden")
-        $($(elem.find(".award_stats").children())).addClass("hidden")
+       // $($(elem.find(".award_stats").children())).addClass("hidden")
         $($(elem.find(".award_stats").children().slice(0,8))).removeClass("hidden")
-        console.log(elem.find(".award_stats").children().length)
-        elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
+       // elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
+       elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden")
         elem.find(".item_stats").children().length<=amount? elem.find(".item_stats").parent().find(".clickitem").css("visibility","hidden"):""
     }
 
