@@ -518,6 +518,7 @@ class DetailView {
             var duel = el.getPlayers(0)
             el.setDuelScore(duel)
             new Duel("#left_side_team", "#right_side_team", duel)
+           
         })
     }
     constructor(match=null) {
@@ -566,11 +567,13 @@ class DetailView {
                 new ModalView().setContent(element).toggleModal()
             })
         })
+        this.setItemClick()
     }
 
     renderTemplate(){
         $("#playercards-container").html("")
         this.templatefnc[this.matchdata.gametemplate](this)
+    
     }
 
     redWon(){
@@ -640,7 +643,9 @@ class DetailView {
     }
 
     setItemClick(){
+        console.log("jhk")
         $(document).find(".clickitem").click(el=>{
+           
             let elem = $($(el.target).parents("div")[0])
             if(elem.find(" .hidden").length>0){
                 elem.find(" .hidden").removeClass("hidden").addClass("hide")
@@ -703,9 +708,10 @@ class PlayerCard {
     setExpandableItems(elem,duel){
         var amount = (duel)?11:10
         $($(elem.find(".item_stats").children().slice(0,amount))).removeClass("hidden")
-        $($(elem.find(".award_stats").children())).addClass("hidden")
+       // $($(elem.find(".award_stats").children())).addClass("hidden")
         $($(elem.find(".award_stats").children().slice(0,8))).removeClass("hidden")
-        elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
+       // elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
+       elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden")
         elem.find(".item_stats").children().length<=amount? elem.find(".item_stats").parent().find(".clickitem").css("visibility","hidden"):""
     }
 
@@ -885,7 +891,7 @@ class Award {
             let div =elem.find("div").first();
             elem.find("p").first().html(item);
             elem.find("img").first().attr("src",this.getItemIcon());
-            if(this.item.show==false){ div.addClass("hidden")}
+            //if(this.item.show==false){ div.addClass("hidden")}
             div.addClass("rat-tip") 
             div.attr("title-new", this.getItemDescription())
             return elem;
@@ -960,7 +966,7 @@ class Duel {
             new PlayerCard(el, players[1], true, "border-blue-700 border-l-4");
             new PlayerCard(el1, players[0], true, "border-red-700 border-r-4");
         }
-        new DetailView().setItemClick()
+       
     }
 }
 
