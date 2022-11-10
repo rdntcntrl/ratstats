@@ -5,11 +5,8 @@
     <title>ratstats - matchview</title>
     <link rel="icon" type="image/svg+xml" href="images/ratmod-head-icon.svg">
     <link href="./css/output.css" rel="stylesheet">
-    <link href="./contrib/css/the-datepicker.css" rel="stylesheet">
     <link href="./contrib/fonts/overpass-mono.css" rel="stylesheet">
-    <script type="application/javascript" src="./contrib/js/jquery.js"></script>
-    <script type="application/javascript" src="./contrib/js/datepicker.js"></script>
-    <script type="application/javascript" src="./js/ratstat.js"></script>
+
     <script>
         $(document).ready(function () {
             new RatStat().start({file:"index.json"})
@@ -36,15 +33,13 @@
        
         <div id="cbox" class="w-full p-5 max-w-screen-xl md:px-20 md:py-10 ">
             <div class="overflow-hidden min-w-full my-5">
-                <div id="matchheader" class="flex w-full justify-center items-center"></div>
+                <div id="matchheader" class="flex w-full justify-center items-center"><h1 class="text-4xl">Disclaimer</h1></div>
             </div>
-            <div id="matchcontainer" class="min-w-full my-5"></div>
-            <div id="matchcontainer_hidden" class="hidden min-w-full my-5"></div>
-            <div id="playercards-container" class="hidden flex flex-row flex-wrap justify-center w-full"></div>
-        
+            <div id="matchcontainer" class="min-w-full my-5">
+                
+            </div>        
         </div>
     </div>
-    <span id="templates"></span>
 </body>
 
 </html>
