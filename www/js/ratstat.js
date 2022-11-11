@@ -675,7 +675,7 @@ class DetailView {
 
     setItemClick(){
         $(document).find(".clickitem").click(el=>{
-           
+           console.log("hu")
             let elem = $($(el.target).parents("div")[0])
             if(elem.find(" .hidden").length>0){
                 elem.find(" .hidden").removeClass("hidden").addClass("hide")
@@ -727,8 +727,9 @@ class PlayerCard {
             this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
             $(elem).find("p").first().html(StatsHelper.playerName(player))
             this.drawBorder(player.team,elem)
-            this.setExpandableItems(elem)
+            this.setExpandableItems(elem,duel)
             elem.attr("id", "card_" + player.index ).appendTo($(el));
+            $(".table-cell:contains(---)").addClass("text-gray-500").removeClass("text-white")
         }catch(e){
             console.log(e)
             return $("<div>")
@@ -742,6 +743,7 @@ class PlayerCard {
         $($(elem.find(".award_stats").children().slice(0,8))).removeClass("hidden")
        // elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
        elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden")
+       console.log(elem.find(".item_stats").children().length)
         elem.find(".item_stats").children().length<=amount? elem.find(".item_stats").parent().find(".clickitem").css("visibility","hidden"):""
     }
 
@@ -880,7 +882,7 @@ class Weapon {
             let elem =  $($("#playercard_weapon_item").html());
             elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
-            var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):""
+            var acc = (no>1)?(Math.round(weap.hits * 100 / (weap.shots > 0 ? weap.shots : weap.hits)) + "%"):"---"
             div.find("img").attr("src",div.find("img").attr("src")+this.weapon.icon)
             div.addClass("rat-tip")
             div.attr("title-new", this.getWeaponDescription())
