@@ -479,7 +479,10 @@ class MatchList {
                         break
                     case"gt":
                     if(this.filter[filt]=="ALL") break
-                    vali = vali && RatStat.getGameTypeDesc(match.gametype) == RatStat.getGameTypeDesc(this.filter[filt])
+                        // compare via description, because Tournament and Multitournament are both
+                        // called "Duel" and only appear once in the selectbox
+                        vali = vali && RatStat.getGameTypeDesc(match.gametype)
+                            == RatStat.getGameTypeDesc(this.filter[filt])
                         break
                 }
                 if(this.filter[filt]=="ALL" && !vali){
