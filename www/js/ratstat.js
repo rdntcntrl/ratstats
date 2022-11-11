@@ -570,8 +570,6 @@ class DetailView {
                     var weap = new RatStat().getWeaponByName(item)
                     var res = player.items[item]
                     res = (typeof player.items[weap.ammo] !="undefined")?player.items[weap.ammo]+"/"+res:"0/"+res
-                    console.log(item)
-                    console.log(res)
                     if(typeof player.weapons[weap.weapon_id] != "undefined")
                     Object.assign(player.weapons[weap.weapon_id], {pickups: res});
                 }
@@ -599,6 +597,9 @@ class DetailView {
             })
         })
         this.setItemClick()
+        if(this.matchdata.gametype==8){
+            $(".w_pick,.h_pick").hide()
+        }
     }
 
     renderTemplate(){
@@ -675,7 +676,6 @@ class DetailView {
 
     setItemClick(){
         $(document).find(".clickitem").click(el=>{
-           console.log("hu")
             let elem = $($(el.target).parents("div")[0])
             if(elem.find(" .hidden").length>0){
                 elem.find(" .hidden").removeClass("hidden").addClass("hide")
@@ -743,7 +743,6 @@ class PlayerCard {
         $($(elem.find(".award_stats").children().slice(0,8))).removeClass("hidden")
        // elem.find(".award_stats").children().length<=8? elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden"):""
        elem.find(".award_stats").parent().find(".clickitem").css("visibility","hidden")
-       console.log(elem.find(".item_stats").children().length)
         elem.find(".item_stats").children().length<=amount? elem.find(".item_stats").parent().find(".clickitem").css("visibility","hidden"):""
     }
 
