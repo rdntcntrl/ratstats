@@ -334,8 +334,8 @@ class RatStat {
     getWeapon(no){
         return this.weaponcontainer.filter(el=> el.weapon_id == no)[0];
     }
-    getWeaponId(name){
-        return this.weaponcontainer.filter(el=> el.key == name)[0].weapon_id;
+    getWeaponByName(name){
+        return this.weaponcontainer.filter(el=> el.key == name)[0];
     }
 
     getWeapons(){
@@ -563,8 +563,15 @@ class DetailView {
                 player.name = BOT_NAME_PREFIX + player.name;
             }
             Object.keys(player.items).forEach((item, index) => {
-                if(item.startsWith("weap"))
-                console.log(new RatStat().getWeaponId(item))
+                if(item.startsWith("weap")){
+                    var weap = new RatStat().getWeapon(item)
+                    var res = player.items[item]
+                    if(typeof items[weap.ammo] !="undefined"){
+                        res = items[weap.ammo]+"/"+res
+                    }
+                    player.weapons[weap.weapon_id]=res
+                }
+                
             });
         });
     }
@@ -875,10 +882,11 @@ class Weapon {
             div.attr("title-new", this.getWeaponDescription())
             elem.find("div.w_acc").html(acc)
             if(typeof weap.kills !="undefined"){
-                elem.find("div.w_kills").html((weap.kills>0)?weap.kills:"-")
+                elem.find("div.w_kills").html((weap.kills>0)?weap.kills:"---")
+                elem.find("div.w_kills").show()
+                $("div.w_kills").show()
             } else {
-                elem.find("div.w_kills").hide()
-                $("div.w_kills").hide()
+                elem.find("div.w_kills").html("---")
             }
             elem.find("div.w_dmg").html(weap.damage)
             var shots =(no>1)?("/" + weap.shots):""
