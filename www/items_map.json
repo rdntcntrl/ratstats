@@ -256,7 +256,8 @@
 	       "show": false,
 		   "weapon_id":1,
 	       "name": "Gauntlet",
-	       "description": ""
+	       "description": "",
+		   "ammo":null
 	},
 	"weapon_machinegun": {
 	       "icon":	"iconw_machinegun.png",
@@ -351,7 +352,8 @@
 	       "show": false,
 		   "weapon_id":10,
 	       "name": "Grappling Hook",
-	       "description": ""
+	       "description": "",
+		   "ammo":null
 	},
 	"ammo_bullets": {
 	       "icon":	"icona_machinegun.png",

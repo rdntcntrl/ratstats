@@ -479,7 +479,7 @@ class MatchList {
                         break
                     case"gt":
                     if(this.filter[filt]=="ALL") break
-                        vali =  vali && (parseInt(match.gametype)==parseInt(this.filter[filt]))
+                    vali = vali && RatStat.getGameTypeDesc(match.gametype) == RatStat.getGameTypeDesc(this.filter[filt])
                         break
                 }
                 if(this.filter[filt]=="ALL" && !vali){
@@ -563,13 +563,14 @@ class DetailView {
                 player.name = BOT_NAME_PREFIX + player.name;
             }
             Object.keys(player.items).forEach((item, index) => {
-                if(item.startsWith("weap")){
-                    var weap = new RatStat().getWeapon(item)
+                if(item.startsWith("weapon_")){
+                    var weap = new RatStat().getWeaponByName(item)
                     var res = player.items[item]
-                    if(typeof items[weap.ammo] !="undefined"){
-                        res = items[weap.ammo]+"/"+res
-                    }
-                    player.weapons[weap.weapon_id]=res
+                    res = (typeof player.items[weap.ammo] !="undefined")?player.items[weap.ammo]+"/"+res:"0/"+res
+                    console.log(item)
+                    console.log(res)
+                    if(typeof player.weapons[weap.weapon_id] != "undefined")
+                    Object.assign(player.weapons[weap.weapon_id], {pickups: res});
                 }
                 
             });
