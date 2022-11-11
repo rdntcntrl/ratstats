@@ -569,7 +569,7 @@ class DetailView {
                 if(item.startsWith("weapon_")){
                     var weap = new RatStat().getWeaponByName(item)
                     var res = player.items[item]
-                    res = (typeof player.items[weap.ammo] !="undefined")?player.items[weap.ammo]+"/"+res:"0/"+res
+                    res = (typeof player.items[weap.ammo] !="undefined")?res+"/"+player.items[weap.ammo]:res+"/0"
                     if(typeof player.weapons[weap.weapon_id] != "undefined")
                     Object.assign(player.weapons[weap.weapon_id], {pickups: res});
                 }
