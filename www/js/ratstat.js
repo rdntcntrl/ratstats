@@ -167,6 +167,10 @@ class ModalView {
         new DetailView().setItemClick()
         return this
     }
+    hide(){
+        this.modalbg.css("display", "none");
+            this.modal.css("display", "none");
+    }
 
     toggleModal() {
         
@@ -293,6 +297,7 @@ class RatStat {
             new DetailView(this.match)
         } else {
             StatsHelper.scrollToTop()
+            new ModalView().hide()
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
             matchlist.filter=ratobj.filter
@@ -329,6 +334,9 @@ class RatStat {
     getWeapon(no){
         return this.weaponcontainer.filter(el=> el.weapon_id == no)[0];
     }
+    getWeaponId(name){
+        return this.weaponcontainer.filter(el=> el.key == name)[0].weapon_id;
+    }
 
     getWeapons(){
         return this.weaponcontainer;
@@ -356,14 +364,7 @@ class RatStat {
         return number >= 0 ? gt[number].description : "Unknown"   
     }
 
-    initMatchData(){
-        this.match.players.forEach((player, index) => {
-            player.index = index;
-            if (player.isbot) {
-                player.name = BOT_NAME_PREFIX + player.name;
-            }
-        });
-    }
+
 
     loadIndexdata(hash) {
         var _self = this;
@@ -564,6 +565,10 @@ class DetailView {
             if (player.isbot) {
                 player.name = BOT_NAME_PREFIX + player.name;
             }
+            Object.keys(player.items).forEach((item, index) => {
+                if(item.startsWith("weap"))
+                console.log(new RatStat().getWeaponId(item))
+            });
         });
     }
     render(match){
@@ -872,8 +877,8 @@ class Weapon {
             div.addClass("rat-tip")
             div.attr("title-new", this.getWeaponDescription())
             elem.find("div.w_acc").html(acc)
-            if(weap.kills){
-                elem.find("div.w_kills").html(weap.kills)
+            if(typeof weap.kills !="undefined"){
+                elem.find("div.w_kills").html((weap.kills>0)?weap.kills:"-")
             } else {
                 elem.find("div.w_kills").hide()
                 $("div.w_kills").hide()
@@ -883,8 +888,9 @@ class Weapon {
             elem.find("div.w_k_d").html(weap.hits + shots)
             return elem;
         }catch(e){
-
+            
             let elem =  $($("#playercard_weapon_empty").html());
+       
             elem.addClass("wp_" + no)
             let div =  elem.find("div.w_img_div")
             div.find("img").attr("src",div.find("img").attr("src")+this.weapon.icon)
@@ -936,6 +942,9 @@ class Item {
     constructor(amount, name) {
         try{
             this.item = new RatStat().getItem(name)
+           /* if(name.startsWith("ammo") || name.startsWith("weapon")){
+                return
+            }*/
             let elem =  $($("#playercard_item_item").html());    
             let div = elem.find("div").first();
             elem.find("p").html(amount);
