@@ -895,6 +895,7 @@ class Weapon {
             elem.find("div.w_dmg").html(weap.damage)
             var shots =(no>1)?("/" + weap.shots):""
             elem.find("div.w_k_d").html(weap.hits + shots)
+            elem.find("div.w_pick").html(weap.pickups)
             return elem;
         }catch(e){
             
@@ -951,9 +952,9 @@ class Item {
     constructor(amount, name) {
         try{
             this.item = new RatStat().getItem(name)
-           /* if(name.startsWith("ammo") || name.startsWith("weapon")){
+           if(name.startsWith("ammo") || name.startsWith("weapon")){
                 return
-            }*/
+            }
             let elem =  $($("#playercard_item_item").html());    
             let div = elem.find("div").first();
             elem.find("p").html(amount);
