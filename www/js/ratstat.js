@@ -589,13 +589,14 @@ class DetailView {
         this.renderTemplate()
         this.renderMatchInfo(this.matchdata)
         if($("#cbox footer").length==0) $("#cbox").append($($("#footer").html()));
-        $(".plrow").each((index,el2) => {
-            $(el2).click(el1=> {
-                var id = $(el1.target).parents(".plrow")[0].id.split("_")[1]
-                var element = $("#playercards-container").children()[id].outerHTML
+        // reverted to old ugly approach until i figure out a better way 
+        document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
+            el2.onclick = function (el1) {
+                var element = document.getElementById("playercards-container").children[index].outerHTML
                 new ModalView().setContent(element).toggleModal()
-            })
+            }
         })
+       
         this.setItemClick()
         if(this.matchdata.gametype==8){
             $(".w_pick,.h_pick").hide()
