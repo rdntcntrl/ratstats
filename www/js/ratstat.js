@@ -536,9 +536,10 @@ class DetailView {
             var duel = el.getPlayers(0)
             el.setDuelScore(duel)
             new Duel("#left_side_team", "#right_side_team", duel)
-           
+           el.setEqualizeItemCount()
         })
     }
+    
     constructor(match=null) {
         try{   
             if(match){
@@ -558,6 +559,26 @@ class DetailView {
         }
        
     }
+
+
+    setEqualizeItemCount(){
+        var amount = ($("#losingteam .itembox").length - $("#winningteam .itembox").length)/2
+        var elem,dest
+        if(amount>0){
+            dest ="#winningteam"
+        } else {
+            dest ="#losingteam"
+            amount = amount * -1
+
+        }
+        for (var i=0;i<=amount;i++){
+            elem = $($("#playercard_item_item").html())
+            elem.css("visibility","hidden")
+            $(dest+" .item_stats").append(elem)
+        }
+      
+    }
+
     initPlayers(){
         this.matchdata.players.forEach((player, index) => {
             player.index = index;
@@ -576,6 +597,7 @@ class DetailView {
             });
         });
     }
+
     render(match){
         this.matchdata = match
         this.initPlayers()
@@ -597,6 +619,21 @@ class DetailView {
         })
         if(this.matchdata.gametype==8){
             $(".w_pick,.h_pick").hide()
+        }
+        this.equalizeAwardHeight()
+    }
+
+    equalizeAwardHeight(){
+        var elem
+        if($("#card_1 > div:nth-child(5)").height() > $("#card_0 > div:nth-child(5)").height()) {
+            elem = $('<div style="visibility:hidden" class="flex justify-center flex-wrap">'+$("#playercard_award_item").html()+"</div>")
+            console.log(elem)
+            $("#card_0 > div:nth-child(5)").append(elem)
+        } else if($("#card_1 > div:nth-child(5)").height() < $("#card_0 > div:nth-child(5)").height()) {
+            elem = $('<div style="visibility:hidden" class="flex justify-center flex-wrap">'+$("#playercard_award_item").html()+"</div>")
+            
+            $("#card_1 > div:nth-child(5)").append(elem)
+        } else {
         }
     }
 
@@ -713,6 +750,7 @@ class PlayerCard {
             this.renderPlayerCardElement($(elem).find("div.item_stats"), player.items,new RatStat().getItems(),Item);
             $(elem).find("p").first().html(StatsHelper.playerName(player))
             this.drawBorder(player.team,elem)
+            
             elem.attr("id", "card_" + player.index ).appendTo($(el));
             $(".table-cell:contains(---)").addClass("text-gray-500").removeClass("text-white")
         }catch(e){
@@ -720,6 +758,7 @@ class PlayerCard {
             return $("<div>")
         }
     }
+
 
     drawBorder(team,elem){
         if (typeof team != "undefined" && team != 0) {
