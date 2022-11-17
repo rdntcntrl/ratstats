@@ -305,6 +305,7 @@ class RatStat {
             await this.loadMatchdata(hash)
             if(this.match!= null)
             new DetailView(this.match)
+            new ModalView().hide()
         } else {
             StatsHelper.scrollToTop()
      
