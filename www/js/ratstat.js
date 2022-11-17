@@ -110,7 +110,6 @@ class StatsHelper {
     }
 
     static scrollToTop(){
-        $("body").append($('<span class="hidden toTop">back to Top</span>'))
         var el = $('.toTop')
         $(window).scroll(function () {
             ($(this).scrollTop() > 300)?el.fadeIn():el.fadeOut();
@@ -167,18 +166,19 @@ class ModalView {
         return this
     }
     hide(){
-        this.modalbg.css("display", "none");
-            this.modal.css("display", "none");
+        this.modalbg.fadeOut(500)
+            this.modal.fadeOut(500)
     }
 
-    toggleModal() {
-        
+    toggleModal(spinner=false) {
         if (this.modalbg.css("display") == "flex") {
-            this.modalbg.css("display", "none");
+            if(spinner) {this.setContent($("#spinner").html())}
+            else {this.modalbg.css("display", "none");}
             this.modal.css("display", "none");
             $(".mapname").addClass("blur1")
         } else {
-            this.modalbg.css("display", "flex");
+            if(spinner) {this.setContent($("#spinner").html())}
+            else {this.modalbg.css("display", "flex");}
             this.modal.css("display", "flex");
             $(".mapname").removeClass("blur1")
         }
@@ -257,11 +257,15 @@ class FilterView {
         })
         $("#filterstart").click(el=>{
             new RatStat().saveFilter(this.getFilterSettings())
-            new RatStat().start(this.getFilterSettings())    
+            new ModalView().toggleModal(true)  
+            $("#matchlist").fadeOut(200)
+            new RatStat().start(this.getFilterSettings())  
         })
         $("#filterreset").click(el=>{
             new RatStat().saveFilter({filter:{}})
+            new ModalView().toggleModal(true)  
             new RatStat().start()  
+            
         })
     }
 
@@ -304,13 +308,14 @@ class RatStat {
             new DetailView(this.match)
         } else {
             StatsHelper.scrollToTop()
-            new ModalView().hide()
+     
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
             var filter1 = this.loadFilter()
             if(typeof filter1 != "undefined")
             matchlist.filter=filter1.filter
             matchlist.render(_self.matchcontainer);
+            new ModalView().hide()
             var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
             fltview.setFilterButtonClick()
         }
