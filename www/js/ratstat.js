@@ -892,6 +892,7 @@ class EmptyRow {
             elem.find("div").addClass("border-white-700")
 
         }
+        elem.removeClass("cursor-pointer")
         elem.find("div.PLSCORE").html("&nbsp;")
         elem.find("div.PLNAME").html("&nbsp;")
         elem.find("div.PLDUR").html("&nbsp;")
