@@ -314,6 +314,7 @@ class RatStat {
             var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
             fltview.setFilterButtonClick()
         }
+        $('body,html').animate({scrollTop: 0}, 400);
         window.onhashchange = StatsHelper.locationHashChanged;
     }
 
