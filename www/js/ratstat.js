@@ -628,7 +628,7 @@ class DetailView {
         this.renderMatchInfo(this.matchdata)
         if($("#cbox footer").length==0) $("#cbox").append($($("#footer").html()));
         // reverted to old ugly approach until i figure out a better way 
-        document.querySelectorAll("span.cursor-pointer").forEach((el2, index) => {
+        document.querySelectorAll("span.plrow").forEach((el2, index) => {
             el2.onclick = function (el1) {
                 var element = document.getElementById("playercards-container").children[index].outerHTML
                 new ModalView().setContent(element).toggleModal()
@@ -1060,8 +1060,8 @@ class Single {
 }
 
 class Player{
-    constructor(el, player) {
-        new PlayerRow(el, player);
-        new PlayerCard($("#playercards-container"), player);
+    constructor(el, player,idx) {
+        new PlayerRow(el, player,idx);
+        new PlayerCard($("#playercards-container"), player,idx);
     }
 }
