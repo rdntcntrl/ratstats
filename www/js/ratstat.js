@@ -202,6 +202,7 @@ class FilterView {
         FilterView._instance = this;
   
     }
+
     setFilter(){
         var suffix ="select"
         if(this.filter){
@@ -236,6 +237,13 @@ class FilterView {
         }
     }
 
+  
+
+    getFilterSettings(){
+       return  {filter:{gt:$("#gtselect").val(),servers:$("#serversselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}}
+    }
+    
+
     setFilterButtonClick(){
         $(".tableheader").click(el=>{
             $(".filterbox").toggle()
@@ -248,9 +256,11 @@ class FilterView {
             }
         })
         $("#filterstart").click(el=>{
-            new RatStat().start({filter:{gt:$("#gtselect").val(),servers:$("#serversselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}})    
+            new RatStat().saveFilter(this.getFilterSettings())
+            new RatStat().start(this.getFilterSettings())    
         })
         $("#filterreset").click(el=>{
+            new RatStat().saveFilter({filter:{}})
             new RatStat().start()  
         })
     }
@@ -282,8 +292,6 @@ class RatStat {
     }
     
     async start(ratobj={filter:null}) {
-        //$("#matchcontainer").html("")
-      
         var _self = this;
         if(ratobj.file){
             this.indexfile=ratobj.file
@@ -299,9 +307,11 @@ class RatStat {
             new ModalView().hide()
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
-            matchlist.filter=ratobj.filter
+            var filter1 = this.loadFilter()
+            if(typeof filter1 != "undefined")
+            matchlist.filter=filter1.filter
             matchlist.render(_self.matchcontainer);
-            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},ratobj.filter)
+            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
             fltview.setFilterButtonClick()
         }
         window.onhashchange = StatsHelper.locationHashChanged;
@@ -309,6 +319,13 @@ class RatStat {
 
     getFilter(){
         return this.filter;
+    }
+
+    saveFilter(filters){
+        localStorage.setItem("filters",JSON.stringify(filters))
+    }
+    loadFilter(){
+        return JSON.parse(localStorage.getItem("filters"))
     }
 
     getAwards(){
@@ -539,7 +556,7 @@ class DetailView {
            el.setEqualizeItemCount()
         })
     }
-    
+
     constructor(match=null) {
         try{   
             if(match){
