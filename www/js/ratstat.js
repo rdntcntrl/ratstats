@@ -311,8 +311,12 @@ class RatStat {
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
             var filter1 = this.loadFilter()
-            if(typeof filter1 != "undefined")
-            matchlist.filter=filter1.filter
+            console.log(filter1)
+            if(filter1 != null || (typeof filter1 != "undefined")){
+                if(filter1 != null ){
+                    matchlist.filter=filter1.filter
+                }
+            }
             matchlist.render(_self.matchcontainer);
             new ModalView().hide()
             var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
