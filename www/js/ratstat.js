@@ -258,7 +258,6 @@ class FilterView {
         $("#filterstart").click(el=>{
             new RatStat().saveFilter(this.getFilterSettings())
             new ModalView().toggleModal(true)  
-            $("#matchlist").fadeOut(200)
             new RatStat().start(this.getFilterSettings())  
         })
         $("#filterreset").click(el=>{
