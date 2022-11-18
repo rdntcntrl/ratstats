@@ -327,7 +327,7 @@ class RatStat {
     }
 
     setScrollPos(){
-        $(".cursor-pointer, #filterstart, #filterreset").click(el=>{localStorage.setItem("scrollTop",$(document).scrollTop())}) 
+        $("a.cursor-pointer, #filterstart, #filterreset").click(el=>{localStorage.setItem("scrollTop",$(document).scrollTop())}) 
     }
 
     getFilter(){
