@@ -109,13 +109,14 @@ class StatsHelper {
         return Math.floor(seconds) + " seconds ago";
     }
 
-    static scrollToTop(){
+    static scrollToTop(pos=0){
         var el = $('.toTop')
         $(window).scroll(function () {
             ($(this).scrollTop() > 300)?el.fadeIn():el.fadeOut();
         });
         el.click(function () { 
-            $('body,html').animate({scrollTop: 0}, 400);
+            localStorage.setItem("scrollTop",pos)
+            $('body,html').animate({scrollTop: pos}, 400);
         });
     }
 
@@ -308,23 +309,25 @@ class RatStat {
             new ModalView().hide()
         } else {
             StatsHelper.scrollToTop()
-     
             await this.loadIndexdata()
             var matchlist = new MatchList(_self.matchcontainer)
-            var filter1 = this.loadFilter()
-            console.log(filter1)
-            if(filter1 != null || (typeof filter1 != "undefined")){
-                if(filter1 != null ){
-                    matchlist.filter=filter1.filter
-                }
-            }
+            matchlist.filter= this.loadFilter()
             matchlist.render(_self.matchcontainer);
             new ModalView().hide()
             var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
             fltview.setFilterButtonClick()
+            this.setScrollPos()
         }
-        $('body,html').animate({scrollTop: 0}, 400);
+        this.scrollToPos()
         window.onhashchange = StatsHelper.locationHashChanged;
+    }
+
+    scrollToPos(){
+        $('body,html').animate({scrollTop: parseInt(localStorage.getItem("scrollTop")) }, 400);
+    }
+
+    setScrollPos(){
+        $(".cursor-pointer, #filterstart, #filterreset").click(el=>{localStorage.setItem("scrollTop",$(document).scrollTop())}) 
     }
 
     getFilter(){
@@ -335,7 +338,13 @@ class RatStat {
         localStorage.setItem("filters",JSON.stringify(filters))
     }
     loadFilter(){
-        return JSON.parse(localStorage.getItem("filters"))
+        var filter1 = JSON.parse(localStorage.getItem("filters"))
+        if(filter1 != null || (typeof filter1 != "undefined")){
+            if(filter1 != null ){
+                return filter1.filter
+            }
+        }
+        return {}
     }
 
     getAwards(){
