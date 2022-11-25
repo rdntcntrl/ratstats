@@ -218,6 +218,7 @@ class FilterView {
         this.applyFilterBoxState()
         StatsHelper.DatePicker("datepicker")
         this.populateSelectBox("#mapselect",this.items.maps)
+        this.populateSelectBox("#plselect",this.items.players)
         this.populateSelectBox("#serversselect",this.items.servers)
         this.populateSelectBox("#gtselect",this.items.gametypes)
         this.setFilter()
@@ -241,7 +242,7 @@ class FilterView {
   
 
     getFilterSettings(){
-       return  {filter:{gt:$("#gtselect").val(),servers:$("#serversselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val()}}
+       return  {filter:{gt:$("#gtselect").val(),servers:$("#serversselect").val(),map:$("#mapselect").val(),date:$("#datepicker").val(),pl:$("#plselect").val()}}
     }
     
 
@@ -314,7 +315,7 @@ class RatStat {
             matchlist.filter= this.loadFilter()
             matchlist.render(_self.matchcontainer);
             new ModalView().hide()
-            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes},matchlist.filter)
+            var fltview= new FilterView({maps:matchlist.maps,servers:matchlist.servernames,gametypes:matchlist.gametypes,players:matchlist.playercount},matchlist.filter)
             fltview.setFilterButtonClick()
             this.setScrollPos()
         }
@@ -440,6 +441,7 @@ class MatchList {
     maps ={}
     servernames = {}
     gametypes ={}
+    playercount={}
     _instance = null
        
     constructor(data=null) {
@@ -485,6 +487,7 @@ class MatchList {
             this.servernames[svname]=this.matchdata[mtch].servername.split("^7|")[0]
             this.servernames =  StatsHelper.sort(this.servernames)
             this.gametypes[RatStat.getGameTypeDesc(this.matchdata[mtch].gametype)]=this.matchdata[mtch].gametype
+            this.playercount[this.matchdata[mtch].players]=this.matchdata[mtch].players
             this.gametypes = StatsHelper.sort(this.gametypes)
             if(self.matchFilter(this.matchdata[mtch])){
                 this.renderMatchRow(this.matchdata[mtch], idx, mtch)
@@ -512,6 +515,10 @@ class MatchList {
                     if(this.filter[filt]=="") break
                         vali =   vali && match.time.split("T")[0]==this.filter[filt]
                         break
+                        case "pl":
+                            if(this.filter[filt]=="ALL") return true
+                                vali =   vali && match.players>=this.filter[filt]
+                                break
                     case"gt":
                     if(this.filter[filt]=="ALL") break
                         // compare via description, because Tournament and Multitournament are both
@@ -801,7 +808,7 @@ class PlayerCard {
             const tm = (team == 1) ? " border-red-700" :"border-blue-700"
             $(elem).find("p").parent().addClass( tm)
          } else {
-            $(elem).find("p").parent().addClass("border-white-700")
+            $(elem).find("p").parent().addClass("border-gray-700")
  
          }
     }
@@ -862,7 +869,7 @@ class PlayerRow {
            const tm = (player.team == 1) ? "border-red-700" : "border-blue-700"
            elem.find("div").addClass( tm)
         } else {
-            elem.find("div").addClass("border-white-700")
+            elem.find("div").addClass("border-gray-700")
 
         }
         elem.find("div.PLSCORE").html(player.score)
@@ -907,7 +914,7 @@ class EmptyRow {
            const tm = (team == 1) ? "border-red-700" : "border-blue-700"
            elem.find("div").addClass( tm)
         } else {
-            elem.find("div").addClass("border-white-700")
+            elem.find("div").addClass("border-gray-700")
 
         }
         elem.removeClass("cursor-pointer")

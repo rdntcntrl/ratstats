@@ -1,6 +1,6 @@
 <template id="tablerow">
     <span  class="cursor-pointer table-row bg-gray-800 hover:bg-gray-500">
-        <div class="table-cell py-1 px-3.5 text-center border-l-4  PLSCORE"></div>
+        <div class="table-cell py-1 px-3.5 text-center border-l-4 PLSCORE"></div>
         <div class="table-cell px-4 PLNAME"></div>
         <div class="table-cell text-center PLDUR"></div>
         <div class="table-cell text-center PLKD"></div>   
@@ -275,48 +275,52 @@
                 <div class="arrow up"></div>
             </div>
             <div class="table-row bg-gray-900 text-gray-200 min-w-full w-full filterbox  ">
-                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider border-t-4 border-gray-800">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider border-l-4 border-gray-700">
                     <select class="  text-black" id="mapselect">
                         <option value="ALL">
                             ALL
                         </option>
                     </select>
                 </div>
-                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider border-t-4 border-gray-800">
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider">
                     <select class=" text-black"  id="serversselect">
                         <option value="ALL">
                                 ALL
                             </option>
                         </select>
                 </div>   
-                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider border-t-4 border-gray-800">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider">
                     <select class="  text-black" id="gtselect">
                         <option value="ALL">
                             ALL
                         </option>
                     </select>
                 </div>
-                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-m font-medium uppercase tracking-wider border-t-4 border-gray-800">
-                  
-                </div>
-                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider border-t-4 border-gray-800">
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider">
+                    <select class=" text-black"  id="plselect">
+                        <option value="ALL">
+                                ALL
+                            </option>
+                        </select>
+                </div> 
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider ">
                     <input class="w-40 text-black" id="datepicker" type="text"/>
                 </div>
             </div>
-            <div class="table-row bg-gray-900 text-gray-200 min-w-full w-full filterbox justify-center">
-                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider">
+            <div class="table-row bg-gray-900 text-gray-200 min-w-full w-full filterbox justify-center ">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-xs font-medium uppercase tracking-wider  border-l-4 border-b-4 border-gray-700">
                     
                 </div>
-                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider">
+                <div scope="col" class="table-cell px-4 py-2 text-left  text-m font-medium uppercase tracking-wider border-b-4 border-gray-700">
                     
                 </div>   
-                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-40 text-m font-medium uppercase tracking-wider border-b-4 border-gray-700">
                   
                 </div>
-                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-m font-medium uppercase tracking-wider">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-20 text-m font-medium uppercase tracking-wider border-b-4 border-gray-700">
                    
                 </div>
-                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider">
+                <div scope="col" class="table-cell px-4 py-2 text-center w-60 text-m font-medium uppercase tracking-wider border-b-4 border-gray-700">
                     <button class=" text-xs px-4 py-1 bg-gray-500" id="filterstart">Filter</button> <button class=" px-4 text-xs py-1 bg-gray-500" id="filterreset">Reset</button>
                 </div>
             </div>
@@ -332,7 +336,7 @@
 
 <template id="matchrow">
     <a  class="cursor-pointer table-row hover:bg-gray-500">
-        <div class="table-cell align-middle text-center border-l-4  m_map bg-center">
+        <div class="table-cell align-middle text-center border-l-4 border-gray-700 m_map bg-center">
             <span class="w-full bg-gray-900 h-20 align-middle bg-opacity-70 mapname blur1">oa_shine</span>
         </div>
         <div class="table-cell align-middle px-4 m_server_name"></div>
