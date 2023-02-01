@@ -36,6 +36,10 @@ The server listens on 127.0.0.1:8000
 You can replace the stats shown by replacing `www/matches.json` and `www/matches`.
 (These will be deleted by `make clean`)
 
+### Backend
+
+Use the `statsprocess.py` to watch the game stats exports and convert them into the format expected by this webpage. It will also generate the match index JSON.
+
 ## Levelshots
 
 After `make dist`, put the map levelshots in `dist/images/lvlshot` (as jpg).
